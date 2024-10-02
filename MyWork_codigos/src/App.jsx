@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter,Router,Route, Routes } from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
+import CadastroMyWork from './pages/CadastroMyWork'
 function App() {
  
 
@@ -12,6 +13,7 @@ function App() {
     <BrowserRouter>
     <Routes>
 <Route path="/" element={<LandingPage />} />
+<Route path='/Cadastro' element={<CadastroMyWork />} />
       
     </Routes>
     </BrowserRouter>
