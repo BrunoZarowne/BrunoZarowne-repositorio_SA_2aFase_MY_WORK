@@ -25,7 +25,7 @@
     flex-direction: column;
     display: flex;
     justify-content: space-evenly;
-    height: 20vw;
+   
     
    
 }
@@ -36,10 +36,12 @@
 .h1Landing{
     font-family: Black;
     font-size: 60px;
+    margin-left: 20px;
    
 }
 .divTextP{
     margin-right:100px ;
+
    
     
 }
@@ -54,6 +56,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 15px;
+    margin-left: 20px;
 }
 @font-face {
     font-family:"Poppins-Bold" ;
@@ -112,4 +115,8 @@ box-shadow: 0 0 40px #8ccef7;
 transition: 500ms;
 
 
+}
+.linkCadastro{
+text-decoration: 0;
+color: aliceblue;
 }

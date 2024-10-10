@@ -1,6 +1,6 @@
 import React from 'react'
 import './LandingPage.css'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CadastroMyWork from './CadastroMyWork'
 function LandingPage() {
   const navigate = useNavigate("")
@@ -18,7 +18,7 @@ function LandingPage() {
             <p className='pInfoSite'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />  Quam a ab est deleniti quod, quas libero maxime dolorum! <br /> Corrupti <br /> quasi blanditiis quaerat cupiditate nobis dolor enim, nostrum culpa veritatis <br /> reiciendis!</p>
             </div>
             <div className='divButaos'>
-                <button className='butaoUm'>Dowload</button> <button className='butaoDois' onClick={()=>{navigate("/Cadastro")}}>Sing</button>
+                <button className='butaoUm'>Dowload</button> <button className='butaoDois'><Link to={"/cadastro"} className='linkCadastro'>Sing</Link></button>
             </div>
         </div>
     

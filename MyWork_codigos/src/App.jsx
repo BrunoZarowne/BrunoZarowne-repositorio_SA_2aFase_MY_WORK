@@ -1,22 +1,13 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { BrowserRouter,Router,Route, Routes } from 'react-router-dom'
-import LandingPage from './pages/LandingPage'
-import CadastroMyWork from './pages/CadastroMyWork'
+import router from './routes/Rotes'
+
 function App() {
  
-
+const [pagina,setPagina]=useState(router)
   return (
     <>
-    <BrowserRouter>
-    <Routes>
-<Route path="/" element={<LandingPage />} />
-<Route path='/Cadastro' element={<CadastroMyWork />} />
-      
-    </Routes>
-    </BrowserRouter>
+   {pagina}
 
       
     </>
