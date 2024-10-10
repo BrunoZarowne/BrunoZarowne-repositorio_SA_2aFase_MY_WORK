@@ -4,10 +4,10 @@ import router from './routes/Rotes'
 
 function App() {
  
-const [pagina,setPagina]=useState(router)
+
   return (
     <>
-   {pagina}
+  
 
       
     </>

@@ -120,3 +120,9 @@ transition: 500ms;
 text-decoration: 0;
 color: aliceblue;
 }
+.inptRadio{
+    height: 18px;
+    width: 18px;
+    margin: 8px;
+  
+}
