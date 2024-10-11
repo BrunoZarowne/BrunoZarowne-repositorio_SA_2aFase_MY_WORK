@@ -7,11 +7,9 @@ function LandingPage() {
   
   return (
     <div className='containerLanding'>
-      <div></div>
+  <div className='divImagem'></div>
 
-      <div></div>
-
-      <div className='divText'>
+      <div className='divText' >
         <h1 className='h1Landing'>Free your <br></br>
             imagination</h1>
             <div className='divTextP'>

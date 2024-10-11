@@ -1,5 +1,7 @@
 import React from 'react'
 import './Cadastro.css'
+import { useState } from 'react'
+
 function CadastroMyWork() {
   return (
     <div className='ContainerCadastro'>
@@ -10,12 +12,14 @@ function CadastroMyWork() {
           <input type="text" className='inptNome' placeholder='Nome' />
           <input type="email" className='inptEmail' placeholder='Email@' />
           <input type="date" className='inptDataNas' placeholder='Data' /> 
-          <input type="text" className='inptSenhas' placeholder='Senha' />
+          <input type="password" className='inptPassword' placeholder='Senha' />
           <div className='divCustomRadio'>
             <input type="checkbox"id='inptradio' className='inptRadio' /><label htmlFor="inptradio" className='lblTermos'>Aceitar todos os termos e politicas</label>
            </div>
+
 <button className='butaoCadastro'>Cadastro</button>
         </div>
+      
 
 
       </div>
