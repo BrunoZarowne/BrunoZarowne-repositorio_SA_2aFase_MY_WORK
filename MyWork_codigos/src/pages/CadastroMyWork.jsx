@@ -1,13 +1,16 @@
 import React from 'react'
 import './Cadastro.css'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function CadastroMyWork() {
   return (
     <div className='ContainerCadastro'>
       <div className='divCadastro'>
+        <div className='dvConteudo'>
         <h1 className='h1Cadastro'>Cadastro</h1>
         <p className='propostaSite'>seja bem vindo ao nosso mundo literario onde cada pagina e <br/> uma nova aventura esperando para ser  descoberta</p>
+        
         <div className='diviInputs'>
           <input type="text" className='inptNome' placeholder='Nome' />
           <input type="email" className='inptEmail' placeholder='Email@' />
@@ -18,6 +21,9 @@ function CadastroMyWork() {
            </div>
 
 <button className='butaoCadastro'>Cadastro</button>
+<p className='possuiUmaConta'>ja Possui uma conta? se sim clique  <Link className='linkLogin' to={"/Login"}>Aqui</Link></p>
+    
+        </div>
         </div>
       
 

@@ -78,3 +78,25 @@ border: none;
     outline: none;
 
 }
+*{
+    margin: 0;
+    padding: 0;
+}
+.possuiUmaConta{
+    margin-bottom: 15px;
+}
+.linkLogin{
+    color: #8DCFF7;
+}
+.linkLogin:active{
+    color: green;
+    transition: 400ms;
+}
+.inptRadio{
+height: 20px;
+width: 20px;
+margin-right: 10px;
+}
+.divCustomRadio{
+    align-items: center;
+}

@@ -1,62 +1,4 @@
-.imgLanding{
-    min-height:60vw;
-    min-width:85vw ;
-}
 
-.containerLanding{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: #8ccef7;
-}
-
-*{
-    padding: 0;
-    margin: 0;
-}
-.divText{
-    color: white;
-    margin-bottom:400px ;
-    margin-top: 6%;
-    display: flex;
-    flex-direction: column;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: yellow;
-   
-    
-   
-}
-@font-face {
-    font-family:"Black" ;
-    src: url(../fonts/Archivo_Black/ArchivoBlack-Regular.ttf);
-}
-.h1Landing{
-    font-family: Black;
-    font-size: 60px;
-    margin-left: 20px;
-   
-}
-.divTextP{
-    margin-right:100px ;
-
-   
-    
-}
-.divTextP{
-    margin-top: 80px;
-}
-.pInfoSite{
-    font-size: 18px;
-    font-family: Poppins-Bold;
-   padding-right: 20px;
-   padding-left:10px ;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 15px;
-    margin-left: 20px;
-}
 @font-face {
     font-family:"Poppins-Bold" ;
     src: url(../fonts/Poppins/Poppins-Bold.ttf);
@@ -65,72 +7,104 @@
     font-family:"Poppins-ExtraBold" ;
     src: url(../fonts/Poppins/Poppins-ExtraBold.ttf);
 }
-.divButaos{
-    align-items: center;
+
+
+
+
+
+
+.divImagem{
+    background-image: url('../images/backGroud-cadastro.svg');
+    min-width: 100vh;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+.containerLanding{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 250px;
-    margin-right: 300px;
-
 }
-.butaoUm,.butaoDois{
-    height: 70px;
-    width: 200px;
-    margin: 30px;
-    
+.divText{
    
+    background-image: url('../images/2parte_landing.svg');
+    min-width: 50.5vw;
+    min-height: 48.9vh;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    margin: 0;
+    background-color: #000017;
 }
-.butaoDois{
-    background-color: rgba(250, 235, 215, 0);
-    border-radius: 50px;
-    border: solid white 1px;
-    font-family: Poppins-ExtraBold;
-    font-size: 24px;
-    color: white;
-    margin-left: 80px;
-}
-.butaoDois:hover{
-    box-shadow: 0px 0 11px white;
-    transition: 500ms ;
+*{
+    margin: 0;
+    padding: 0;
+    ;
+   
 
+}
+.h1Landing{
+    margin-left: 19%;
+    font-family:Poppins-ExtraBold ;
+    margin-top: 20%;
+    font-size: 60px;
+    color: azure;
+}
+.divTextP{
+    margin-top: 5%;
+    margin-left: 20%;
+    color: azure;
+}
+.pInfoSite{
+    font-family:Poppins-Bold;
+    font-size: 20px;
+}
+.divButaos{
+    margin-left: 20%;
+    margin-top: 10%;
 
 }
 .butaoUm{
-    background-color: white;
-    border-radius: 50px;
-    box-shadow: 0 0 7px white;
-    border: 0;
-    font-family:Poppins-ExtraBold;
-    font-size: 24px;
+    background-color: azure;
+    padding: 15px;
+    font-size: 33px;
+    border-radius: 25px;
+    outline: 0;
+    box-shadow: 0 0 18px  #7DA2BD;
+    margin: 30px;
+    border: none;
+    font-family:Poppins-ExtraBold ;
+    margin-left: 30px;
+    width: 200px;
+    height: 70px;
 }
 .butaoUm:hover{
-    box-shadow: 0px 0 100px #8ccef7;
-    transition: 900ms ;
-
-    }
-.pInfoSite:hover{
-box-shadow: 0 0 40px #8ccef7;
-transition: 500ms;
-
-
+    box-shadow: 0 0 100px #7DA2BD;
+    transition: 550ms;
+}
+.butaoDois{
+    background-color: #00001700;
+    margin: 30px;
+    border: 2px solid white;
+    border-radius: 20px;
+    font-family:Poppins-ExtraBold ;
+    font-size: 30px;
+    border-radius: 25px;
+    padding: 15px;
+    height: 70px;
+    width: 200px;
 }
 .linkCadastro{
-text-decoration: 0;
-color: aliceblue;
+    text-decoration: none;
+    color: azure;
+   
 }
-.inptRadio{
-    height: 18px;
-    width: 18px;
-    margin: 8px;
+.butaoDois:hover{
+    box-shadow: 0 0 10px #8DCFF7;
+    transition: 300ms;
   
 }
-.divImagem{
-    background-image: url("../images/backGroud-cadastro.jpg");
-    min-width: 65vw;
-    height:75vw ;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    
+.divCustomRadio{
+    display: flex;
 }
