@@ -9,7 +9,7 @@ function Login() {
     <div className='divImagemFundo'>
      <div className='divContainerInfo'>
       
-        <p className='login_h1'>LOGIN</p>
+        <p className='login_h1'>Login</p>
 
         
       <p className='pText'>"Bem-vindo ao nosso espaço literário! Faça login e mergulhe em um mundo repleto de histórias fascinantes,<br/> descobertas e conhecimento compartilhado. Junte-se a nós na celebração<br/> da literatura!.</p>
