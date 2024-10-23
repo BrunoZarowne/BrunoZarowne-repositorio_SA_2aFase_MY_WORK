@@ -22,7 +22,9 @@ function Login() {
             <input type="password" className='senha_User'  placeholder='  insira sua senha'/>
         
        <div className='container_button'>
+        <Link to={"/Home"}>
         <button className='button_logar'>logar</button>
+        </Link>
         </div>
         
         <p className='naoPossuiUmaConta'>nao possui uma conta? clique <Link to={"/cadastro"} className='link_login'>Aqui</Link> </p>

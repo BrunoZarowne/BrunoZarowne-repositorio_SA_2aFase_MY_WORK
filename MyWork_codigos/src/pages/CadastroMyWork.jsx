@@ -19,8 +19,9 @@ function CadastroMyWork() {
           <div className='divCustomRadio'>
             <input type="checkbox"id='inptradio' className='inptRadio' /><label htmlFor="inptradio" className='lblTermos'>Aceitar todos os termos e politicas</label>
            </div>
-
+           <Link to={"/Home"}> 
 <button className='butaoCadastro'>Cadastro</button>
+           </Link>
 <p className='possuiUmaConta'>ja Possui uma conta? se sim clique  <Link className='linkLogin' to={"/Login"}>Aqui</Link></p>
     
         </div>
