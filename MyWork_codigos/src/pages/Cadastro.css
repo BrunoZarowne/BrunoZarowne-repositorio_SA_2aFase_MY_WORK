@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  
 
 }
 .divCadastro{
@@ -64,7 +65,7 @@ border: none;
   
 }
 .inptNome,.inptEmail,.inptDataNas,.inptPassword::placeholder{
-    padding: 5px;
+    padding: 10px;
 }
 
 .divCadastro::backdrop{
@@ -99,4 +100,8 @@ margin-right: 10px;
 }
 .divCustomRadio{
     align-items: center;
+}
+body{
+    overflow: hidden;
+    
 }
