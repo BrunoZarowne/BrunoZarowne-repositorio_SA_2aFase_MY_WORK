@@ -1,5 +1,89 @@
-.imgFotoUsuario{
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
+
+
+.back_groud_user_profile_div{
+
+width: 100%;
+height: 50vh;
+background-image:url('../images/image_back_groud_usuario.svg') ;
+background-repeat: no-repeat;
+background-size: cover;
+align-items: center;
+justify-content: center;
+display: flex;
+
 }
+
+
+.div_container_informações_usuarios{
+
+    background-color: #00002D;  
+width: 100%;
+height: 50vh;
+
+}*{padding: 0;
+margin: 0;
+}
+.container_button{
+
+justify-content: space-between;
+display: flex;
+background-color: #00002D;
+}.container_pag_usuario{
+    background-color: #00002D;
+
+}.button_doações,.button_favoritos,.button_historico,.button_info_conta{
+
+width:200px;
+height: 40px;
+border-radius: 15px;
+border: none;
+
+}.button_doações{
+    background-image: url(./images/dinhero_icon.svg);
+
+background-size: 37px;
+background-position: 150px;
+background-repeat: no-repeat;
+font-family:'Poppins-Bold';
+padding-right: 21px;
+}
+@font-face {
+    font-family:"Poppins-Bold" ;
+    src: url(../fonts/Poppins/Poppins-Bold.ttf);}
+
+
+    .button_favoritos{
+        background-image: url(./images/like.png);
+        background-size: 30px;
+        background-position: 150px;
+        background-repeat: no-repeat;
+        font-family:'Poppins-Bold';
+        padding-right: 21px;
+
+    }.button_historico{
+
+
+        background-image: url(./images/image_historico.svg);
+        background-size: 30px;
+        background-position: 150px;
+        background-repeat: no-repeat;
+        font-family:'Poppins-Bold';
+        padding-right: 21px;
+
+
+    }.button_info_conta{
+
+
+        background-image: url(./images/icon_user_preto.svg);
+        background-size: 30px;
+        background-position: 167px;
+        background-repeat: no-repeat;
+        font-family:'Poppins-Bold';
+        padding-right: 21px;
+
+
+    }body{
+
+        overflow: hidden;
+    }
+
