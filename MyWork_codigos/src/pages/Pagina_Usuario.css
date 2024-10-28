@@ -10,7 +10,7 @@ background-size: cover;
 align-items: center;
 justify-content: center;
 display: flex;
-
+justify-content: space-between;
 }
 
 
@@ -25,7 +25,7 @@ margin: 0;
 }
 .container_button{
 
-justify-content: space-between;
+justify-content: space-evenly;
 display: flex;
 background-color: #00002D;
 }.container_pag_usuario{
@@ -73,7 +73,7 @@ padding-right: 21px;
 
     }.button_info_conta{
 
-
+       
         background-image: url(./images/icon_user_preto.svg);
         background-size: 30px;
         background-position: 167px;
@@ -85,5 +85,24 @@ padding-right: 21px;
     }body{
 
         overflow: hidden;
+    }.quatro{
+
+
+border: solid coral;
+    }.div_botão{
+margin-bottom: 21%;
+
+    }.botao_voltar{
+
+padding: 0;
+background-image: url(./images/dinhero_icon.svg);
+
+
     }
 
+
+
+
+
+
+    
