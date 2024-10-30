@@ -1,15 +1,20 @@
 import React from 'react'
 import './Header_paginas.css'
 import { Link } from 'react-router-dom'
+import { GlobalContext } from '../context/GlobalContext'
+import { useState,useContext } from 'react'
 
 
 function Header_paginas() {
+
+  const {fotoUsuario,setFotoUsuario}=useContext(GlobalContext)
+
   return (
     <div className='divHeaderPage'>
       <div className='imgsNavBar'>
         <img className='sapo' src="../images/logo_sapo.png" alt="" />
         <Link to={"/Perfil_de_Usuario"}>
-        <img className='user' src="../images/img_usuario.png" alt="" />
+        <img className='user' src={fotoUsuario} alt="" />
         </Link>
         
       </div>
