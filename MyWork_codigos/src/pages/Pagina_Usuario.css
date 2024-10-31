@@ -4,19 +4,22 @@
 
 width: 100%;
 height: 50vh;
-background-image:url('../images/image_back_groud_usuario.svg') ;
+background-image:url('../images/BackUmUser.gif') ;
 background-repeat: no-repeat;
 background-size: cover;
 align-items: center;
 justify-content: center;
 display: flex;
 justify-content: space-between;
+border-bottom: 2px solid black;
+background-position: center;
 }
 
 
 .div_container_informações_usuarios{
 
-    background-color: #00002D;  
+    background: rgba(7, 8, 60, 0);
+/* background: radial-gradient(circle, rgba(7,8,60,1) 0%, rgba(0,3,140,1) 77%, rgba(0,0,45,1) 100%);  */
 width: 100%;
 height: 50vh;
 
@@ -27,9 +30,10 @@ margin: 0;
 
 justify-content: space-evenly;
 display: flex;
-background-color: #00002D;
+background-color: #00002d00;
 }.container_pag_usuario{
-    background-color: #00002D;
+    background: rgb(7,8,60);
+    background: radial-gradient(circle, rgba(7,8,60,1) 0%, rgba(0,3,140,1) 77%, rgba(0,0,45,1) 100%);
 
 }.button_doações,.button_favoritos,.button_historico,.button_info_conta{
 

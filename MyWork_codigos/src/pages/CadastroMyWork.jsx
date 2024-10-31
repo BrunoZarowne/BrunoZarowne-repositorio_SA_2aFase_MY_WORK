@@ -10,6 +10,7 @@ function CadastroMyWork() {
   const [dataNascimento,setDataNascimento]=useState('')
   const [senhaUser,setSenhaUser]=useState('')
   const [cadastroNaoConcluindo,setCadastroNaoConcluido]=useState(false)
+  const[permitirHome,setPermitirHome]=useState()
 
 
 
@@ -37,8 +38,9 @@ function CadastroMyWork() {
       
       PessoasCadastradas.push(infoPessoa)
       console.table(PessoasCadastradas)
-      setCadastroNaoConcluido(false)
-      {<Link to={'/Home'}></Link>}
+      setPermitirHome("/Home")
+      
+      
     }
   }
   return (
@@ -57,9 +59,9 @@ function CadastroMyWork() {
           <div className='divCustomRadio'>
             <input type="checkbox"id='inptradio' className='inptRadio' /><label htmlFor="inptradio" className='lblTermos'>Aceitar todos os termos e politicas</label>
            </div>
-           {/* <Link to={"/Home"}>  */}
+           <Link to={permitirHome}> 
 <button className='butaoCadastro' onClick={cadastra}>Cadastro</button>
-           {/* </Link> */}
+           </Link>
 <p className='possuiUmaConta'>ja Possui uma conta? se sim clique  <Link className='linkLogin' to={"/Login"}>Aqui</Link></p>
     
         </div>
