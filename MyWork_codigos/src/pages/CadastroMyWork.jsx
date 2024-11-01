@@ -1,8 +1,9 @@
 import React from 'react'
 import './Cadastro.css'
-import { useState } from 'react'
+import { useState,useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Componemt_erro_usario from '../components/Componemt_erro_usario'
+import { GlobalContext } from '../context/GlobalContext'
 
 function CadastroMyWork() {
   const [nomeUser,setNomeUser]=useState('')
@@ -12,15 +13,19 @@ function CadastroMyWork() {
   const [cadastroNaoConcluindo,setCadastroNaoConcluido]=useState(false)
   const[permitirHome,setPermitirHome]=useState()
 
+  const {vetorUsuarios,setVetorUsuarios}=useContext(GlobalContext)
+ 
+   
+
 
 
 
   function cadastra(){
-    let PessoasCadastradas=[]
-    let nomePessoa=nomeUser
-    let emailPessoa=emailUser
-    let dataNascimentoPessoa=dataNascimento
-    let senhaUsuario=senhaUser
+   
+    // let nomePessoa=nomeUser
+    // let emailPessoa=emailUser
+    // let dataNascimentoPessoa=dataNascimento
+    // let senhaUsuario=senhaUser
 
     if(nomeUser=='' || emailUser=='' || dataNascimento==''
     || senhaUser==''){
@@ -29,16 +34,28 @@ function CadastroMyWork() {
 
     }else{
 
-      let infoPessoa={
-        nome: nomePessoa,
-        emailPessoa:emailPessoa,
-        nascimento:dataNascimentoPessoa,
-        senhaUsuario:senhaUsuario
-      }
+      let InfoUser = {
+
+        nomePessosa:nomeUser,
+        emailUsuario:emailUser,
+        dataNascimentoUser:dataNascimento,
+        senhaUsuario:senhaUser
+      } 
       
-      PessoasCadastradas.push(infoPessoa)
-      console.table(PessoasCadastradas)
-      setPermitirHome("/Home")
+      // setInfoUsuario(u)
+      // setInfoUsuario({...infoUsuario,senhaUsuario:senhaUser})
+      // setInfoUsuario({...infoUsuario,emailUsuario:emailUser})
+      // setInfoUsuario({...infoUsuario,dataNascimentoUser:dataNascimento})
+
+      
+       
+       setVetorUsuarios([...vetorUsuarios,InfoUser])
+       console.log(vetorUsuarios)
+       
+      
+      
+      
+      // setPermitirHome("/Home")
       
       
     }
@@ -63,9 +80,9 @@ function CadastroMyWork() {
 <button className='butaoCadastro' onClick={cadastra}>Cadastro</button>
            </Link>
 <p className='possuiUmaConta'>ja Possui uma conta? se sim clique  <Link className='linkLogin' to={"/Login"}>Aqui</Link></p>
+        </div>
+        </div>
     
-        </div>
-        </div>
       
 
 

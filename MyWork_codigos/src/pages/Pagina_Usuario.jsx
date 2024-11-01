@@ -1,7 +1,8 @@
 import React, { useState,useContext } from 'react'
 import './Pagina_Usuario.css'
-import { Link } from 'react-router-dom'
+import { Form, Link } from 'react-router-dom'
 import { GlobalContext } from '../context/GlobalContext'
+import PaginaAdmin_Gerenciamento_usuarios from '../components/PaginaAdmin_Gerenciamento_usuarios'
 
 import Informacoes_usuario from '../components/Informacoes_usuario'
 function Pagina_Usuario() {
@@ -70,6 +71,7 @@ const {fotoUsuario,setFotoUsuario} = useContext(GlobalContext)// informações d
 
 </div>
 {pagInfoUsuario && <Informacoes_usuario/> }
+
       </div>
 
       
