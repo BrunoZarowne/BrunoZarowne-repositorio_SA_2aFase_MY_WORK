@@ -9,15 +9,24 @@ function PaginaAdmin_Gerenciamento_usuarios(){
 
   return (
     <div>
-        <h1>estou funcinando</h1>
+        
         <div className='containerCard'>
-            {vetorUsuarios.map((A,index)=>(
+            {vetorUsuarios.map((user,index)=>(
             
                 <div key={index} className='cardUsuarios'>
-                    <p className='pNome'>Nome: {A.nomePessosa}</p>
-                    <p className='pSenha'> Senha: {A.senhaUsuario}</p>
-                    <p className='pDataNascimento'>Data de nascimento: {A.dataNascimentoUser}</p>
-                    <p className='pEmail'>Email: {A.emailUsuario}</p>
+                    <div><button className='botaoApagarUser' onClick={()=>{
+                        setVetorUsuarios(vetorUsuarios.splice())
+
+                         setVetorUsuarios(vetorUsuarios.filter( a =>
+                           user.nomePessosa !== a.nomePessosa
+
+                            ))
+                    }}>X</button></div>
+                    <p className='pNome'>Nome: {user.nomePessosa}</p>
+                    <p className='pSenha'> Senha: {user.senhaUsuario}</p>
+                    <p className='pDataNascimento'>Data de nascimento: {user.dataNascimentoUser}</p>
+                    <p className='pEmail'>Email: {user.emailUsuario}</p>
+                    <p className='pEmail'>ola{user.posicaoVetor}</p>
                     
 
 

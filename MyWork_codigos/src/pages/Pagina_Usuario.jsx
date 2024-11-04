@@ -71,6 +71,7 @@ const {fotoUsuario,setFotoUsuario} = useContext(GlobalContext)// informações d
 
 </div>
 {pagInfoUsuario && <Informacoes_usuario/> }
+<PaginaAdmin_Gerenciamento_usuarios />
 
       </div>
 

@@ -13,7 +13,7 @@ function CadastroMyWork() {
   const [cadastroNaoConcluindo,setCadastroNaoConcluido]=useState(false)
   const[permitirHome,setPermitirHome]=useState()
 
-  const {vetorUsuarios,setVetorUsuarios}=useContext(GlobalContext)
+  const {vetorUsuarios,setVetorUsuarios,InfoUser}=useContext(GlobalContext)
  
    
 
@@ -21,26 +21,72 @@ function CadastroMyWork() {
 
 
   function cadastra(){
+    let pessoaAdm=false
+    let pessoaDev=false
    
-    // let nomePessoa=nomeUser
-    // let emailPessoa=emailUser
-    // let dataNascimentoPessoa=dataNascimento
-    // let senhaUsuario=senhaUser
+    
 
     if(nomeUser=='' || emailUser=='' || dataNascimento==''
     || senhaUser==''){
       setCadastroNaoConcluido(true)
       
 
+    }else if(nomeUser==''){
+
     }else{
+      if(nomeUser=='caioDev123'){//<--Verrificação o usuario é um dev do site
+        pessoaAdm=true
+        pessoaDev=true
 
-      let InfoUser = {
+        let InfoUser = {
+  
+          nomePessosa:nomeUser,
+          emailUsuario:emailUser,
+          dataNascimentoUser:dataNascimento,
+          senhaUsuario:senhaUser,
+          eDev:pessoaDev,
+          eAdm:pessoaAdm
+        } 
+        setCadastroNaoConcluido(false)
+        setVetorUsuarios([...vetorUsuarios,InfoUser])
+        
 
-        nomePessosa:nomeUser,
-        emailUsuario:emailUser,
-        dataNascimentoUser:dataNascimento,
-        senhaUsuario:senhaUser
-      } 
+      }else if(nomeUser=="adm123"){//<-- Verrificação se o Usuario é Administradro
+        pessoaAdm=true
+        
+       
+        let InfoUser = {
+  
+          nomePessosa:nomeUser,
+          emailUsuario:emailUser,
+          dataNascimentoUser:dataNascimento,
+          senhaUsuario:senhaUser,
+          eDev:pessoaDev,
+          eAdm:pessoaAdm,
+          
+        } 
+        let userLogado=Object.assign({},InfoUser)
+        console.log(vetorUsuarios)
+        setCadastroNaoConcluido(false)
+        setVetorUsuarios([...vetorUsuarios,InfoUser])
+        console.log(vetorUsuarios)
+        
+
+      }else{//<-- Cadastro do Usuario
+        let InfoUser = {
+  
+          nomePessosa:nomeUser,
+          emailUsuario:emailUser,
+          dataNascimentoUser:dataNascimento,
+          senhaUsuario:senhaUser,
+          eDev:pessoaDev,
+          eAdm:pessoaAdm
+        } 
+        setCadastroNaoConcluido(false)
+        setVetorUsuarios([...vetorUsuarios,InfoUser])
+        console.log(vetorUsuarios)
+      }
+
       
       // setInfoUsuario(u)
       // setInfoUsuario({...infoUsuario,senhaUsuario:senhaUser})
@@ -49,8 +95,7 @@ function CadastroMyWork() {
 
       
        
-       setVetorUsuarios([...vetorUsuarios,InfoUser])
-       console.log(vetorUsuarios)
+      
        
       
       
