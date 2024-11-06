@@ -6,9 +6,11 @@ import PaginaAdmin_Gerenciamento_usuarios from '../components/PaginaAdmin_Gerenc
 
 import Informacoes_usuario from '../components/Informacoes_usuario'
 function Pagina_Usuario() {
-const [pagInfoUsuario,setPagInfoUsuario] = useState(false)
-const [modalIconUser,setModalIconUser]=useState(false)//modal para trocar a foto do usario
-const {fotoUsuario,setFotoUsuario} = useContext(GlobalContext)// informações do usuario
+  const[botaoAtivo,setBotaoAtivo]=useState(null)
+  const [pagInfoUsuario,setPagInfoUsuario] = useState(false)
+  const [modalIconUser,setModalIconUser]=useState(false)//modal para trocar a foto do usario
+  const {fotoUsuario,setFotoUsuario} = useContext(GlobalContext)// informações do usuario
+  const handleClick=(index)=>{}
 
 
   return (
@@ -62,11 +64,35 @@ const {fotoUsuario,setFotoUsuario} = useContext(GlobalContext)// informações d
 
 
 <div className='container_button'>
-<button className='button_doações'>doações</button>
-<button className='button_favoritos'>favoritos</button>
-<button className='button_historico'>historico</button>
-
-<button className='button_info_conta' onClick={()=>{setPagInfoUsuario(true)}}>infromações da conta</button>
+<button
+                className={`button_doacoes ${botaoAtivo === 1 ? 'ativo' : 'inativo'}`}
+                onClick={() => handleClick(1)}
+            >
+                doações
+            </button>
+            <button
+                className={`button_favoritos ${botaoAtivo === 2 ? 'ativo' : 'inativo'}`}
+                onClick={() => handleClick(2)}
+            >favoritos
+               
+            </button>
+            <button
+                className={`button_historico ${botaoAtivo === 3 ? 'ativo' : 'inativo'}`}
+                onClick={() => handleClick(3)}
+            >
+                historico
+            </button>
+            <button
+                className={`button_info_conta ${botaoAtivo === 4 ? 'ativo' : 'inativo'}`}
+                onClick={() => handleClick(4)}
+            >
+            informações da conta
+            </button>
+            {/* Renderização Condicional de Componentes */}
+            <div className="conteudo-ativo">
+                {botaoAtivo === 1 && <dsd />}
+             
+            </div>
 
 
 </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Cadastro.css'
 import { useState,useContext } from 'react'
 import { Link } from 'react-router-dom'
@@ -92,19 +92,11 @@ function CadastroMyWork() {
       // setInfoUsuario({...infoUsuario,senhaUsuario:senhaUser})
       // setInfoUsuario({...infoUsuario,emailUsuario:emailUser})
       // setInfoUsuario({...infoUsuario,dataNascimentoUser:dataNascimento})
-
-      
-       
-      
-       
-      
-      
-      
-      // setPermitirHome("/Home")
-      
-      
-    }
+  
+      // setPermitirHome("/Home")}
   }
+  
+   }
   return (
     <div className='ContainerCadastro'>
       {cadastroNaoConcluindo && <Componemt_erro_usario />}
