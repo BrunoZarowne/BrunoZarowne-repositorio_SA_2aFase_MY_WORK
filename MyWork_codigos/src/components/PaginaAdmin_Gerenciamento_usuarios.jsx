@@ -15,10 +15,10 @@ function PaginaAdmin_Gerenciamento_usuarios(){
             
                 <div key={index} className='cardUsuarios'>
                     <div><button className='botaoApagarUser' onClick={()=>{
-                        setVetorUsuarios(vetorUsuarios.splice())
+                        
 
                          setVetorUsuarios(vetorUsuarios.filter( a =>
-                           user.nomePessosa !== a.nomePessosa
+                           user.nomePessosa !== a.nomePessosa || user.emailUsuario !== a.emailUsuario
 
                             ))
                     }}>X</button></div>

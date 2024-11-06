@@ -82,6 +82,8 @@ function CadastroMyWork() {
           eDev:pessoaDev,
           eAdm:pessoaAdm
         } 
+      let pessoaBuscada="maria"
+      alert(vetorUsuarios.findIndex(usuario => usuario.nomePessosa === pessoaBuscada))
         setCadastroNaoConcluido(false)
         setVetorUsuarios([...vetorUsuarios,InfoUser])
         console.log(vetorUsuarios)
