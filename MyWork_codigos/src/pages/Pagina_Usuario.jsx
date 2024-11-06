@@ -6,11 +6,16 @@ import PaginaAdmin_Gerenciamento_usuarios from '../components/PaginaAdmin_Gerenc
 
 import Informacoes_usuario from '../components/Informacoes_usuario'
 function Pagina_Usuario() {
-  const[botaoAtivo,setBotaoAtivo]=useState(null)
+  const[botaoAtivo,setBotaoAtivo]=useState(1)
   const [pagInfoUsuario,setPagInfoUsuario] = useState(false)
   const [modalIconUser,setModalIconUser]=useState(false)//modal para trocar a foto do usario
   const {fotoUsuario,setFotoUsuario} = useContext(GlobalContext)// informações do usuario
-  const handleClick=(index)=>{}
+  
+  
+  const handleClick = (index) => {
+    setBotaoAtivo(index); 
+};
+
 
 
   return (

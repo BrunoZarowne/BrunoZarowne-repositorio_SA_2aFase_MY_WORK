@@ -136,9 +136,95 @@ background-image: url(./images/dinhero_icon.svg);
     font-family:"Poppins-ExtraBold" ;
     src: url(../fonts/Poppins/Poppins-ExtraBold.ttf);
 }
-
-
-
+.button_doacoes,.button_favoritos,.button_historico,.button_info_conta{
+    width:250px;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    }.button_doacoes{
+        background-image: url(./images/icon_doacoes.svg);
+    background-size: 30px;
+    background-position: 10px;
+    background-repeat: no-repeat;
+    font-family:'Poppins-Bold';
+    padding-right: 21px;
+    }
+    .button_doacoes.ativo{
+     background-color: white;
+    }.button_doacoes.inativo{
+        background-color: rgba(2, 2, 99, 0);
+            border:  white solid 2px;
+            color: white ;
+            background-size: 30px;
+            background-position: 10px;
+            background-image: url(./images/icon_doacoes_white.svg);
+    }
+        .button_favoritos{
+            background-image: url(./images/icon_obras_fav.svg);
+            background-size: 30px;
+            background-position: 10px;
+            background-repeat: no-repeat;
+            font-family:'Poppins-Bold';
+            padding-right: 1px;
+        }
+        .button_favoritos.ativo{
+            background-color: rgb(255, 255, 255);
+           
+        }.button_favoritos.inativo{
+            background-color: rgba(2, 2, 99, 0);
+            border:  white solid 2px;
+            color: white ;
+            background-size: 30px;
+            background-position: 10px;
+            background-image: url(./images/icon_obras_fav_white.svg);
+        }
+       
+       
+       
+       
+       
+        .button_historico{
+            background-image: url(./images/icon_historico.svg);
+            background-size: 30px;
+            background-position: 10px;
+            background-repeat: no-repeat;
+            font-family:'Poppins-Bold';
+            padding-right: 1px;
+        }.button_historico.ativo{
+          background-color: #ffffff;
+        }.button_historico.inativo{
+            background-color: rgba(2, 2, 99, 0);
+            border:  white solid 2px;
+            color: white ;
+            background-size: 30px;
+            background-position: 10px;
+            background-image: url(./images/icon_historico_white.svg);
+        }
+       
+       
+       
+       
+        .button_info_conta{
+           
+            background-image: url(./images/icon_editar_user.svg);
+            background-size: 30px;
+            background-position: 10px;
+            background-repeat: no-repeat;
+            font-family:'Poppins-Bold';
+           
+        }.button_info_conta.ativo{
+           background-color: rgb(255, 255, 255);
+       
+    }
+        .button_info_conta.inativo{
+            background-color: rgba(2, 2, 99, 0);
+        border:  white solid 2px;
+        color: white ;
+        background-image: url(./images/icon_user_edit_white.svg);
+        background-size: 30px;
+        background-position: 10px;
+        }
+       
 
 
 
