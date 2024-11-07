@@ -1,8 +1,25 @@
 import React from 'react'
 import './login.css'
 import { Link } from 'react-router-dom'
+import { GlobalContext } from '../context/GlobalContext'
+import { useState,useContext } from 'react'
 
 function Login() {
+  const {vetorUsuarios,setVetorUsuarios,InfoUser}=useContext(GlobalContext)
+  const [inptEmail,setInptEmail]=useState('')
+  const [inptSenha,setInptSenha]=useState('')
+  const [IrParaHome,setIrParaHome]=useState('')
+
+  function logar(){
+    const usuarioEncontrado=vetorUsuarios.find(encontarUser => encontarUser.emailUsuario==inptEmail && encontarUser.senhaUsuario==inptSenha)
+    console.log(usuarioEncontrado)
+    if(usuarioEncontrado){
+      setIrParaHome("/Home")
+
+    }
+
+    
+  }
  
  
   return (
@@ -18,12 +35,12 @@ function Login() {
         <div className='divInpt'>
 
 
-            <input type="email" className='Email_User' placeholder='   insira seu email' /> <br />
-            <input type="password" className='senha_User'  placeholder='  insira sua senha'/>
+            <input type="email" className='Email_User' placeholder='   insira seu email' value={inptEmail} onChange={(event)=>{setInptEmail(event.target.value)}} /> <br />
+            <input type="password" className='senha_User'  placeholder='  insira sua senha'  value={inptSenha} onChange={(event)=>{setInptSenha(event.target.value)}}/>
         
        <div className='container_button'>
-        <Link to={"/Home"}>
-        <button className='button_logar'>logar</button>
+        <Link to={IrParaHome}>
+        <button className='button_logar' onClick={logar}>logar</button>
         </Link>
         </div>
         

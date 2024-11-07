@@ -23,7 +23,11 @@ function CadastroMyWork() {
   function cadastra(){
     let pessoaAdm=false
     let pessoaDev=false
-   
+    
+
+    
+    
+    
     
 
     if(nomeUser=='' || emailUser=='' || dataNascimento==''
@@ -31,63 +35,73 @@ function CadastroMyWork() {
       setCadastroNaoConcluido(true)
       
 
-    }else if(nomeUser==''){
-
     }else{
-      if(nomeUser=='caioDev123'){//<--Verrificação o usuario é um dev do site
-        pessoaAdm=true
-        pessoaDev=true
-
-        let InfoUser = {
+     
+        if(nomeUser=='caioDev123'){//<--Verrificação o usuario é um dev do site
+         
+          pessoaAdm=true
+          pessoaDev=true
   
-          nomePessosa:nomeUser,
-          emailUsuario:emailUser,
-          dataNascimentoUser:dataNascimento,
-          senhaUsuario:senhaUser,
-          eDev:pessoaDev,
-          eAdm:pessoaAdm
-        } 
-        setCadastroNaoConcluido(false)
-        setVetorUsuarios([...vetorUsuarios,InfoUser])
-        
+          let InfoUser = {
+            nomePessosa:nomeUser,
+            emailUsuario:emailUser,
+            dataNascimentoUser:dataNascimento,
+            senhaUsuario:senhaUser,
+            eDev:pessoaDev,
+            eAdm:pessoaAdm} 
 
-      }else if(nomeUser=="adm123"){//<-- Verrificação se o Usuario é Administradro
-        pessoaAdm=true
-        
-       
-        let InfoUser = {
-  
-          nomePessosa:nomeUser,
-          emailUsuario:emailUser,
-          dataNascimentoUser:dataNascimento,
-          senhaUsuario:senhaUser,
-          eDev:pessoaDev,
-          eAdm:pessoaAdm,
+          setCadastroNaoConcluido(false)
+          setVetorUsuarios([...vetorUsuarios,InfoUser])
           
-        } 
-        let userLogado=Object.assign({},InfoUser)
-        console.log(vetorUsuarios)
-        setCadastroNaoConcluido(false)
-        setVetorUsuarios([...vetorUsuarios,InfoUser])
-        console.log(vetorUsuarios)
-        
-
-      }else{//<-- Cadastro do Usuario
-        let InfoUser = {
   
-          nomePessosa:nomeUser,
-          emailUsuario:emailUser,
-          dataNascimentoUser:dataNascimento,
-          senhaUsuario:senhaUser,
-          eDev:pessoaDev,
-          eAdm:pessoaAdm
-        } 
-      let pessoaBuscada="maria"
-      alert(vetorUsuarios.findIndex(usuario => usuario.nomePessosa === pessoaBuscada))
-        setCadastroNaoConcluido(false)
-        setVetorUsuarios([...vetorUsuarios,InfoUser])
-        console.log(vetorUsuarios)
-      }
+        }else if(nomeUser=="adm123"){//<-- Verrificação se o Usuario é Administradro
+          pessoaAdm=true
+          
+         
+          let InfoUser = {
+    
+            nomePessosa:nomeUser,
+            emailUsuario:emailUser,
+            dataNascimentoUser:dataNascimento,
+            senhaUsuario:senhaUser,
+            eDev:pessoaDev,
+            eAdm:pessoaAdm,
+            
+          } 
+          
+         
+          setCadastroNaoConcluido(false)
+          setVetorUsuarios([...vetorUsuarios,InfoUser])
+          console.log(vetorUsuarios)
+          
+         
+        }else{//<-- Cadastro do Usuario
+          let nomeUsuario=nomeUser.split('')
+  
+          if(nomeUsuario.length>=5){
+            
+  
+            let InfoUser = {
+      
+              nomePessosa:nomeUser,
+              emailUsuario:emailUser,
+              dataNascimentoUser:dataNascimento,
+              senhaUsuario:senhaUser,
+              eDev:pessoaDev,
+              eAdm:pessoaAdm
+            } 
+          
+         
+            setCadastroNaoConcluido(false)
+            setVetorUsuarios([...vetorUsuarios,InfoUser])
+            console.log(vetorUsuarios)
+          }else{
+            alert("Insira um nome Maior")
+          }
+        }
+      
+        
+      
 
       
       // setInfoUsuario(u)
