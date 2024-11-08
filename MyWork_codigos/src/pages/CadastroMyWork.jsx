@@ -6,19 +6,20 @@ import Componemt_erro_usario from '../components/Componemt_erro_usario'
 import { GlobalContext } from '../context/GlobalContext'
 
 function CadastroMyWork() {
-  const [nomeUser,setNomeUser]=useState('')
-  const [emailUser,setEmailUser]=useState('')
-  const [dataNascimento,setDataNascimento]=useState('')
-  const [senhaUser,setSenhaUser]=useState('')
+  const [nomeUser,setNomeUser]=useState('')//pega o valor do input senha
+  const [emailUser,setEmailUser]=useState('')//pega o valor do input email
+  const [dataNascimento,setDataNascimento]=useState('')//pega o valor do input data nascimento
+  const [senhaUser,setSenhaUser]=useState('')// pega o valor do input senha
+
   const [cadastroNaoConcluindo,setCadastroNaoConcluido]=useState(false)
   const[permitirHome,setPermitirHome]=useState()
-
   const {vetorUsuarios,setVetorUsuarios,InfoUser}=useContext(GlobalContext)
- 
-   
-
-
-
+  const[inptValidado,setInptValidado]=useState(false)
+  const[inptValidadoEmail,setInptValidadoEmail]=useState(false)
+  const[inptValidadoDataNascimento,setInptValidadoDataNascimento]=useState(false)
+  const[inptValidadoSenha,setInptValidadoSenha]=useState(false)
+  
+  
 
   function cadastra(){
     let pessoaAdm=false
@@ -33,6 +34,23 @@ function CadastroMyWork() {
     if(nomeUser=='' || emailUser=='' || dataNascimento==''
     || senhaUser==''){
       setCadastroNaoConcluido(true)
+      if(inptValidado==''){
+        setInptValidado(true)
+      }
+      if(emailUser==''){
+        setInptValidadoEmail(true)
+
+      }
+      if(dataNascimento==''){
+       setInptValidadoDataNascimento(true)
+
+     }
+     if(senhaUser==''){
+      setInptValidadoSenha(true)
+
+     }
+      
+
       
 
     }else{
@@ -122,10 +140,63 @@ function CadastroMyWork() {
         <p className='propostaSite'>seja bem vindo ao nosso mundo literario onde cada pagina e <br/> uma nova aventura esperando para ser  descoberta</p>
         
         <div className='diviInputs'>
-          <input type="text" className='inptNome' placeholder=' Nome' value={nomeUser} onChange={(event)=>{setNomeUser(event.target.value) }} />
-          <input type="email" className='inptEmail' placeholder=' Email@' value={emailUser}  onChange={(event)=>{setEmailUser(event.target.value) }} />
-          <input type="date" className='inptDataNas' placeholder=' Data' value={dataNascimento}  onChange={(event)=>{setDataNascimento(event.target.value) }} /> 
-          <input type="password" className='inptPassword' placeholder=' Senha' value={senhaUser}  onChange={(event)=>{setSenhaUser(event.target.value) }} />
+          {inptValidado && <p className='pNomePequeno'>Insira o nome</p>}
+          <input type="text" className='inptNome' placeholder=' Nome' value={nomeUser} 
+          style={ {borderColor: inptValidado ? '#f40000' : '#000027',borderWidth: '2px',transition:'400ms' }} 
+          onChange={(event)=>{setNomeUser(event.target.value)
+            if(nomeUser==''&& cadastroNaoConcluindo(false)){
+              setInptValidado(true)
+
+            }else{
+              setInptValidado(false)
+              setCadastroNaoConcluido(false)
+            }
+          
+          }} 
+         />{/*<- esse codigo coleta info sobre o usuario,verfica se ja inseriu informações é se não tiver mudar a borda o input */}
+
+          <input type="email" className='inptEmail' placeholder=' Email@' value={emailUser} 
+           style={ {borderColor: inptValidadoEmail ? '#f40000' : '#000027',borderWidth: '2px',transition:'400ms' }} 
+           onChange={(event)=>{setEmailUser(event.target.value) 
+            if(emailUser=='' && cadastroNaoConcluindo(true)){
+              setInptValidadoEmail(true)
+
+            }else{
+              setInptValidadoEmail(false)
+              setCadastroNaoConcluido(false)
+
+            }
+          
+          
+          }} 
+           />{/*<- esse codigo coleta info sobre o usuario,verfica se ja inseriu informações é se não tiver muda a cor da borda do input */}
+
+          <input type="date" className='inptDataNas' placeholder=' Data' value={dataNascimento}  
+          onChange={(event)=>{setDataNascimento(event.target.value) 
+            if(dataNascimento=='' && cadastroNaoConcluindo==true){
+              setInptValidadoDataNascimento(true)
+          }else{
+            setInptValidadoDataNascimento(false)
+            setCadastroNaoConcluido(false)
+
+          }
+         }} // Lembrete usar functions pra ficar mais organizado
+          style={ {borderColor: inptValidadoDataNascimento ? '#f40000' : '#000027',borderWidth: '2px',transition:'400ms' }} 
+          /> {/*<- esse codigo coleta info sobre o usuario,verfica se ja inseriu informações é se não tiver muda a cor da borda do input */}
+          
+          <input type="password" className={'inptPassword'} placeholder=' Senha' value={senhaUser}  //
+          onChange={(event)=>{setSenhaUser(event.target.value) 
+            if(senhaUser =='' && cadastroNaoConcluindo==true){
+              setInptValidadoSenha(true)
+
+            }else{
+              setInptValidadoSenha(false)
+              setCadastroNaoConcluido(false)
+            }
+          }} 
+          style={ {borderColor: inptValidadoSenha ? '#f40000' : '#000027',borderWidth: '2px',transition:'400ms' }}  
+           />{/*<- esse codigo coleta info sobre o usuario,verfica se ja inseriu informações é se não tiver muda cor da borda do input */}
+
           <div className='divCustomRadio'>
             <input type="checkbox"id='inptradio' className='inptRadio' /><label htmlFor="inptradio" className='lblTermos'>Aceitar todos os termos e politicas</label>
            </div>

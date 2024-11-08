@@ -16,6 +16,8 @@ function Login() {
     if(usuarioEncontrado){
       setIrParaHome("/Home")
 
+    }else{
+      alert("ixxxxi")
     }
 
     

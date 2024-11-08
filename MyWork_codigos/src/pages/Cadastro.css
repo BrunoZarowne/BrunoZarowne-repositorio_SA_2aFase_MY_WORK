@@ -27,6 +27,7 @@
 }
 .propostaSite{
     margin: 20px;
+   
 }
 .diviInputs{
     display: flex;
@@ -36,11 +37,11 @@
 }
 .inptNome,.inptEmail,.inptDataNas,.inptPassword{
 width: 285PX;
-height: 40px;
-border-radius: 30px;
+height: 35px;
+border-radius: 15px;
 margin: 15px;
 font-size: 20px;
-border: none;
+border: 1px solid;
 }
 .inptNome,.inptEmail,.inptDataNas,.inptPassword:hover{
     outline: 0;
@@ -101,7 +102,12 @@ margin-right: 10px;
 .divCustomRadio{
     align-items: center;
 }
-body{
-    overflow: hidden;
+
+.pNomePequeno{
+    color: #f40000;
+    margin-right: 34%;
+    margin-bottom: 0;
+    
+    
     
 }
