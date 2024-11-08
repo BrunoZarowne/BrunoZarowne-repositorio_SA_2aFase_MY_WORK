@@ -47,10 +47,104 @@ border: none;
     font-family:Poppins-Regular ;
 font-size: 20px;
 
-}.botao_excluir_conta{
+}.button_excluir_conta{
 margin-top: 10px;
 margin-left: 100px;
-width:150px ;
-height:30px ;
+width:190px ;
+height:40px ;
+background-image:url(./images/icon_excluir_conta.svg) ;
+background-repeat: no-repeat;
+background-size: 35px;
+border: solid 2px red;
+background-color: white;
+color: black;
+border-radius: 7px;
+font-size: 17px;
+font-family:Poppins-Regular ;
+
+}.button_excluir_conta.inativo:hover{
+    margin-top: 10px;
+    margin-left: 100px;
+    width:190px ;
+    height:40px ;
+    background-image:url(./images/icon_excluir_conta_white.svg) ;
+    background-repeat: no-repeat;
+    background-size: 35px;
+    border: solid 2px red;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border-radius: 7px;
+    font-size: 17px;
+    font-family:Poppins-Regular ;
+    transition: 600ms;
+    
+    }.button_excluir_conta.ativo{
+        margin-top: 10px;
+        margin-left: 100px;
+        width:190px ;
+        height:40px ;
+        background-image:url(./images/icon_excluir_conta_white.svg) ;
+        background-repeat: no-repeat;
+        background-size: 35px;
+        border: solid 2px red;
+        background-color: rgb(255, 0, 0);
+        color: white;
+        border-radius: 7px;
+        font-size: 17px;
+        font-family:Poppins-Regular ;
+
+    }.dialog_excluir_conta{
+
+        border: none;
+        border-radius: 10px;
+        width: 30%;
+        height: 15%;
+        position: fixed; /* Garante que ele fique fora do fluxo normal */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centraliza o diálogo */
+        background-color: #00002f;
+        padding: 20px;
+border: solid white 2px;
+   color: white;
+   font-family:Poppins-Regular ;
+}.div_container_certeza_exlui-conta{
+
+
+width: 100%;
+height: 100%;
+    }.container_bottao_exclui_conta{
+display: flex;
+justify-content: flex-end;
+
+    }.botton_fechar_modal_excluir_contas{
+width:100px ;
+height: 30px;
+background-color: red;
+    border: white 1px solid;
+border-radius: 5px;
+color: aliceblue;
+font-family:Poppins-Regular ;
+}.container_bottao_excluir_conta_definitivo{
+display: flex;
+
+
+justify-content: center;
+margin-top: 40px;
+}.bottao_excluir_conta_definitivo{
+width: 150px;
+height: 30px;
+background-color: red;
+border: none;
+font-family:Poppins-Regular ;
+color: white;
+border-radius: 6px;
+background-image:url(./images/icon_lixeira_excluir.svg);
+background-repeat: no-repeat;
+background-size: 30px;
+}.container_titulo{
+
+display: flex;
+justify-content: center;
 
 }
