@@ -1,6 +1,56 @@
+@font-face {
+    font-family:"Poppins-Regular" ;
+    src: url(../fonts/Poppins/Poppins-Regular.ttf);
+}
+
 .container_info_usuarios{
 background-color:white ;
+margin-top: 10px;
+margin-left: 17px;
+width: 47%;
+height: 40vh;
+border-radius: 10px;
+display: flex;
+justify-content:space-evenly;
 
+}.input_nome_user,.input_emai_user,.input_senha_user,.input_data_nascimento_user{
+height: 40px;
+width: 250px;
+border: 2px solid #00002D;
+border-radius: 10px;
+background-color: #00002d54;
+font-size: 20px;
+color: rgb(0, 0, 0);
+padding-left: 5px;
 
+}.div_inputs_user{
+    display: flex;
+    flex-direction: column;  
+margin-top: 20px;
+font-size: 23px;
+font-family:Poppins-Regular ;
+}.container_button_edit_info_user{
+
+align-items: center;
+margin-top: 100px;
+display:flex;
+flex-direction: column;
+}.bottao_edit_user{
+background-image: url(./images/button_edita_info_user.svg);
+background-repeat: no-repeat;
+width: 56px;
+height: 56px;
+border-radius: 10px;
+border: none;
+
+}.titulo_edit_dados{
+    font-family:Poppins-Regular ;
+font-size: 20px;
+
+}.botao_excluir_conta{
+margin-top: 10px;
+margin-left: 100px;
+width:150px ;
+height:30px ;
 
 }

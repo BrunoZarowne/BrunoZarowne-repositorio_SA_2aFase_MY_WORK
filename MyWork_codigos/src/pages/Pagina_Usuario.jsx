@@ -3,8 +3,12 @@ import './Pagina_Usuario.css'
 import { Form, Link } from 'react-router-dom'
 import { GlobalContext } from '../context/GlobalContext'
 import PaginaAdmin_Gerenciamento_usuarios from '../components/PaginaAdmin_Gerenciamento_usuarios'
-
 import Informacoes_usuario from '../components/Informacoes_usuario'
+import Componente_doacoes_obras from '../components/Componente_doacoes_obras'
+import Componente_historico_leitura from '../components/Componente_historico_leitura'
+import Componente_obra_favoritas from '../components/Componente_obra_favoritas'
+
+
 function Pagina_Usuario() {
   const[botaoAtivo,setBotaoAtivo]=useState(1)
   const [pagInfoUsuario,setPagInfoUsuario] = useState(false)
@@ -37,7 +41,7 @@ function Pagina_Usuario() {
 
 
 <div> <img src={fotoUsuario} alt="" /> 
-<img src="../images/Adicionar_icon.svg" alt="" className='imgAdicionarIcons' onClick={()=>{setModalIconUser(true)}} /></div>
+<img src="../images/icon_troca_foto_user.svg" alt="" className='imgAdicionarIcons' onClick={()=>{setModalIconUser(true)}} /></div>
  <div className='div_vazia'></div>
 
 <dialog open={modalIconUser} className='modalFotosUser'>
@@ -93,14 +97,20 @@ function Pagina_Usuario() {
             >
             informações da conta
             </button>
-            {/* Renderização Condicional de Componentes */}
-            <div className="conteudo-ativo">
-                {botaoAtivo === 1 && <dsd />}
-             
-            </div>
+           
 
 
 </div>
+
+ {/* Renderização Condicional de Componentes */}
+ <div className="conteudo-ativo">
+                {botaoAtivo === 1 && <Componente_doacoes_obras/>}
+                {botaoAtivo === 2 && <Componente_obra_favoritas/>}
+                {botaoAtivo === 3 && <Componente_historico_leitura/>}
+                {botaoAtivo === 4 && <Informacoes_usuario/>}
+            </div>
+
+
 {pagInfoUsuario && <Informacoes_usuario/> }
 <PaginaAdmin_Gerenciamento_usuarios />
 
