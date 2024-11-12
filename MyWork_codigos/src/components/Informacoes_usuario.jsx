@@ -39,14 +39,16 @@ function Informacoes_usuario() {
 <dialog open={modalAtivo} className='dialog_excluir_conta'>
 
 <div className='div_container_certeza_exlui-conta'>
-<div className='container_bottao_exclui_conta'>
-<button    onClick={() => handleClick(2)} className='botton_fechar_modal_excluir_contas'>fechar</button>
-</div>
+
+
+
 <div className='container_titulo'>
 <h2>tem certeza que voce quer excluir sua conta?</h2>
 </div>
 <div className='container_bottao_excluir_conta_definitivo'>
-<button className='bottao_excluir_conta_definitivo'>excluir conta</button>
+<button className='bottao_excluir_conta_definitivo'>sim,excluir conta</button> <button    onClick={() => handleClick(2)} className='botton_cancela_excluzao'>não,manter conta</button>
+
+
 </div>
 </div>
 
