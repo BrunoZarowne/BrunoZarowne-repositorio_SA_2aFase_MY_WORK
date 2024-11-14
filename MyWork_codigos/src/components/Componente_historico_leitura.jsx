@@ -1,9 +1,18 @@
 import React from 'react'
-
+import './Componente_historico_leitura.css'
 function Componente_historico_leitura() {
   return (
-    <div>
-      <h1>😎😋😋🥰🤩🤗☺😚😙😙</h1>
+    <div className='container_historico_de_leitura'>
+      
+      
+      
+
+
+
+
+
+      
+     
     </div>
   )
 }

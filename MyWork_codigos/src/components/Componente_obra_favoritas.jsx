@@ -1,9 +1,9 @@
 import React from 'react'
-
+import "./Componente_obra_favoritas.css"
 function Componente_obra_favoritas() {
   return (
-    <div>
-      <h1>455555555555555555555555555555</h1>
+    <div className='container_obras_favoritas'>
+      
 
     </div>
   )
