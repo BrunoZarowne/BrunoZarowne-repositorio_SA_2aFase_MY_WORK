@@ -10,7 +10,7 @@ import Componente_obra_favoritas from '../components/Componente_obra_favoritas'
 
 
 function Pagina_Usuario() {
-  const[botaoAtivo,setBotaoAtivo]=useState(1)
+  const[botaoAtivo,setBotaoAtivo]=useState(4)
   const [pagInfoUsuario,setPagInfoUsuario] = useState(false)
   const [modalIconUser,setModalIconUser]=useState(false)//modal para trocar a foto do usario
   const {fotoUsuario,setFotoUsuario} = useContext(GlobalContext)// informações do usuario
@@ -56,7 +56,7 @@ function Pagina_Usuario() {
 
   <img src="../images/icons/Monstro_roxo.svg" alt=""  className='iconUser'  onClick={()=>{setFotoUsuario("../images/icons/Monstro_roxo.svg"),setModalIconUser(false) }}/>
 
-  <img src="../images/icons/Monstro_vermelho1.svg" alt="" className='iconUser'  onClick={()=>{setFotoUsuario("../images/icons/Monstro_vermelho1.svg"),setModalIconUser(false) }} />
+  <img src="../images/icons/Monstro_Vermelho1.svg" alt="" className='iconUser'  onClick={()=>{setFotoUsuario("../images/icons/Monstro_Vermelho1.svg"),setModalIconUser(false) }} />
 
   <img src="../images/icons/Monstro_vermelho2.svg" alt="" className='iconUser'  onClick={()=>{setFotoUsuario("../images/icons/Monstro_vermelho2.svg"),setModalIconUser(false) }} />
 

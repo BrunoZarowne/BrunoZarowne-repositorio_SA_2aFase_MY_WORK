@@ -12,7 +12,7 @@
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%); /* Centraliza o diálogo */
-  background-color: rgba(255, 255, 255, 0.904);
+  background-color: rgb(255, 255, 255);
   padding: 20px;
   align-items: center;
   justify-content: center;

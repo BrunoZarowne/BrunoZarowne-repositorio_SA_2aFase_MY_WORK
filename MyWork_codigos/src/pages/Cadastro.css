@@ -39,7 +39,7 @@
 width: 285PX;
 height: 35px;
 border-radius: 15px;
-margin: 15px;
+margin-bottom: 15px;
 font-size: 20px;
 border: 1px solid;
 }
@@ -111,3 +111,32 @@ margin-right: 10px;
     
     
 }
+.divNomeUser,.divUserSenha,.DivEmail,.dataNascimento{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.LblNomeUser,.lblUserEnail.lblSenhaUser,.lblDataUserUser{
+    margin-left: 10px;
+   
+}
+.DialogNomePequenoUser{
+    border: none;
+    border-radius: 10px;
+    width: fit-content;
+    box-shadow: 0 0 1em #ff0000;
+    position: fixed; /* Garante que ele fique fora do fluxo normal */
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o diálogo */
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border: 1px solid red;
+}
+.erroNomeMuitoPequeno{
+   font-family:Poppins-bold ;
+}
+

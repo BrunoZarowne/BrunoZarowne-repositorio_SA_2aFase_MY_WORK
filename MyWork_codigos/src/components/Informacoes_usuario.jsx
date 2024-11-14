@@ -1,10 +1,19 @@
 import React from 'react'
 import { useState } from 'react'
-import "./Informacoes_usuario.css"
+import "./Informacoes_usuario.css" 
+import { GlobalContext } from '../context/GlobalContext'
+import { useContext } from 'react'
 
 function Informacoes_usuario() {
+  const limparNome=()=>{
+    setUserLogado({...UserLogado,nomePessosa:''})
+  }
   const[botaoAtivo,setBotaoAtivo]=useState(null)
   const[modalAtivo,setModalAtivo] = useState(false)
+  const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado}=useContext(GlobalContext)
+
+ 
+  console.log(vetorUsuarios)
   
   const handleClick = (index) => {
     setBotaoAtivo(index); 
@@ -22,14 +31,15 @@ function Informacoes_usuario() {
   return (
     <div className='container_info_usuarios'>
       <div className='div_inputs_user'>
-<label htmlFor="">nome</label><input type="text"  className='input_nome_user'/>
+<label htmlFor="" >nome</label><input type="text"  className='input_nome_user' value={UserLogado.nomePessosa} onChange={(event)=>{setUserLogado({...userLogado,nomePessosa:event.target.value})}}
+/>
 <label htmlFor="">email</label><input type="text" className='input_emai_user'/>
 <label htmlFor="">senha</label><input type="text" className='input_senha_user'/>
 <label htmlFor="">data nascimento</label><input type="text" className='input_data_nascimento_user'/>
 </div>
 
 <div className='container_button_edit_info_user'>
-  <p className='titulo_edit_dados'>editar seus dados</p><br /><button className='bottao_edit_user'></button></div>
+  <p className='titulo_edit_dados'>editar seus dados</p><br /><button className='bottao_edit_user' onClick={limparNome}></button></div>
 
 
   

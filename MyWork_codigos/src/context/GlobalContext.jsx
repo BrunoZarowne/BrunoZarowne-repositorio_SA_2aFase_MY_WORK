@@ -6,16 +6,16 @@ export const GlobalContextProvider =({children})=>{
 let usuariologado="gill battes"
 const [fotoUsuario,setFotoUsuario]=useState('../images/imagem_padrao_usuario.svg')
 const [vetorUsuarios,setVetorUsuarios]=useState([])//Vetor para o gerencianto de pessoa no site
- let InfoUser = {
+ const [UserLogado,setUserLogado] =useState( {
   
-        nomePessosa:'',
+        nomePessosa:'Do guete',
         emailUsuario:'',
         dataNascimentoUser:'',
         senhaUsuario:'',
         eDev:'',
-        eAdm:'',
+        eAdm:''
         
-      } 
+      } )
 
 
 
@@ -28,7 +28,8 @@ const [vetorUsuarios,setVetorUsuarios]=useState([])//Vetor para o gerencianto de
     fotoUsuario,
     vetorUsuarios,
     setVetorUsuarios,
-    InfoUser
+    UserLogado,
+    setUserLogado
 
     }}>
 

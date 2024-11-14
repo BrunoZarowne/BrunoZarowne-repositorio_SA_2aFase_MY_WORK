@@ -5,7 +5,7 @@ function Componemt_erro_usario() {
   return (
     <div>
         <dialog open={modalOpen} className='modalErroUsuario'>
-        <p className='ErroDoUsuario'>Insira todas informaçoes corretamnete</p>
+        <p className='ErroDoUsuario'>Insira todas Informações corretamente</p>
         <button onClick={(event)=>{setModalOpen(false)}}></button>
         </dialog>
         

@@ -5,7 +5,7 @@ import { GlobalContext } from '../context/GlobalContext'
 import { useState,useContext } from 'react'
 
 function Login() {
-  const {vetorUsuarios,setVetorUsuarios,InfoUser}=useContext(GlobalContext)
+  const {vetorUsuarios,setVetorUsuarios,UserLogado}=useContext(GlobalContext)
   const [inptEmail,setInptEmail]=useState('')
   const [inptSenha,setInptSenha]=useState('')
   const [IrParaHome,setIrParaHome]=useState('')
