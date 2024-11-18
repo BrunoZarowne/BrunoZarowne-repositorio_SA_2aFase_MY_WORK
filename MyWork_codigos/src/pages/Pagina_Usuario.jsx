@@ -46,6 +46,10 @@ function Pagina_Usuario() {
 
 <dialog open={modalIconUser} className='modalFotosUser'>
 <p className='pTrocarFoto'>escolha uma das fotos abaixo</p>
+<div className='divImagensEscolhaUser'>
+
+
+
   <img src="../images/icons/Coruja.svg" alt="" className='iconUser' onClick={()=>{setFotoUsuario("../images/icons/Coruja.svg"),setModalIconUser(false) }} />
 
   <img src="../images/icons/Monstro_amarelo.svg" alt="" className='iconUser'  onClick={()=>{setFotoUsuario("../images/icons/Monstro_amarelo.svg"),setModalIconUser(false) }}  />
@@ -64,6 +68,7 @@ function Pagina_Usuario() {
 
   <img src="../images/icons/MonstroVerde.svg" alt="" className='iconUser'  onClick={()=>{setFotoUsuario("../images/icons/MonstroVerde.svg"),setModalIconUser(false) }}/>
   
+</div>
   
   </dialog>
  

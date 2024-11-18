@@ -13,7 +13,7 @@ function CadastroMyWork() {
 
   const [cadastroNaoConcluindo,setCadastroNaoConcluido]=useState(false)
   const[permitirHome,setPermitirHome]=useState()
-  const {vetorUsuarios,setVetorUsuarios,UserLogado}=useContext(GlobalContext)// pega informaçoes do global context
+  const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado}=useContext(GlobalContext)// pega informaçoes do global context
   const[inptValidadoNome,setInptValidadoNome]=useState(false)
   const[inptValidadoEmail,setInptValidadoEmail]=useState(false)
   const[inptValidadoDataNascimento,setInptValidadoDataNascimento]=useState(false)
@@ -74,9 +74,12 @@ function CadastroMyWork() {
             eAdm:pessoaAdm} 
 
           setCadastroNaoConcluido(false)
+          setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,
+            dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,pessoaDev:true,pessoaAdm:true})
+
           setVetorUsuarios([...vetorUsuarios,InfoUser])
           setPermitirHome("/Home")
-          UserLogado.nomePessosa=InfoUser.nomePessosa
+          
           
   
         }else if(nomeUser=="adm123"){//<-- Verrificação se o Usuario é Administrador
@@ -95,7 +98,8 @@ function CadastroMyWork() {
           } 
           
          
-        
+          setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,
+            dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,pessoaAdm:true})
           setCadastroNaoConcluido(false)
           setVetorUsuarios([...vetorUsuarios,InfoUser])
           console.log(vetorUsuarios)
@@ -122,10 +126,12 @@ function CadastroMyWork() {
           
             setVetorUsuarios([...vetorUsuarios,InfoUser])
             console.log(vetorUsuarios)
+            setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser})
             setPermitirHome("/Home")
           }else{
             alert("Insira um nome Maior")
             setNomePequeno(true)
+            setTimeout(()=> setNomePequeno(false),3000)
           }
         }
       

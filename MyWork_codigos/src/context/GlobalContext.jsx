@@ -8,12 +8,12 @@ const [fotoUsuario,setFotoUsuario]=useState('../images/imagem_padrao_usuario.svg
 const [vetorUsuarios,setVetorUsuarios]=useState([])//Vetor para o gerencianto de pessoa no site
  const [UserLogado,setUserLogado] =useState( {
   
-        nomePessosa:'Do guete',
+        nomePessosa:'',
         emailUsuario:'',
         dataNascimentoUser:'',
         senhaUsuario:'',
-        eDev:'',
-        eAdm:''
+        eDev:false,
+        eAdm:false
         
       } )
 

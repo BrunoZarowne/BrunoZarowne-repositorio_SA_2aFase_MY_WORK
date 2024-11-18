@@ -6,8 +6,9 @@ import { useState,useContext } from 'react'
 
 
 function Header_paginas() {
+  
 
-  const {fotoUsuario,setFotoUsuario}=useContext(GlobalContext)
+  const {fotoUsuario,setFotoUsuario,Use}=useContext(GlobalContext)
 
   return (
     <div className='divHeaderPage'>
@@ -16,6 +17,7 @@ function Header_paginas() {
         <Link to={"/Perfil_de_Usuario"}>
         <img className='user' src={fotoUsuario} alt="" />
         </Link>
+     
         
       </div>
       <div className='buttonsNav'>
