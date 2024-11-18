@@ -7,8 +7,9 @@ import { useState,useContext,useEffect } from 'react'
 
 function Header_paginas() {
   
-  const {fotoUsuario,setFotoUsuario,Use}=useContext(GlobalContext)
+  const {fotoUsuario,setFotoUsuario}=useContext(GlobalContext)
   const {paginaAtiva,setPaginaAtiva}= useContext(GlobalContext)
+  const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado}=useContext(GlobalContext)
   
   
   
@@ -31,9 +32,14 @@ function Header_paginas() {
     <div className='divHeaderPage'>
       <div className='imgsNavBar'>
         <img className='sapo' src="../images/logo_sapo.png" alt="" />
+      <div className='divNomeUserIcon'>
+        <p className='PnomeUsuario'>{UserLogado.nomePessosa}</p>
         <Link to={"/Perfil_de_Usuario"}>
         <img className='user' src={fotoUsuario} alt="" />
         </Link>
+     
+      </div>
+        
      
         
       </div>

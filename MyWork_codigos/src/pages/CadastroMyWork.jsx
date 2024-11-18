@@ -129,7 +129,6 @@ function CadastroMyWork() {
             setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser})
             setPermitirHome("/Home")
           }else{
-            alert("Insira um nome Maior")
             setNomePequeno(true)
             setTimeout(()=> setNomePequeno(false),3000)
           }
@@ -152,7 +151,7 @@ function CadastroMyWork() {
     <div className='ContainerCadastro'>
       {cadastroNaoConcluindo && <Componemt_erro_usario />}
       {nomePequeno && <dialog open={true} className='DialogNomePequenoUser'>
-        <p className='erroNomeMuitoPequeno'>Ta muito ruin seu pratina</p>
+        <p className='erroNomeMuitoPequeno'>Insira um Nome com mais de 5 Caracteres</p>
         
         </dialog>}
       <div className='divCadastro'>

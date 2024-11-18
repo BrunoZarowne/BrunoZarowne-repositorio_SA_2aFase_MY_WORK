@@ -117,7 +117,7 @@ function Pagina_Usuario() {
 
 
 {pagInfoUsuario && <Informacoes_usuario/> }
-<PaginaAdmin_Gerenciamento_usuarios />
+
 
       </div>
 

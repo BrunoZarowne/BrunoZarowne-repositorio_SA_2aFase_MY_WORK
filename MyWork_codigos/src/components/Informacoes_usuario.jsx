@@ -6,16 +6,12 @@ import { useContext } from 'react'
 
 function Informacoes_usuario() {
   
-  const limparNome=()=>{
-    setUserLogado({...UserLogado,nomePessosa:''})
-  }
+  
   const[botaoAtivo,setBotaoAtivo]=useState(null)
   const[modalAtivo,setModalAtivo] = useState(false)
   const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado}=useContext(GlobalContext)
-  console.log(UserLogado)
-
- 
-  console.log(vetorUsuarios)
+  const [modalIsOpenUpdateUser,setModalIsOpenUdateUser]=useState(false)
+  
   
   const handleClick = (index) => {
     setBotaoAtivo(index); 
@@ -33,17 +29,19 @@ function Informacoes_usuario() {
   return (
     <div className='container_info_usuarios'>
       <div className='div_inputs_user'>
-<label htmlFor="" >nome</label><input type="text"  className='input_nome_user' value={UserLogado.nomePessosa} onChange={(event)=>{setUserLogado({...userLogado,nomePessosa:event.target.value})}}
+<label htmlFor="" >nome</label><input type="text"  className='input_nome_user' defaultValue={UserLogado.nomePessosa} onChange={(event)=>{setUserLogado({...userLogado,nomePessosa:event.target.value})}}
 />
-<label htmlFor="">email</label><input type="text" className='input_emai_user' value={UserLogado. emailUsuario}/>
-<label htmlFor="">senha</label><input type="text" className='input_senha_user' value={UserLogado.senhaUsuario}/>
-<label htmlFor="">data nascimento</label><input type="text" className='input_data_nascimento_user' value={ UserLogado.dataNascimentoUser}/>
+<label htmlFor="">email</label><input type="text" className='input_emai_user' defaultValue={UserLogado. emailUsuario}/>
+<label htmlFor="">senha</label><input type="text" className='input_senha_user' defaultValue={UserLogado.senhaUsuario}/>
+<label htmlFor="">data nascimento</label><input type="text" className='input_data_nascimento_user' defaultValue={ UserLogado.dataNascimentoUser}/>
 </div>
 
 <div className='container_button_edit_info_user'>
   <p className='titulo_edit_dados'>editar seus dados</p><br />
-  <button className='bottao_edit_user' ></button>
+  <button className='bottao_edit_user'onClick={()=>{setModalIsOpenUdateUser(true)}}></button>
   </div>
+  <dialog open={modalIsOpenUpdateUser}>oal seja bem vindo ao meu canal</dialog>
+
 
 
   

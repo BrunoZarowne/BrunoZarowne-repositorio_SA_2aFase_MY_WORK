@@ -120,4 +120,13 @@
   color: black;
   border-radius: 3px;
   }
+  .PnomeUsuario{
+    color: white;
+  }
+  .divNomeUserIcon{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
   
