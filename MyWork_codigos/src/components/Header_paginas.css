@@ -1,6 +1,7 @@
 .divHeaderPage{
     height: 100%;
     background-color: #00002D;
+    
 
 }
 .imgsNavBar{
@@ -129,4 +130,13 @@
     display: flex;
     flex-direction: column;
   }
-  
+
+  .PnomeUsuario{
+    font-size: 20px;
+    margin-right: 15%;
+    font-family: Poppins-SemiBold;
+  }
+  @font-face {
+    font-family:"Poppins-SemiBold" ;
+    src: url(../fonts/Poppins/Poppins-SemiBold.ttf);
+  }

@@ -4,6 +4,7 @@ import CadastroMyWork from "../pages/CadastroMyWork.jsx";
 import Login from "../pages/Login.jsx";
 import HomeMywork from "../pages/HomeMywork.jsx";
 import Pagina_Usuario from "../pages/Pagina_Usuario.jsx";
+import { GlobalContext } from "../context/GlobalContext.jsx";
 
 
 

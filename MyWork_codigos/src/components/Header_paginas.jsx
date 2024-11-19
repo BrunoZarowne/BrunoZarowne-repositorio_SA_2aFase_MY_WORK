@@ -33,10 +33,10 @@ function Header_paginas() {
       <div className='imgsNavBar'>
         <img className='sapo' src="../images/logo_sapo.png" alt="" />
       <div className='divNomeUserIcon'>
-        <p className='PnomeUsuario'>{UserLogado.nomePessosa}</p>
         <Link to={"/Perfil_de_Usuario"}>
         <img className='user' src={fotoUsuario} alt="" />
         </Link>
+        <p className='PnomeUsuario'>{UserLogado.nomePessosa.slice(0,5)}</p>
      
       </div>
         

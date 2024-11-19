@@ -13,7 +13,9 @@ function CadastroMyWork() {
 
   const [cadastroNaoConcluindo,setCadastroNaoConcluido]=useState(false)
   const[permitirHome,setPermitirHome]=useState()
+
   const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado}=useContext(GlobalContext)// pega informaçoes do global context
+  
   const[inptValidadoNome,setInptValidadoNome]=useState(false)
   const[inptValidadoEmail,setInptValidadoEmail]=useState(false)
   const[inptValidadoDataNascimento,setInptValidadoDataNascimento]=useState(false)

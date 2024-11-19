@@ -152,3 +152,60 @@ display: flex;
 justify-content: center;
 
 }
+.modalUsuarioTrocaInfo{
+    border: none;
+    border-radius: 10px;
+    width: fit-content;
+    box-shadow: 0 0 1em rgb(255,255,255);
+    position: fixed; /* Garante que ele fique fora do fluxo normal */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o diálogo */
+    background-color: #00002D;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    
+    font-family: Poppins-SemiBold;
+    color: white;
+
+}
+@font-face {
+    font-family:"Poppins-SemiBold" ;
+    src: url(../fonts/Poppins/Poppins-SemiBold.ttf);
+  }
+  .BackDrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00002d97;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     backdrop-filter: blur(4px); 
+    
+  }
+  .divInpt{
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaçamento entre o label e o input */;
+    margin-top: 10%;
+  }
+  .containerNomeNovo,.inptNovaDataNas,.containerNovoEmail,.containersenhaNova{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+ .inptCasdastroNovoNome,.inptCadastroNovoEmail,.inptCadastroNovasenha,.inptCadastroNovaDataNascimento{
+    width: 200Px;
+    height: 30px;
+    margin-left: 10px;
+ }
+ .inptCadastroNovaDataNascimento{
+    margin-right: 100px;
+ }

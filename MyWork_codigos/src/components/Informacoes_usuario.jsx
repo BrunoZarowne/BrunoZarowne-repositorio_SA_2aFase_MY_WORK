@@ -29,18 +29,41 @@ function Informacoes_usuario() {
   return (
     <div className='container_info_usuarios'>
       <div className='div_inputs_user'>
-<label htmlFor="" >nome</label><input type="text"  className='input_nome_user' defaultValue={UserLogado.nomePessosa} onChange={(event)=>{setUserLogado({...userLogado,nomePessosa:event.target.value})}}
-/>
-<label htmlFor="">email</label><input type="text" className='input_emai_user' defaultValue={UserLogado. emailUsuario}/>
-<label htmlFor="">senha</label><input type="text" className='input_senha_user' defaultValue={UserLogado.senhaUsuario}/>
-<label htmlFor="">data nascimento</label><input type="text" className='input_data_nascimento_user' defaultValue={ UserLogado.dataNascimentoUser}/>
+<label htmlFor="inptNomeUser" >nome</label><input type="text"  className='input_nome_user' defaultValue={UserLogado.nomePessosa}  name='inptNomeUser'/>
+<label htmlFor="inptEmailuser">email</label><input type="text" className='input_emai_user' defaultValue={UserLogado. emailUsuario} name='inptEmailuser'/>
+<label htmlFor="inptDataNasUser">data nascimento</label><input type="text" className='input_data_nascimento_user' defaultValue={ UserLogado.dataNascimentoUser} name='inptDataNasUser'/>
+<label htmlFor="inptSenhaUser">senha</label><input type="text" className='input_senha_user' defaultValue={UserLogado.senhaUsuario} name='inptSenhaUser'/>
 </div>
 
 <div className='container_button_edit_info_user'>
   <p className='titulo_edit_dados'>editar seus dados</p><br />
   <button className='bottao_edit_user'onClick={()=>{setModalIsOpenUdateUser(true)}}></button>
   </div>
-  <dialog open={modalIsOpenUpdateUser}>oal seja bem vindo ao meu canal</dialog>
+ { modalIsOpenUpdateUser 
+ && <div className='BackDrop'><dialog open={modalIsOpenUpdateUser} className='modalUsuarioTrocaInfo'>
+  <p>
+  Insira as Informações que deseja trocar
+  </p>
+  <div className='divInpt'>
+    <div className='containerNomeNovo'>
+    <label htmlFor="inptNovoNome">Insira aqui o nome: </label> <input name='inptNovoNome' className='inptCasdastroNovoNome'></input>
+    </div>
+
+    <div className='containerNovoEmail'>
+      <label htmlFor="inptNovoEmail">Insira Aqui o email: </label><input type="text" name='inptNovoEmail' className='inptCadastroNovoEmail' />
+    </div>
+
+    <div>
+      <label htmlFor="inptNovaDataNas">insira Aqui a data de nascimento: </label> <input type="text" name='inptNovaDataNas' className='inptCadastroNovaDataNascimento' />
+    </div>
+
+    <div className='containersenhaNova'>
+      <label htmlFor="inptNovaSenha">Insira sua nova senha: </label> <input name='inptNovaSenha' type="password" className='inptCadastroNovasenha' />
+
+    </div>
+
+  </div>
+  </dialog> </div>}
 
 
 
