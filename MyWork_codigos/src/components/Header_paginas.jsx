@@ -44,16 +44,16 @@ function Header_paginas() {
         
       </div>
       <div className='buttonsNav'>
-      <a href=''>
+    <Link to={"/Home"}>
           <button
             className={`bt1 ${paginaAtiva === 1 ? 'ativo' : 'inativo'}`}
             onClick={() => ativaPagina(1)}
           >
             Inicio
           </button>
-        </a>
+          </Link>
 
-        <a href=''>
+        <Link to={"/Pag_obra_lancamentos"}>
           <button
             className={`bt2 ${paginaAtiva === 2 ? 'ativo' : 'inativo'}`}
             onClick={() => ativaPagina(2)}
@@ -61,7 +61,7 @@ function Header_paginas() {
             lançamentos
           </button>
         
-        </a>
+          </Link>
         
         <a href="">  <button className={`bt3 ${paginaAtiva === 3 ? 'ativo' : 'inativo'}`}
                 onClick={() => ativaPagina(3)}>populares</button>
