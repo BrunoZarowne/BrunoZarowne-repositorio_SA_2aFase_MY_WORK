@@ -3,6 +3,8 @@ import { useState } from 'react'
 import "./Informacoes_usuario.css" 
 import { GlobalContext } from '../context/GlobalContext'
 import { useContext } from 'react'
+import { Link,useNavigate} from 'react-router-dom'
+import PaginaAdmin_Gerenciamento_usuarios from './PaginaAdmin_Gerenciamento_usuarios'
 
 function Informacoes_usuario() {
   
@@ -11,8 +13,9 @@ function Informacoes_usuario() {
   const[modalAtivo,setModalAtivo] = useState(false)
   const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado}=useContext(GlobalContext)
   const [modalIsOpenUpdateUser,setModalIsOpenUdateUser]=useState(false)
-  
-  
+  const[pagina,setPagina]=useState('')
+
+ 
   const handleClick = (index) => {
     setBotaoAtivo(index); 
     
@@ -64,12 +67,13 @@ function Informacoes_usuario() {
 
   </div>
   </dialog> </div>}
+    
 
 
 
   
 <button  className={`button_excluir_conta ${botaoAtivo === 1 ? 'ativo' : 'inativo'}`}
-                onClick={() => handleClick(1)} >excluir conta</button>
+                onClick={() => {handleClick(1)}} >excluir conta</button>
 
 <dialog open={modalAtivo} className='dialog_excluir_conta'>
 
@@ -81,7 +85,9 @@ function Informacoes_usuario() {
 <h2>tem certeza que voce quer excluir sua conta?</h2>
 </div>
 <div className='container_bottao_excluir_conta_definitivo'>
-<button className='bottao_excluir_conta_definitivo'>sim,excluir conta</button> <button    onClick={() => handleClick(2)} className='botton_cancela_excluzao'>não,manter conta</button>
+  <Link to={pagina}>
+<button className='bottao_excluir_conta_definitivo' onClick={()=>{ setVetorUsuarios(vetorUsuarios.slice(0,-1)),setPagina('/')}}>sim,excluir conta</button> <button    onClick={() => {handleClick(2)}} className='botton_cancela_excluzao'>não,manter conta</button>
+  </Link>
 
 
 </div>
