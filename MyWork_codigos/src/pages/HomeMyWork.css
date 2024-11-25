@@ -1,10 +1,27 @@
 
 .container_conteudo{
-    background-color:  #00002D;
+    
 height: 80vh;
 
+background: linear-gradient(45deg,#021b5e, #00002D);
+background-size: 400% 400%;
+animation: container_pag_usuario 10s ease infinite;
 
+
+}/* Animação de gradiente entre #090979 e #00002D */
+@keyframes container_pag_usuario {
+0% {
+  background-position: 0% 50%;
 }
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0% 50%;
+}
+}
+
+
 
  
 .conatiner_titulo{
@@ -53,9 +70,13 @@ font-family: Roboto-Medium
     .container_recomendacoes{
 display: flex;
         justify-content: center;
-    }.container_obras_recomendadas{
-
-
+    }
+    
+    
+    
+    .container_obras_recomendadas{
+display: flex;
+justify-content: center;
 height: 50vh;
    
 
@@ -74,19 +95,26 @@ font-size: 20px;
 width: fit-content;
 
 }.obras_um{
-
-
+margin-right: 75px;
     width: fit-content;
+border: solid white 0.9px;
 
 
-
-border:  solid rgba(153, 205, 50, 0.568);
+background-color: #042275;
 border-radius: 3px;
 }.container_titulo_autor{
 height: 10vh;
-border:  solid orange;
+
 display: flex;
 flex-direction: column;
 justify-content: space-evenly;
 align-items: center;
+}.obra_dois{
+   
+        width: fit-content;
+    border-color: white;
+        background-color: #042275;
+    border-radius: 3px;
+    border: solid white 0.9px;
+
 }

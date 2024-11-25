@@ -49,11 +49,30 @@ function HomeMywork() {
   <p>autor:  Hirohiko Araki</p>
   </div>
   </div>
-  
-  
   </div>
   
-  <div className='obra_dois'></div>
+
+  
+  <div className='obra_dois'>
+
+
+  <img src="https://comicboom.com.br/shop/wp-content/uploads/2022/06/jujutsu-kaisen-18.jpg" className='capa_obra_um'/>
+ <div className='container_titulo_autor'>
+ <div className='titulo_obra_um'>
+ <p>steell ball run</p>
+ </div>
+
+ <div className='autor_obra_um'>
+  <p>autor:  Hirohiko Araki</p>
+  </div>
+  </div>
+  
+
+
+
+
+    
+  </div>
 
   </div>
     </div>
