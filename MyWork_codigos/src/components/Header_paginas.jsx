@@ -71,7 +71,7 @@ function Header_paginas() {
                 onClick={() => ativaPagina(4)}>melhores Avaliados</button></a>
         
         <a href=""><button className={`bt5 ${paginaAtiva === 5 ? 'ativo' : 'inativo'}`}
-                onClick={() => ativaPagina(5)}>updates</button></a>
+                onClick={() => ativaPagina(5)}>posta obras</button></a>
       
       
       </div>

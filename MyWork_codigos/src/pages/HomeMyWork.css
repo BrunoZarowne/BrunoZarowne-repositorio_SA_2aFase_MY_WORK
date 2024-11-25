@@ -1,0 +1,92 @@
+
+.container_conteudo{
+    background-color:  #00002D;
+height: 80vh;
+
+
+}
+
+ 
+.conatiner_titulo{
+
+display: flex;
+justify-content: center;
+font-family: Roboto-Medium;
+}.container_introducao{
+display: flex;
+justify-content: center;
+
+
+
+}.container_titulo_introducao{
+display: flex;
+    flex-direction: column;
+justify-content: space-evenly;
+
+  ;
+height:20%
+
+
+}.container_introducao{
+
+
+
+font-size: 20px;
+color: white;
+font-family: Roboto-Medium
+
+}
+
+@font-face {
+    font-family:"roboto-regular" ;
+    src: url(../fonts/Roboto-Regular.ttf);
+}.container_recomendacoes{
+
+
+    color: white;
+    font-family: Roboto-Medium
+    
+
+}@font-face {
+    font-family:"Roboto-Medium" ;
+    src: url(../fonts/Roboto-Medium.ttf);}
+    .container_recomendacoes{
+display: flex;
+        justify-content: center;
+    }.container_obras_recomendadas{
+
+
+height: 50vh;
+   
+
+}.capa_obra_um{
+width: 25vh;
+
+}.titulo_obra_um{
+font-family: roboto-regular;
+color: white;
+width: fit-content;
+font-size: 20px;
+}.autor_obra_um{
+
+    font-family: roboto-regular;
+ color: white;
+width: fit-content;
+
+}.obras_um{
+
+
+    width: fit-content;
+
+
+
+border:  solid rgba(153, 205, 50, 0.568);
+border-radius: 3px;
+}.container_titulo_autor{
+height: 10vh;
+border:  solid orange;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+}

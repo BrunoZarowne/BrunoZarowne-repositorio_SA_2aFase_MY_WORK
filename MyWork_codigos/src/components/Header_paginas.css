@@ -1,7 +1,8 @@
 .divHeaderPage{
-    height: 100%;
-    background-color: #00002D;
-    
+    height: 14.5vh;
+    background-color: #000027;
+
+
 
 }
 .imgsNavBar{
@@ -25,16 +26,17 @@
     display: flex;
     justify-content: space-around;
     padding: 5px;
+        border-bottom: solid white;
     button{
         border: none;
         font-size: 20px;
         color: white;
-        background-color: #00002D;
-        
+        background-color:  #000027;
+       
     }
     .bt1{
         width: 200px;
-        background-color: #00002D;
+        background-color:  #000027;
         color: white;
     }
     .bt1:hover{
@@ -53,7 +55,7 @@
   
     .bt2{
         width: 300px;
-        background-color: #00002D;
+        background-color:  #000027;
         color: white;
     }
     .bt2:hover{
@@ -72,7 +74,7 @@
     
     .bt3{
         width: 300px;
-        background-color: #00002D;
+        background-color: #000027;
         color: white;
     }
     .bt3:hover{
@@ -89,7 +91,7 @@
   
     .bt4{
         width: 230px;
-        background-color: #00002D;
+        background-color:  #000027;
         color: white;
     }
     .bt4:hover{
@@ -108,7 +110,7 @@
   
     .bt5{
         width: 230px;
-        background-color: #00002D;
+        background-color:  #000027;
         color: white;
     }
     .bt5:hover{
