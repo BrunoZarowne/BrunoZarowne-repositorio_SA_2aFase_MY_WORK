@@ -37,13 +37,7 @@
     margin: 0;
     background-color: #000017;
 }
-*{
-    margin: 0;
-    padding: 0;
-    ;
-   
 
-}
 .h1Landing{
     margin-left: 19%;
     font-family:Poppins-ExtraBold ;
@@ -53,7 +47,7 @@
 }
 .divTextP{
     margin-top: 5%;
-    margin-left: 20%;
+    margin-left: 23%;
     color: azure;
 }
 .pInfoSite{
@@ -107,4 +101,12 @@
 }
 .divCustomRadio{
     display: flex;
+}
+.sapo_logo{
+margin-left: 20%;
+
+}.container_texto{
+display: flex;
+align-items: center;
+
 }

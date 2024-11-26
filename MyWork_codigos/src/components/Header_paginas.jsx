@@ -32,13 +32,13 @@ function Header_paginas() {
     <div className='divHeaderPage'>
       <div className='imgsNavBar'>
         <div className='sapo_MyWork'>
-        <img className='sapo' src="../images/logo_sapo.png" alt="" />
-       <h3 className='MyWork_nome_logo'>My Work</h3>
+        <img className='sapo' src="..\images\logo_sapo.png" alt="" />
+        <h3 className='MyWork_nome_logo'>My Work</h3> 
        
         </div>
-      
-      
-      
+      <div className='container_texto'>
+      <h1 className='texto_mensagem_boas_vindas'>seja bem vindo ao nosso mundo literario onde cada pagina<br/> e uma nova aventura esperando para ser  descoberta</h1>
+      </div>
       <div className='divNomeUserIcon'>
         <Link to={"/Perfil_de_Usuario"}>
         <img className='user' src={fotoUsuario} alt="" />

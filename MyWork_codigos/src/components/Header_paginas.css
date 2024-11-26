@@ -9,8 +9,7 @@
     display: flex;
     justify-content: space-between;
     .sapo{
-        height: 100px;
-        width: 120px;
+      width: 120px;
         margin-left: 1%;
     }
     .user{
@@ -171,5 +170,7 @@ font-family:Poppins-Light ;
 @font-face {
   font-family:"Poppins-Light" ;
   src: url(../fonts/Poppins/Poppins-Light.ttf);
+}.texto_mensagem_boas_vindas{
+font-family: Poppins-Light;
+font-size: 25px;
 }
-

@@ -87,7 +87,7 @@ margin-top: 50px;
 
 }.capa_obra_um{
 width: 25vh;
-
+border-radius: 5px;
 }.titulo_obra_um{
 font-family: roboto-regular;
 color: white;
@@ -102,11 +102,11 @@ width: fit-content;
 }.obras_um{
 margin-right: 75px;
     width: fit-content;
-border: solid white 0.9px;
+/* border: solid white 0.9px; */
 
 
-background-color: #042275;
-border-radius: 3px;
+background-color: #212277;;
+border-radius: 5px;
 }.container_titulo_autor{
 height: 10vh;
 
@@ -118,8 +118,8 @@ align-items: center;
    
         width: fit-content;
     border-color: white;
-        background-color: #042275;
-    border-radius: 3px;
-    border: solid white 0.9px;
+        background-color: #212277;;
+    border-radius: 5px;
+    /* border: solid white 0.9px; */
 
 }

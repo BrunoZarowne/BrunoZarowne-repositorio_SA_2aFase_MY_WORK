@@ -14,8 +14,7 @@ console.log(vetorUsuarios)
   <div className='divImagem'></div>
 
       <div className='divText' >
-        <h1 className='h1Landing'>Free your <br></br>
-            imagination</h1>
+       <img src="../images/logo_myWork.png" className='sapo_logo' />
         
             <div className='divTextP'>
             <p className='pInfoSite'>seja bem vindo ao nosso mundo <br />literario onde cada pagina e uma nova <br /> aventura esperando para ser  descoberta</p>
