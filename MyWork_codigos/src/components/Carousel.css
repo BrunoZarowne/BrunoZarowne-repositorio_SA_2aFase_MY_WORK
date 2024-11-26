@@ -160,3 +160,25 @@ html, body{
     color: black;
 }
 
+.ModalObraESinopse{
+    border: none;
+    border-radius: 10px;
+    width: fit-content;
+    box-shadow: 0 0 1em rgb(255,255,255);
+    position: fixed; /* Garante que ele fique fora do fluxo normal */
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o diálogo */
+    background-color: #00002D;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    
+   
+}
+.sinopseObras{
+    color: white;
+}

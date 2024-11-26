@@ -13,9 +13,11 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
+import Header_paginas from './Header_paginas'
+import Rodape_Mywork from './Rodape_Mywork'
 
 function Carousel() { 
-
+  const [modalObras,setModalObras]=useState(null)
   const {formState, setFormState} = useContext(GlobalContext)
 
   const [imagensObrasMangas, setImagensObrasMangas] = useState([
@@ -236,6 +238,9 @@ function Carousel() {
     abrirModal()
     
   }
+  const abrirModalObras = (id) => {
+    setModalObras(modalObras === id ? null:id)
+  }
 
 
 
@@ -274,25 +279,34 @@ function Carousel() {
 
   return (
     <div className='containerCarousel'>
-      <button className='buttonCarousel' onClick={adcImagens}>Postar</button>
+          <button className='buttonCarousel' onClick={adcImagens}>Postar</button>
+      
       
     <div className='carouselMangas'>
       <Swiper
-        slidesPerView={5}
+        slidesPerView={4}
         pagination={{ clickable: true}}
-        navigation  
-      >
+        navigation>
         {imagensObrasMangas.map((item) => (
           <SwiperSlide key={item.id}>
-              <img className='imgsMangas' src={item.image}/><br />
+              <img className='imgsMangas' src={item.image} onClick={()=>{abrirModalObras(item.id)}}/><br />
             <label>{item.title}</label>
+            {modalObras === item.id && (
+            <dialog open={true} onClick={() => abrirModalObras(null)} className='ModalObraESinopse'>
+              <div>
+                <p className='sinopseObras'>{item.summary}</p> <br />
+                <button onClick={() => abrirModalObras(null)}>Fechar</button>
+                
+              </div>
+            </dialog>
+          )}
           </SwiperSlide>
         ))}
       </Swiper>
      </div><br /><br /><br />     
      <div className='carouselHQs'>
      <Swiper
-      slidesPerView={5}
+      slidesPerView={4}
       pagination={{ clickable: true}}
       navigation  
      >
@@ -308,7 +322,7 @@ function Carousel() {
      </div><br />
      <div className='carouselLivros'>
       <Swiper
-        slidesPerView={5}
+        slidesPerView={4}
         pagination={{ clickable: true}}
         navigation  
       >
