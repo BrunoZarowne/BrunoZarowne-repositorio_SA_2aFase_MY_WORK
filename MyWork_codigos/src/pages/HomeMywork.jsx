@@ -11,14 +11,14 @@ function HomeMywork() {
     <div className='container_titulo_introducao'>
         <div className='conatiner_titulo'>
 
-          <h1> 🌟  bem vindo ao My Work 💥</h1>
+          <h1> 🐸 bem vindo ao My Work 🐸</h1>
 
 
 
 
           </div>
           <div className='container_introducao'> 
-          <p>bim vindo ao seu site de mangas favorito😍</p>
+          <p>💯seu site de mangas favorito💯</p>
         
         
         </div>
@@ -30,8 +30,7 @@ function HomeMywork() {
 
         <div className='container_recomendacoes'>
 
-<h1>recomendações do site 💯
-</h1>
+<h2>📚recomendações do site 📚</h2>
 
 </div>
 <div className=' container_obras_recomendadas'>
@@ -59,11 +58,11 @@ function HomeMywork() {
   <img src="https://comicboom.com.br/shop/wp-content/uploads/2022/06/jujutsu-kaisen-18.jpg" className='capa_obra_um'/>
  <div className='container_titulo_autor'>
  <div className='titulo_obra_um'>
- <p>steell ball run</p>
+ <p>jujutsu kaisen</p>
  </div>
 
  <div className='autor_obra_um'>
-  <p>autor:  Hirohiko Araki</p>
+  <p>autor:  gege akutami</p>
   </div>
   </div>
   

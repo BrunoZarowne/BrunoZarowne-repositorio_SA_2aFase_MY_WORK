@@ -31,7 +31,14 @@ function Header_paginas() {
   return (
     <div className='divHeaderPage'>
       <div className='imgsNavBar'>
+        <div className='sapo_MyWork'>
         <img className='sapo' src="../images/logo_sapo.png" alt="" />
+       <h3 className='MyWork_nome_logo'>My Work</h3>
+       
+        </div>
+      
+      
+      
       <div className='divNomeUserIcon'>
         <Link to={"/Perfil_de_Usuario"}>
         <img className='user' src={fotoUsuario} alt="" />
