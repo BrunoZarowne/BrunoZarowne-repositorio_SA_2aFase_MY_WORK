@@ -6,6 +6,7 @@ import HomeMywork from "../pages/HomeMywork.jsx";
 import Pagina_Usuario from "../pages/Pagina_Usuario.jsx";
 import { GlobalContext } from "../context/GlobalContext.jsx";
 import Pag_obra_Lancamentos from "../pages/Pag_obra_Lancamentos.jsx";
+import Pagina_obras from "../pages/Pagina_obras.jsx";
 
 
 
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
 {path:"Login",element:<Login />},
 {path:"Home",element:<HomeMywork />},
 {path:"Perfil_de_Usuario",element:<Pagina_Usuario />},
-{path:"Pag_obra_lancamentos",element:<Pag_obra_Lancamentos />}
+{path:"Pag_obra_lancamentos",element:<Pag_obra_Lancamentos />},
+{path:"pagina_obras",element:<Pagina_obras />}
 
 
 ])

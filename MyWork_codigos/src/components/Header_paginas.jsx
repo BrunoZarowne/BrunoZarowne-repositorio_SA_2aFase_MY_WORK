@@ -53,14 +53,10 @@ function Header_paginas() {
           </button>
           </Link>
 
-        <Link to={"/Pag_obra_lancamentos"}>
+        <Link to={"/pagina_obras"}>
           <button
             className={`bt2 ${paginaAtiva === 2 ? 'ativo' : 'inativo'}`}
-            onClick={() => ativaPagina(2)}
-          >
-            lançamentos
-          </button>
-        
+            onClick={() => ativaPagina(2)}>Obras</button>
           </Link>
         
         <a href="">  <button className={`bt3 ${paginaAtiva === 3 ? 'ativo' : 'inativo'}`}

@@ -18,6 +18,16 @@ const [UserLogado,setUserLogado] =useState( {
         idIndentificador:''
         
       } )
+      const [formState, setFormState] = useState({
+        id: "",
+        title: "",
+        author: "",
+        pages: "",
+        date: "",
+        summary: "",
+        images: "",
+        genre: ""
+      })     
 
 
 
@@ -33,7 +43,9 @@ const [UserLogado,setUserLogado] =useState( {
     UserLogado,
     setUserLogado,
     paginaAtiva,
-    setPaginaAtiva
+    setPaginaAtiva,
+    setFormState,
+    formState
     }}>
 
 {children}
