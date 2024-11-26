@@ -130,7 +130,7 @@ function CadastroMyWork() {
           
             setVetorUsuarios([...vetorUsuarios,InfoUser])
             console.log(vetorUsuarios)
-            setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,idIndentificador:idUser})
+            setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,idIndentificador:idUsuario})
             navegarHome("/Home")
           }else{
             setNomePequeno(true)

@@ -209,3 +209,41 @@ justify-content: center;
  .inptCadastroNovaDataNascimento{
     margin-right: 100px;
  }
+ .divBotoesEscolha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+ }
+ .butonSairConta{
+margin-left: 100px;
+width:190px ;
+height:40px ;
+background-image:url(./images/icons_PretosouBrancos/iconeSairContaPreto.svg) ;
+background-repeat: no-repeat;
+background-size: 35px;
+border: solid 2px red;
+background-color: white;
+color: black;
+border-radius: 7px;
+font-size: 17px;
+font-family:Poppins-Regular ;
+margin-bottom: 10px;
+background-size: 30px;
+background-position: left 3px;
+ }.butonSairConta:hover{
+
+background-image:url(./images/icons_PretosouBrancos/IconeSairContaBranco.svg) ;
+background-repeat: no-repeat;
+background-size: 35px;
+background-color: red;
+color: white;
+border-radius: 7px;
+font-size: 17px;
+font-family:Poppins-Regular ;
+margin-bottom: 10px;
+background-size: 30px;
+background-position: left 3px;
+transition: 600ms;
+    
+ }

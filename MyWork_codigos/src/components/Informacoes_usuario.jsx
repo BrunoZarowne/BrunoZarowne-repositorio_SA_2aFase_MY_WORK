@@ -14,12 +14,19 @@ function Informacoes_usuario() {
   const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado}=useContext(GlobalContext)
   const [modalIsOpenUpdateUser,setModalIsOpenUdateUser]=useState(false)
   const[pagina,setPagina]=useState('')
+  const irParaLanding=useNavigate()
 
  
+  function deletarConta(){
+    setVetorUsuarios(vetorUsuarios.filter(user => user.idIndentificador !== UserLogado.idIndentificador))
+    irParaLanding("/")
+  }
   const handleClick = (index) => {
     setBotaoAtivo(index); 
     
-    setModalAtivo(true)
+      setModalAtivo(true)
+    
+    
   
     if(index===2)
     setModalAtivo(false)
@@ -71,33 +78,31 @@ function Informacoes_usuario() {
 
 
 
-  
-<button  className={`button_excluir_conta ${botaoAtivo === 1 ? 'ativo' : 'inativo'}`}
-                onClick={() => {handleClick(1)}} >excluir conta</button>
+  <div className='divBotoesEscolha'>
+<button  className={`button_excluir_conta ${botaoAtivo === 5 ? 'ativo' : 'inativo'}`}
+                onClick={() => {handleClick(5)}} >excluir conta</button>
 
-<dialog open={modalAtivo} className='dialog_excluir_conta'>
+                <button className='butonSairConta'>Sair da conta</button>
 
+  </div>
+
+
+{ modalAtivo && <div className='BackDrop'><dialog open={modalAtivo} className='dialog_excluir_conta'>
 <div className='div_container_certeza_exlui-conta'>
 
-
-
 <div className='container_titulo'>
-<h2>tem certeza que voce quer excluir sua conta?</h2>
+  <h2>tem certeza que voce quer excluir sua conta?</h2>
 </div>
 <div className='container_bottao_excluir_conta_definitivo'>
   <Link to={pagina}>
-<button className='bottao_excluir_conta_definitivo' onClick={()=>{ setVetorUsuarios(vetorUsuarios.slice(0,-1)),setPagina('/')}}>sim,excluir conta</button> <button    onClick={() => {handleClick(2)}} className='botton_cancela_excluzao'>não,manter conta</button>
+   <button className='bottao_excluir_conta_definitivo' onClick={deletarConta}>sim,excluir conta</button> <button    onClick={() => {handleClick(2)}} className='botton_cancela_excluzao'>não,manter conta</button>
   </Link>
 
 
 </div>
 </div>
-
-
-
-
 </dialog>
-
+</div>}
 
     </div>
   )
