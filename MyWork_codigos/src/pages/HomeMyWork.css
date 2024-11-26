@@ -2,7 +2,7 @@
 .container_conteudo{
     
 height: 80vh;
-
+/* border: solid orange; */
 background: linear-gradient(45deg,#021b5e, #00002D);
 background-size: 400% 400%;
 animation: container_pag_usuario 10s ease infinite;
@@ -29,6 +29,8 @@ animation: container_pag_usuario 10s ease infinite;
 display: flex;
 justify-content: center;
 font-family: Roboto-Medium;
+/* border: solid red; */
+
 }.container_introducao{
 display: flex;
 justify-content: center;
@@ -39,7 +41,7 @@ justify-content: center;
 display: flex;
     flex-direction: column;
 justify-content: space-evenly;
-
+/* border: solid yellow */
   ;
 height:20%
 
@@ -50,8 +52,8 @@ height:20%
 
 font-size: 20px;
 color: white;
-font-family: Roboto-Medium
-
+font-family: Roboto-Medium;
+/* border: solid beige; */
 }
 
 @font-face {
@@ -59,7 +61,7 @@ font-family: Roboto-Medium
     src: url(../fonts/Roboto-Regular.ttf);
 }.container_recomendacoes{
 
-
+/* border: solid yellowgreen; */
     color: white;
     font-family: Roboto-Medium
     
@@ -75,10 +77,13 @@ display: flex;
     
     
     .container_obras_recomendadas{
-display: flex;
-justify-content: center;
+
 height: 50vh;
-   
+   display: flex;
+
+justify-content: center;
+margin-top: 50px;
+
 
 }.capa_obra_um{
 width: 25vh;
