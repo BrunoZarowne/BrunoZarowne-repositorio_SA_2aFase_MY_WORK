@@ -27,7 +27,18 @@ const [UserLogado,setUserLogado] =useState( {
         summary: "",
         images: "",
         genre: ""
-      })     
+      })    
+      const [abrirObraClone,setAbrirObraClone]=useState({
+        id:1,
+        titulo:'Titulo padrão',
+        autor:'Não ha',
+        paginas:'12',
+        data_lancamento:'xxxx/xx/xx',
+        sinopse:'Sinopse padrão',
+        imagemCatalogo:'https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=',
+        genero:'Não possui'
+
+      }) 
 
 
 
@@ -45,7 +56,9 @@ const [UserLogado,setUserLogado] =useState( {
     paginaAtiva,
     setPaginaAtiva,
     setFormState,
-    formState
+    formState,
+    abrirObraClone,
+    setAbrirObraClone
     }}>
 
 {children}

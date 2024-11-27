@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header_paginas from '../components/Header_paginas.jsx'
 import Rodape_Mywork from '../components/Rodape_Mywork.jsx'
 import './HomeMywork.css'
 
 function HomeMywork() {
+  const [modalCadastroConcluido,setModalCadastoConcluido]=useState(true)
+ 
   return (
     <div className='container_Home'>
     <Header_paginas />
@@ -23,7 +25,7 @@ function HomeMywork() {
         
         </div>
 
-  
+      <dialog open={modalCadastroConcluido} onClick={()=> {setModalCadastoConcluido(false)}}>Cadastro Concluido</dialog>
 
 
         </div>

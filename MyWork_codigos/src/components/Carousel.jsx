@@ -15,10 +15,11 @@ import 'swiper/css/scrollbar'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Header_paginas from './Header_paginas'
 import Rodape_Mywork from './Rodape_Mywork'
+import { Link } from 'react-router-dom'
 
 function Carousel() { 
   const [modalObras,setModalObras]=useState(null)
-  const {formState, setFormState} = useContext(GlobalContext)
+  const {formState, setFormState,abrirObraClone,setAbrirObraClone} = useContext(GlobalContext)
 
   const [imagensObrasMangas, setImagensObrasMangas] = useState([
     {
@@ -286,20 +287,13 @@ function Carousel() {
       <Swiper
         slidesPerView={4}
         pagination={{ clickable: true}}
-        navigation>
+        navigation className='swiper'>
         {imagensObrasMangas.map((item) => (
-          <SwiperSlide key={item.id}>
-              <img className='imgsMangas' src={item.image} onClick={()=>{abrirModalObras(item.id)}}/><br />
+          <SwiperSlide key={item.id} className='SwiperSlideManga'>
+            <Link to={`/detalhes/${item.id}`}>
+              <img className='imgsMangas' src={item.image} onClick={()=>{abrirModalObras(item.id),setAbrirObraClone()}}/><br />
+              </Link>
             <label>{item.title}</label>
-            {modalObras === item.id && (
-            <dialog open={true} onClick={() => abrirModalObras(null)} className='ModalObraESinopse'>
-              <div>
-                <p className='sinopseObras'>{item.summary}</p> <br />
-                <button onClick={() => abrirModalObras(null)}>Fechar</button>
-                
-              </div>
-            </dialog>
-          )}
           </SwiperSlide>
         ))}
       </Swiper>
