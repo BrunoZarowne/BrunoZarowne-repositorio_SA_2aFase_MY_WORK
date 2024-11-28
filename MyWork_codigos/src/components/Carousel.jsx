@@ -368,13 +368,17 @@ function Carousel() {
             <br /><br /><br />
 
             <label>Gênero</label><br />
-            <input 
-            type="text" 
-            required 
-            value={formState.genre} 
-            onChange={(e) => 
-            setFormState({...formState, genre: e.target.value})}/>
-            <br /><br /><br />
+  <select 
+    required 
+    value={formState.genre} 
+    onChange={(e) => 
+    setFormState({...formState, genre: e.target.value})}>
+    <option value="" disabled>Selecione o gênero</option>
+    <option value="Manga">Mangá</option>
+    <option value="HQ">HQ</option>
+    <option value="Livro">Livro</option>
+  </select>
+  <br /><br /><br /><br />
 
             <label>Numero de paginas</label><br />
             <input 
