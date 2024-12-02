@@ -6,6 +6,7 @@ import Componemt_erro_usario from '../components/Componemt_erro_usario'
 import { GlobalContext } from '../context/GlobalContext'
 import { v4 as uuidv4 } from 'uuid';
 
+
 function CadastroMyWork() {
   const [nomeUser,setNomeUser]=useState('')//pega o valor do input senha
   const [emailUser,setEmailUser]=useState('')//pega o valor do input email
@@ -25,6 +26,12 @@ function CadastroMyWork() {
   const [idUser,setIdUser]=useState()
  
   const navegarHome=useNavigate()
+  useEffect(()=>{
+    fetch('http://localhost:3333/usuarios')
+
+
+
+  })
   
 
   function cadastra(){

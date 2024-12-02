@@ -1,5 +1,6 @@
 import express, { json, query } from 'express'
 import pkg from 'pg'
+import cors from 'cors'
 const {Pool} = pkg
 const app = express()
 app.use(express.json())
@@ -14,8 +15,8 @@ const user=[]
 const pool=new Pool({
     user:'postgres',
     host:'localhost',
-    database:'myWork',
-    password:"1234",
+    database:'My_work_sa',
+    password:"senai",
     port: 5432
     
 
@@ -62,6 +63,30 @@ app.get('/Usuarios', async(request,response)=>{
         console.error('erro ao buscar usuario',err)
         response.status(500).json("erro interno do servidor")
 
+
+    }
+
+})
+
+app.delete('/Usuarios/:id', async(request,response)=>{
+    const {id}= request.params
+    console.log("usuario tadaana",id)
+
+    try{
+        const resultado=await pool.query('DELETE FROM myWork WHERE id = $1 RETURNING id',
+        
+        [id])
+        
+        if(resultado.rowCount>0){
+            response.status(200).json({message:`Usuario com ${id} foi excluido`})
+
+        }else{
+            response.status(404).json({message:`Usuario Não encontrado com id${id}`})
+        }
+
+    }catch(err){
+        console.error("erro ao deletar o Usuario")
+        response.status(500).json({error:'erro ao deletar o usuario'})
 
     }
 

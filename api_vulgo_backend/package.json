@@ -11,6 +11,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cord": "^1.0.1",
+    "cors": "^2.8.5",
     "express": "^4.21.1",
     "pg": "^8.13.1"
   }
