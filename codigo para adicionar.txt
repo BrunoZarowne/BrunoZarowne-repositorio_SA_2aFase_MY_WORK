@@ -1,0 +1,151 @@
+GlobalContext
+
+const [obrasFavoritadas, setObrasFavoritadas] = useState([])
+
+GlobalContext.Provider
+
+    obrasFavoritadas,
+    setObrasFavoritadas
+
+
+Carousel
+
+abaixo da function guardar_infos_postagem
+
+
+
+const {obrasFavoritadas, setObrasFavoritadas} = useContext(GlobalContext)
+
+
+  const [IDSelecionado, setIDSelecionado] = useState(null)
+
+  const adcObraFavoritadaManga = (id) => {
+    setIDSelecionado(id)
+
+    const result = imagensObrasMangas.find((manga) => manga.id === IDSelecionado)
+
+    if (result) {
+      setObrasFavoritadas((prevState) => [
+        ...prevState,
+        {titulo: result.title, img: result.image}
+      ])
+    }
+    console.log(obrasFavoritadas)
+  }
+  useEffect(() => {
+    console.log(obrasFavoritadas);
+  }, [obrasFavoritadas])
+
+  const adcObraFavoritadaHQ = (id) => {
+    setIDSelecionado(id)
+
+    const result = imagensObrasHQs.find((manga) => manga.id === IDSelecionado)
+
+    if (result) {
+      setObrasFavoritadas((prevState) => [
+        ...prevState,
+        {titulo: result.title, img: result.image}
+      ])
+    }
+    console.log(obrasFavoritadas)
+  }
+  useEffect(() => {
+    console.log(obrasFavoritadas);
+  }, [obrasFavoritadas])
+
+  const adcObraFavoritadaLivro = (id) => {
+    setIDSelecionado(id)
+
+    const result = livros.find((manga) => manga.id === IDSelecionado)
+
+    if (result) {
+      setObrasFavoritadas((prevState) => [
+        ...prevState,
+        {titulo: result.title, img: result.image}
+      ])
+    }
+    console.log(obrasFavoritadas)
+  }
+  useEffect(() => {
+    console.log(obrasFavoritadas);
+  }, [obrasFavoritadas])  
+
+
+
+no primeiro swiper colocar esse button
+
+	<button className='buttonFav' onClick={() => adcObraFavoritadaManga(item.id)}>
+	  <img src="./public/images/favorita_vazio.svg"/>
+	</button>
+
+
+no segundo
+
+só trocar na parte do onclick e colocar esse: adcObraFavoritadaHQ
+
+no terceiro
+
+o mesmo só que com esse: adcObraFavoritadaLivro
+
+CSS para adicionar
+
+.buttonFav{
+    background-color: #0C0C3E;
+    border: none;
+    img{
+        background-color: #0C0C3E;
+        position: relative;
+        left: 60px;
+        top: 2px;
+        width: 25px;
+    }
+}
+
+
+
+componente da obra favoritada
+
+
+parte antes da function
+
+import { GlobalContext } from '../context/GlobalContext'
+import { register } from 'swiper/element/bundle'
+
+register()
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+na function só adicionar o const
+
+function Componente_obra_favoritas() {
+
+  const {obrasFavoritadas, setObrasFavoritadas} = useContext(GlobalContext)
+
+
+e dps colar esse na parte do return
+
+  return (
+    <div className='container_obras_favoritas'>
+      <div className='favoritadas'>
+        <Swiper
+        slidesPerView={5}
+        pagination={{clickable: true}}
+        navigation
+        >
+          {obrasFavoritadas.map((item) =>(
+            <SwiperSlide key={item.id}>
+              <img className='imgFav' src={item.img} alt="" /><br />
+              <label className='txtFav'>{item.titulo}</label>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  )
+}
+
+export default Componente_obra_favoritas
