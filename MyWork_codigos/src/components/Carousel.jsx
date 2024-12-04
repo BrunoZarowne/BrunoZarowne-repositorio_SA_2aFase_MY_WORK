@@ -225,6 +225,14 @@ function Carousel() {
     genre: 'Livro'
     },
   ])
+ 
+ 
+  function vericarurl(url){
+  const verrificar=/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i
+  return verrificar.test(url)
+
+
+ }
 
 
   const [modalIsOpen, setIsOpen] = useState(false)
@@ -291,7 +299,13 @@ function Carousel() {
         {imagensObrasMangas.map((item) => (
           <SwiperSlide key={item.id} className='SwiperSlideManga'>
             <Link to={`/detalhes/${item.id}`}>
-              <img className='imgsMangas' src={item.image} onClick={()=>{abrirModalObras(item.id),setAbrirObraClone()}}/><br />
+              <img className='imgsMangas' src={item.image} onClick={()=>{abrirModalObras(item.id) ,setAbrirObraClone({ id:item.id, titulo:item.title,
+              autor:item.author,
+              paginas:item.pages.pages,
+              data_lancamento:item.date,
+              sinopse:item.summary,
+              imagemCatalogo:item.image,
+              genero:item.genre})}}/><br />
               </Link>
             <label>{item.title}</label>
           </SwiperSlide>

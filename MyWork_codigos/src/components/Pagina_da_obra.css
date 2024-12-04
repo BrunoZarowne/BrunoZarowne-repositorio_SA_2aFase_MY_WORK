@@ -1,0 +1,12 @@
+.Imagem_da_obra{
+    width: 320px;
+    height: 400px;
+}
+.h2TituloObra{
+    color: white;
+    font-family:Poppins-bold ;
+}
+@font-face {
+    font-family:"Poppins-Bold" ;
+    src: url(../fonts/Poppins/Poppins-Bold.ttf);
+}

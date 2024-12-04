@@ -4,6 +4,7 @@ import Header_paginas from './Header_paginas'
 import Rodape_Mywork from './Rodape_Mywork'
 import { useParams } from 'react-router-dom'
 import { useContext,useState,useEffect} from 'react'
+import './Pagina_da_obra.css'
 
 function Pagina_da_Obra() {
 const {id}=useParams()
@@ -17,11 +18,11 @@ const {formState, setFormState,abrirObraClone,setAbrirObraClone} = useContext(Gl
   return (
     <div>
         <Header_paginas />
-        {abrirObraClone && abrirObraClone.imagemCatalogo ? (
-        <img src={abrirObraClone.imagemCatalogo} alt="Imagem da obra" />
-      ) : (
-        <p>Carregando imagem...</p>
-      )}
+        <div>
+          <h2 className='h2TituloObra'>{abrirObraClone.titulo}</h2> 
+         <img src={abrirObraClone.imagemCatalogo} alt="imagem do catalogo da obra" className='Imagem_da_obra' />
+        </div>
+     
         
       
         <Rodape_Mywork />

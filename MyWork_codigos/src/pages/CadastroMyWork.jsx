@@ -5,6 +5,7 @@ import { Link,useNavigate} from 'react-router-dom'
 import Componemt_erro_usario from '../components/Componemt_erro_usario'
 import { GlobalContext } from '../context/GlobalContext'
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios'
 
 
 function CadastroMyWork() {
@@ -26,15 +27,8 @@ function CadastroMyWork() {
   const [idUser,setIdUser]=useState()
  
   const navegarHome=useNavigate()
-  useEffect(()=>{
-    fetch('http://localhost:3333/usuarios')
 
-
-
-  })
-  
-
-  function cadastra(){
+   async function cadastra(){
     let pessoaAdm=false
     let pessoaDev=false
 
@@ -71,14 +65,21 @@ function CadastroMyWork() {
           pessoaDev=true
   
           let InfoUser = {
-            nomePessosa:nomeUser,
-            emailUsuario:emailUser,
-            dataNascimentoUser:dataNascimento,
-            senhaUsuario:senhaUser,
-            eDev:pessoaDev,
-            eAdm:pessoaAdm,
-            id:'D.E.V'} 
+            nome:"jao",
+            emailUsuario:"jao@gami",
+            senhaUsuario:"123123",
+            dataNascimentoUser:"2000-10-12",
+            eDev:true,
+            eAdm:true
+            } 
+           
+             axios.post('http://localhost:3333/Usuarios',InfoUser)
 
+
+           
+          
+
+           
           setCadastroNaoConcluido(false)
           setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,
             dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,pessoaDev:true,pessoaAdm:true})
@@ -99,8 +100,8 @@ function CadastroMyWork() {
             dataNascimentoUser:dataNascimento,
             senhaUsuario:senhaUser,
             eDev:pessoaDev,
-            eAdm:pessoaAdm,
-            id:'A.D.M'
+            eAdm:pessoaAdm
+           
             
           } 
           
@@ -127,8 +128,8 @@ function CadastroMyWork() {
               dataNascimentoUser:dataNascimento,
               senhaUsuario:senhaUser,
               eDev:pessoaDev,
-              eAdm:pessoaAdm,
-              idIndentificador:idUsuario
+              eAdm:pessoaAdm
+            
               
             } 
           
@@ -137,7 +138,7 @@ function CadastroMyWork() {
           
             setVetorUsuarios([...vetorUsuarios,InfoUser])
             console.log(vetorUsuarios)
-            setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,idIndentificador:idUsuario})
+            setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser})
             navegarHome("/Home")
           }else{
             setNomePequeno(true)

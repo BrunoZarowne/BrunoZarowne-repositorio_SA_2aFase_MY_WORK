@@ -4,6 +4,7 @@ import cors from 'cors'
 const {Pool} = pkg
 const app = express()
 app.use(express.json())
+app.use(cors({   methods: ['GET', 'POST', 'PUT', 'DELETE'] }))// metodos permitidos
 //GET tras informações
 //POST cria coisas como exemplo um usuario
 //PUT vai Editar um usario(Varios)
@@ -24,12 +25,6 @@ const pool=new Pool({
 })
 
 
-
-
-
-
-
-
 app.post('/Usuarios', async(request,response)=>{
 
     const { nome,email,senha,dataNascimento,eDev,eAdm } = request.body;
@@ -41,10 +36,12 @@ app.post('/Usuarios', async(request,response)=>{
             [nome,email,senha,dataNascimento,eDev,eAdm]
         )
 
-     response.status(201).json(resultado.rows[0])
+        
+        
+  
     }catch(err){
-        console.error("erro ao inserir um usuario",err )
-        response.status(500).json({ error: 'Erro interno do servidor' })//<- informa que o problema é com o Backend
+        console.error("Erro ao inserir o usuário:", err.message);
+        response.status(500).json({ error: 'Erro interno do servidor' });//<- informa que o problema é com o Backend
 
     }
 
