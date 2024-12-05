@@ -61,19 +61,20 @@ function CadastroMyWork() {
      
         if(nomeUser=='caioDev123'){//<--Verrificação o usuario é um dev do site
          
-          pessoaAdm=true
-          pessoaDev=true
+          
   
           let InfoUser = {
-            nome:"jao",
-            emailUsuario:"jao@gami",
-            senhaUsuario:"123123",
-            dataNascimentoUser:"2000-10-12",
+            nome:nomeUser,
+            email:emailUser,
+            senha:senhaUser,
+            dataNascimento:dataNascimento,
             eDev:true,
             eAdm:true
             } 
            
              axios.post('http://localhost:3333/Usuarios',InfoUser)
+             .then(response => console.log(response.data))
+             .catch(error => console.error(error))
 
 
            
@@ -85,7 +86,7 @@ function CadastroMyWork() {
             dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,pessoaDev:true,pessoaAdm:true})
 
           setVetorUsuarios([...vetorUsuarios,InfoUser])
-          setPermitirHome("/Home")
+          navegarHome("/Home")
           
           
   
@@ -94,20 +95,21 @@ function CadastroMyWork() {
           
          
           let InfoUser = {
-    
-            nomePessosa:nomeUser,
-            emailUsuario:emailUser,
-            dataNascimentoUser:dataNascimento,
-            senhaUsuario:senhaUser,
-            eDev:pessoaDev,
-            eAdm:pessoaAdm
+            nome:nomeUser,
+            email:emailUser,
+            senha:senhaUser,
+            dataNascimento:dataNascimento,
+            eDev:false,
+            eAdm:true
+            } 
            
-            
-          } 
-          
          
+            axios.post('http://localhost:3333/Usuarios',InfoUser)
+            .then(response => console.log(response.data))
+            .catch(error => console.error(error))
+            
           setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,
-            dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,pessoaAdm:true})
+          dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,pessoaAdm:true})
           setCadastroNaoConcluido(false)
           setVetorUsuarios([...vetorUsuarios,InfoUser])
           console.log(vetorUsuarios)
@@ -122,23 +124,24 @@ function CadastroMyWork() {
             
   
             let InfoUser = {
-      
-              nomePessosa:nomeUser,
-              emailUsuario:emailUser,
-              dataNascimentoUser:dataNascimento,
-              senhaUsuario:senhaUser,
-              eDev:pessoaDev,
-              eAdm:pessoaAdm
-            
-              
-            } 
+              nome:nomeUser,
+              email:emailUser,
+              senha:senhaUser,
+              dataNascimento:dataNascimento,
+              eDev:false,
+              eAdm:false
+              } 
+              axios.post('http://localhost:3333/Usuarios',InfoUser)
+             .then(response => console.log(response.data))
+             .catch(error => console.error(error))
+             
           
          
              setCadastroNaoConcluido(false)
           
             setVetorUsuarios([...vetorUsuarios,InfoUser])
             console.log(vetorUsuarios)
-            setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser})
+            setUserLogado({nome:nomeUser,email:emailUser,dataNascimento:dataNascimento,senha:senhaUser})
             navegarHome("/Home")
           }else{
             setNomePequeno(true)

@@ -5,6 +5,7 @@ import { GlobalContext } from '../context/GlobalContext'
 import { useContext } from 'react'
 import { Link,useNavigate} from 'react-router-dom'
 import PaginaAdmin_Gerenciamento_usuarios from './PaginaAdmin_Gerenciamento_usuarios'
+import axios from 'axios'
 
 function Informacoes_usuario() {
   
@@ -15,8 +16,38 @@ function Informacoes_usuario() {
   const [modalIsOpenUpdateUser,setModalIsOpenUdateUser]=useState(false)
   const[pagina,setPagina]=useState('')
   const irParaLanding=useNavigate()
+  const [clientes,setClientes]=useState([])
+  console.log(UserLogado)
 
- 
+
+  const atualizarUsuarios = async() =>{
+    try{
+      const response = await axios.get('http://localhost:3333/Usuarios')
+      setClientes(response.data)
+      
+    }catch(err){
+      console.erro('erro ao buscar um cliente',err)
+    }
+
+  }
+
+ const deletarUsuario =  async (nome) => {
+   try{
+    console.log(nome)
+     
+      const response=  await axios.delete(`http://localhost:3333/Usuarios/${nome}`)
+      if(response.status==200){
+        atualizarUsuarios()
+      }
+    }catch(err){
+      console.error('Erro ao deletar um clinete',err)
+      console.log(nome)
+
+    }
+
+  
+  
+ }
   function deletarConta(){
     setVetorUsuarios(vetorUsuarios.filter(user => user.idIndentificador !== UserLogado.idIndentificador))
     irParaLanding("/")
@@ -95,7 +126,7 @@ function Informacoes_usuario() {
 </div>
 <div className='container_bottao_excluir_conta_definitivo'>
   <Link to={pagina}>
-   <button className='bottao_excluir_conta_definitivo' onClick={deletarConta}>sim,excluir conta</button> <button    onClick={() => {handleClick(2)}} className='botton_cancela_excluzao'>não,manter conta</button>
+   <button className='bottao_excluir_conta_definitivo' onClick={deletarUsuario(UserLogado.nome)}>sim,excluir conta</button> <button    onClick={() => {handleClick(2)}} className='botton_cancela_excluzao'>não,manter conta</button>
   </Link>
 
 

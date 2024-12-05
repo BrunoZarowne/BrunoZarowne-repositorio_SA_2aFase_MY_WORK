@@ -65,20 +65,18 @@ app.get('/Usuarios', async(request,response)=>{
 
 })
 
-app.delete('/Usuarios/:id', async(request,response)=>{
-    const {id}= request.params
-    console.log("usuario tadaana",id)
+app.delete('/Usuarios/:nome', async(request,response)=>{
+    const {nome}= request.params
+    console.log("usuario tadaana",nome)
 
     try{
-        const resultado=await pool.query('DELETE FROM myWork WHERE id = $1 RETURNING id',
-        
-        [id])
+        const resultado=await pool.query('DELETE FROM myWork WHERE nome = $1 RETURNING *',[nome])
         
         if(resultado.rowCount>0){
-            response.status(200).json({message:`Usuario com ${id} foi excluido`})
+            response.status(200).json({message:`Usuario ${nome} foi excluido`})
 
         }else{
-            response.status(404).json({message:`Usuario Não encontrado com id${id}`})
+            response.status(404).json({message:`Usuario Não encontrado com ${nome}`})
         }
 
     }catch(err){
