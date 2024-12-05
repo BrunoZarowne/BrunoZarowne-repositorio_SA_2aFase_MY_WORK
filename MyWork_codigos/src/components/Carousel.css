@@ -1,7 +1,7 @@
 html, body{
     overflow: auto;
-    background-image: url("https://images.unsplash.com/photo-1660895870525-405631bb6c18?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-
+    /* background-image: url("https://images.unsplash.com/photo-1660895870525-405631bb6c18?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+background-color:#00002D
 }
 .containerCarousel{
     width: 100%;
@@ -32,6 +32,7 @@ html, body{
         left: 45px;
         z-index: 1;
         position: relative;
+ border-radius:4px ;
     }
 }
 
@@ -186,4 +187,10 @@ html, body{
 }
 .SwiperSlideManga{
     z-index: 2;
+
+}.imgsMangas:hover{
+  
+    transform: scale(1.04); /* Aumenta 4% */
+    transition: transform 800ms;
+
 }

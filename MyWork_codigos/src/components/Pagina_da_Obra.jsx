@@ -18,9 +18,42 @@ const {formState, setFormState,abrirObraClone,setAbrirObraClone} = useContext(Gl
   return (
     <div>
         <Header_paginas />
-        <div>
+        <div className='pagina_obras'>
+         <div className='container_titulo_capa_obras_sinopse'>
+         <div className='container_titulo_capa_obras'>
+          
           <h2 className='h2TituloObra'>{abrirObraClone.titulo}</h2> 
+         
          <img src={abrirObraClone.imagemCatalogo} alt="imagem do catalogo da obra" className='Imagem_da_obra' />
+         </div>
+      
+         
+         <div className='container_sinopse'>
+         <div className='container_h1_sinopse'><h1 className='h1_sinopse'>sinopse</h1></div>
+        <p className='sinopse_obras'>{abrirObraClone.sinopse}</p>
+        
+        </div>
+         
+         
+         </div>
+         
+        
+         
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
         </div>
      
         

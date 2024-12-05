@@ -292,16 +292,17 @@ function Carousel() {
       
       
     <div className='carouselMangas'>
+    <h1 className='Mangas'>Mangas</h1>
       <Swiper
         slidesPerView={4}
         pagination={{ clickable: true}}
         navigation className='swiper'>
         {imagensObrasMangas.map((item) => (
-          <SwiperSlide key={item.id} className='SwiperSlideManga'>
+          <SwiperSlide key={item.id} className='SwiperSlideManga' >
             <Link to={`/detalhes/${item.id}`}>
               <img className='imgsMangas' src={item.image} onClick={()=>{abrirModalObras(item.id) ,setAbrirObraClone({ id:item.id, titulo:item.title,
               autor:item.author,
-              paginas:item.pages.pages,
+              paginas:item.pages,
               data_lancamento:item.date,
               sinopse:item.summary,
               imagemCatalogo:item.image,
@@ -329,6 +330,7 @@ function Carousel() {
      </Swiper>
      </div><br />
      <div className='carouselLivros'>
+      <h1 className='livros'>livros</h1>
       <Swiper
         slidesPerView={4}
         pagination={{ clickable: true}}
@@ -404,6 +406,7 @@ function Carousel() {
             setFormState({...formState, pages: e.target.value})}/>
             <br /><br /><br />
             
+            
             <label>Data lançamento</label><br />
             <input 
             className='inputMenor' 
@@ -413,6 +416,7 @@ function Carousel() {
             onChange={(e) => 
             setFormState({...formState, date: e.target.value})}/>
           </div>
+            
             <div className='caixaSinopse'>
                 <label>Sinopse</label><br />
                 <textarea 
@@ -424,6 +428,11 @@ function Carousel() {
                 value={formState.summary} 
                 onChange={(e) => 
                 setFormState({...formState, summary: e.target.value})}></textarea><br /><br />
+             
+
+               
+               
+               
                 <button type="submit" onClick={guardar_infos_postagem}>Postar</button>
             </div>
         

@@ -12,6 +12,7 @@ function Pagina_postagem() {
       date: "",
       summary: "",
       images: ""
+     
     })
     
     
@@ -106,8 +107,11 @@ function Pagina_postagem() {
             onChange={(e) => 
             setFormState({...formState, summary: e.target.value})}></textarea>
             <br /><br />
-            
+       
           <button type="submit" onClick={guardar_infos_postagem}>Postar</button>
+        
+        
+        
         </div>
       </div>
     </div>
