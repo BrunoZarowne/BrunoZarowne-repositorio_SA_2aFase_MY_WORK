@@ -15,7 +15,7 @@
 
 .divImagem{
     background-image: url('../images/backGroud-cadastro.svg');
-    min-width: 100vh;
+    width: 100%;
     min-height: 100vh;
     background-repeat: no-repeat;
     background-position:center;

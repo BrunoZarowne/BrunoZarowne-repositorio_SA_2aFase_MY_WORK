@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import "./Informacoes_usuario.css" 
 import { GlobalContext } from '../context/GlobalContext'
-import { useContext } from 'react'
+import { useContext,useEffect } from 'react'
 import { Link,useNavigate} from 'react-router-dom'
 import PaginaAdmin_Gerenciamento_usuarios from './PaginaAdmin_Gerenciamento_usuarios'
 import axios from 'axios'
@@ -16,14 +16,53 @@ function Informacoes_usuario() {
   const [modalIsOpenUpdateUser,setModalIsOpenUdateUser]=useState(false)
   const[pagina,setPagina]=useState('')
   const irParaLanding=useNavigate()
-  const [clientes,setClientes]=useState([])
-  console.log(UserLogado)
+//variaveis para a troca de  informações
 
+const [inptEmail,setInptEmail]=useState('')
+const [inptDataNascimento,setInptDataNascimento]=useState('')
+const [inptSenha,setInptSenha]=useState('')
+
+
+  // useEffect(() => {
+  //   usuarioLogado(); // Executa quando o componente é montado
+  // }, []); 
+  
+
+ 
+
+  // const usuarioLogado = async() =>{
+  //   try{
+  //   const response = await axios.get(`http://localhost:3333/Usuarios/logado/${UserLogado.nome}`)
+  //   setUserLogado(response.data)
+  // }catch(error){
+  //   console.error("seu erro foi :",error)
+
+  // }
+
+  // }
+  const atualizarUsuario = async() =>{
+    let infosNovas={
+      email:inptEmail,
+      senha:inptSenha,
+      dataNascimento:inptDataNascimento
+
+    }
+    console.log(infosNovas)
+
+    try{
+      const response = await axios.put(`http://localhost:3333/Usuarios/atualizar/${UserLogado.nome}`,infosNovas)
+     
+
+    }catch(err){
+      console.log("seu erro foi esse: ",err)
+    }
+  }
 
   const atualizarUsuarios = async() =>{
     try{
       const response = await axios.get('http://localhost:3333/Usuarios')
-      setClientes(response.data)
+      console.log(response.data)
+      setVetorUsuarios(response.data)
       
     }catch(err){
       console.erro('erro ao buscar um cliente',err)
@@ -48,10 +87,7 @@ function Informacoes_usuario() {
   
   
  }
-  function deletarConta(){
-    setVetorUsuarios(vetorUsuarios.filter(user => user.idIndentificador !== UserLogado.idIndentificador))
-    irParaLanding("/")
-  }
+
   const handleClick = (index) => {
     setBotaoAtivo(index); 
     
@@ -64,16 +100,17 @@ function Informacoes_usuario() {
   
   
   };
+ 
 
 
  
   return (
-    <div className='container_info_usuarios'>
+    <div className='container_info_usuarios'  >
       <div className='div_inputs_user'>
-<label htmlFor="inptNomeUser" >nome</label><input type="text"  className='input_nome_user' defaultValue={UserLogado.nomePessosa}  name='inptNomeUser'/>
-<label htmlFor="inptEmailuser">email</label><input type="text" className='input_emai_user' defaultValue={UserLogado. emailUsuario} name='inptEmailuser'/>
-<label htmlFor="inptDataNasUser">data nascimento</label><input type="text" className='input_data_nascimento_user' defaultValue={ UserLogado.dataNascimentoUser} name='inptDataNasUser'/>
-<label htmlFor="inptSenhaUser">senha</label><input type="text" className='input_senha_user' defaultValue={UserLogado.senhaUsuario} name='inptSenhaUser'/>
+<label htmlFor="inptNomeUser" >nome</label><input type="text"  className='input_nome_user' defaultValue={UserLogado.nome}  name='inptNomeUser'/>
+<label htmlFor="inptEmailuser">email</label><input type="text" className='input_emai_user' defaultValue={UserLogado. email} name='inptEmailuser'/>
+<label htmlFor="inptDataNasUser">data nascimento</label><input type="text" className='input_data_nascimento_user' defaultValue={ UserLogado.dataNascimento} name='inptDataNasUser'/>
+<label htmlFor="inptSenhaUser">senha</label><input type="text" className='input_senha_user' defaultValue={UserLogado.senha} name='inptSenhaUser'/>
 </div>
 
 <div className='container_button_edit_info_user'>
@@ -86,22 +123,23 @@ function Informacoes_usuario() {
   Insira as Informações que deseja trocar
   </p>
   <div className='divInpt'>
-    <div className='containerNomeNovo'>
-    <label htmlFor="inptNovoNome">Insira aqui o nome: </label> <input name='inptNovoNome' className='inptCasdastroNovoNome'></input>
-    </div>
+
 
     <div className='containerNovoEmail'>
-      <label htmlFor="inptNovoEmail">Insira Aqui o email: </label><input type="text" name='inptNovoEmail' className='inptCadastroNovoEmail' />
+      <label htmlFor="inptNovoEmail">Insira Aqui o email: </label><input type="text" name='inptNovoEmail' className='inptCadastroNovoEmail' 
+      value={inptEmail} onChange={(event)=>{setInptEmail(event.target.value)}} />
     </div>
 
     <div>
-      <label htmlFor="inptNovaDataNas">insira Aqui a data de nascimento: </label> <input type="text" name='inptNovaDataNas' className='inptCadastroNovaDataNascimento' />
+      <label htmlFor="inptNovaDataNas" type='date'>insira Aqui a data de nascimento: </label> <input type="text" name='inptNovaDataNas' className='inptCadastroNovaDataNascimento'  
+      value={inptDataNascimento} onChange={(event)=>{setInptDataNascimento(event.target.value)}}/>
     </div>
 
     <div className='containersenhaNova'>
-      <label htmlFor="inptNovaSenha">Insira sua nova senha: </label> <input name='inptNovaSenha' type="password" className='inptCadastroNovasenha' />
-
+      <label htmlFor="inptNovaSenha">Insira sua nova senha: </label> <input name='inptNovaSenha' type="password" className='inptCadastroNovasenha'
+      value={inptSenha} onChange={(event)=>{setInptSenha(event.target.value)}} />
     </div>
+      <button onClick={atualizarUsuario}>Sim,quero trocar</button><button onClick={()=>{setModalIsOpenUdateUser(false)}}>Não,voltar para o perfil!</button>
 
   </div>
   </dialog> </div>}
@@ -113,7 +151,7 @@ function Informacoes_usuario() {
 <button  className={`button_excluir_conta ${botaoAtivo === 5 ? 'ativo' : 'inativo'}`}
                 onClick={() => {handleClick(5)}} >excluir conta</button>
 
-                <button className='butonSairConta'>Sair da conta</button>
+                <button className='butonSairConta' onClick={ atualizarUsuarios}>Sair da conta</button>
 
   </div>
 
