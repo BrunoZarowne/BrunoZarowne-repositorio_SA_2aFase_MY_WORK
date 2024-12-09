@@ -1,4 +1,4 @@
-import express, { json, query, request } from 'express'
+import express, { json, query, request, response } from 'express'
 import pkg from 'pg'
 import cors from 'cors'
 const {Pool} = pkg
@@ -124,10 +124,27 @@ const{email,senha,dataNascimento}=request.body
               console.error('Erro ao atualizar o usuário:', erro);
               response.status(500).json({ error: 'Erro interno do servidor' });
             }
+})
+app.post('/Usuarios/login', async(request,response) => {
 
+     const {email,senha}=request.body
+
+    try{
+        const resultado = await pool.query('select * from Usuarios where email = $1 and senha = $2',[email,senha])
         
+        if (resultado.rows.length > 0) {
+            // Usuário encontrado
+            response.json({ success: true, user: resultado.rows[0] });
+            console.log(resultado)
+        } else {
+            // Usuário não encontrado
+            response.status(401).json({ success: false, message: 'Email ou senha inválidos' });
+        }
 
-    
+    }catch(erro){
+        console.error("o erro foi:",erro)
+
+    }
 
 })
 

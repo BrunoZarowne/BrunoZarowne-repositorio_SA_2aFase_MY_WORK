@@ -43,7 +43,7 @@ function Header_paginas() {
         <Link to={"/Perfil_de_Usuario"}>
         <img className='user' src={fotoUsuario} alt="" />
         </Link>
-        <p className='PnomeUsuario'>{UserLogado.nome.slice(0,5)}</p>
+        {/* <p className='PnomeUsuario'>{UserLogado.nome.slice(0,5)}</p> */}
      
       </div>
         

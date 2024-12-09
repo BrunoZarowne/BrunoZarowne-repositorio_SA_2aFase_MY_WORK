@@ -12,8 +12,8 @@ const [UserLogado,setUserLogado] =useState( {
   
         nome:'',
         email:'',
-        dataNascimento:'',
         senha:'',
+        dataNascimento:'',
         eDev:false,
         eAdm:false
       
