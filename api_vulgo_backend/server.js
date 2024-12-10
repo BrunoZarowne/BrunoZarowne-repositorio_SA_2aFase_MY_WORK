@@ -16,8 +16,8 @@ const user=[]
 const pool=new Pool({
     user:'postgres',
     host:'localhost',
-    database:'myWork',
-    password:"1234",
+    database:'My_work_sa',
+    password:"senai",
     port: 5432
     
 
@@ -133,9 +133,16 @@ app.post('/Usuarios/login', async(request,response) => {
         const resultado = await pool.query('select * from Usuarios where email = $1 and senha = $2',[email,senha])
         
         if (resultado.rows.length > 0) {
-            // Usuário encontrado
-            response.json({ success: true, user: resultado.rows[0] });
-            console.log(resultado)
+           // Formatar a data de nascimento
+           const usuario = resultado.rows[0];
+           if (usuario.dataNascimento) {
+               // Converter a data para o formato 'YYYY-MM-DD'
+               usuario.dataNascimento = usuario.dataNascimento.toISOString().split('T')[0];
+           }
+
+           // Retornar o usuário com a data formatada
+           response.json({ success: true, user: usuario });
+           console.log(resultado);
         } else {
             // Usuário não encontrado
             response.status(401).json({ success: false, message: 'Email ou senha inválidos' });
@@ -180,7 +187,7 @@ app.get('/obrasManga', async(request,response)=>{
 })
 app.get('/obrasLivros', async(request,response)=>{
     try{
-        const resultado = await pool.query("SELECT * from Obras where genre = 'HQ' ")
+        const resultado = await pool.query("SELECT * from Obras where genre = 'Livro' ")
         response.status(200).json(resultado.rows)
 
     }catch(erro){
@@ -226,8 +233,38 @@ app.listen(3333)
 //     genre varchar(10)   
 //     );<-- tabela para fazer no senai para o crud
 /* comando para dar na tabela ALTER TABLE Obras ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
-select * from Obras*/
 
+
+/*create table Usuarios(
+    Id int primary key not null,
+    nome varchar(100) not null,
+    email varchar(200) not null,
+    senha varchar(100)not null,
+    dataNascimento date,
+    eDev boolean,
+    eAdm boolean
+        
+    
+    
+    );<--tabela de Usarios
+    ALTER TABLE Usuarios ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY
+    
+    
+    
+     Create table Obras(
+         id int primary key not null,
+        title varchar(20),
+       author varchar(100),
+       page decimal,
+       date date,
+       summary varchar(600),
+        image varchar(2000),
+        genre varchar(10)   
+       );<-- tabela de obras
+       
+       ALTER TABLE Obras ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY
+       select * from Obras */
+    
 
 
 
