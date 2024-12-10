@@ -148,6 +148,57 @@ app.post('/Usuarios/login', async(request,response) => {
 
 })
 
+app.post('/PostarObras',async(request,response)=>{
+    const { title ,author,page,date ,summary,image ,genre} = request.body;
+    try{
+        const resultado= await pool.query('INSERT INTO Obras ( title ,author,page,date ,summary,image ,genre ) VALUES ($1, $2,$3,$4,$5,$6,$7) RETURNING *',[title ,author,page,date ,summary,image ,genre])
+
+    }catch(erro){
+        console.error("Erro ao inserir o usuário:", erro.message);
+        response.status(500).json({ error: 'Erro interno do servidor' });//<-- indica que o erro foi no backend
+
+    }
+
+})
+app.get('/obrasHQ', async(request,response)=>{
+    try{
+        const resultado = await pool.query("SELECT * from Obras where genre = 'HQ' ")
+        response.status(200).json(resultado.rows)
+
+    }catch(erro){
+
+    }
+})
+app.get('/obrasManga', async(request,response)=>{
+    try{
+        const resultado = await pool.query("SELECT * from Obras where genre = 'Manga' ")
+        response.status(200).json(resultado.rows)
+
+    }catch(erro){
+
+    }
+})
+app.get('/obrasLivros', async(request,response)=>{
+    try{
+        const resultado = await pool.query("SELECT * from Obras where genre = 'HQ' ")
+        response.status(200).json(resultado.rows)
+
+    }catch(erro){
+
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
 app.listen(3333)
 /*
     MISSÂO
@@ -163,6 +214,21 @@ app.listen(3333)
     
     
 */
+
+// Create table Obras(
+//     id int primary key not null,
+//     title varchar(20),
+//     author varchar(100),
+//     page decimal,
+//     date date,
+//     summary varchar(600),
+//     image varchar(2000),
+//     genre varchar(10)   
+//     );<-- tabela para fazer no senai para o crud
+/* comando para dar na tabela ALTER TABLE Obras ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+select * from Obras*/
+
+
 
 
 

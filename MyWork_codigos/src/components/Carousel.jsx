@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect} from 'react'
 import { useState } from 'react'
 import './Carousel.css'
 import { register } from 'swiper/element/bundle'
 import Modal from 'react-modal'
 import { GlobalContext } from '../context/GlobalContext'
+import axios from 'axios'
 
 
 register()
@@ -19,7 +20,9 @@ import { Link } from 'react-router-dom'
 
 function Carousel() { 
   const [modalObras,setModalObras]=useState(null)
-  const {formState, setFormState,abrirObraClone,setAbrirObraClone} = useContext(GlobalContext)
+  const {formState, setFormState,abrirObraClone,setAbrirObraClone,UserLogado,setUserLogado} = useContext(GlobalContext)
+  const [obrasHq,setObrasHq]=useState([])
+  const [obrasMangaVetor,setObrasMangaVetor]=useState([])
 
   const [imagensObrasMangas, setImagensObrasMangas] = useState([
     {
@@ -224,7 +227,46 @@ function Carousel() {
     image: 'https://m.media-amazon.com/images/I/91fLBlcmpXL._AC_UF1000,1000_QL80_.jpg',
     genre: 'Livro'
     },
-  ])
+  ]) 
+
+  const obrasManga = async() => {
+    try{
+      const resposta = await axios.get('http://localhost:3333/obrasManga')
+      setObrasMangaVetor(resposta.data)
+
+
+    }catch(erro){
+      console.error(erro)
+
+    }
+    
+  }
+  useEffect(() => {
+    obrasManga
+
+  },[])
+
+  useEffect(()=>{
+    console.log(obrasMangaVetor)
+  },[obrasMangaVetor])
+  
+  const obrasHQ = async() => {
+   try{
+    const resultado = await axios.get('http://localhost:3333/obrasHQ')
+    setObrasHq(resultado.data)
+
+
+
+   }catch(erro){
+
+   }
+  }
+  useEffect(()=>{
+    obrasHQ()
+  },[])
+  useEffect(()=>{
+    console.log(obrasHq)
+  },[obrasHQ])
  
  
   function vericarurl(url){
@@ -253,17 +295,18 @@ function Carousel() {
 
 
 
-  function guardar_infos_postagem() {
+  function guardar_infos_postagem () {
     if (formState.title == '' || formState.author == '' || formState.pages == '' || 
     formState.date == '' || formState.summary == '' || formState.images == '' || formState.genre == ''){
       alert('Você esqueceu de preencher um dos campos, por favor preencha para poder postar sua obra 😊')
     }else{
       if (formState.genre == "Manga"){
-        setImagensObrasMangas((imagensObrasMangas) => 
-        [...imagensObrasMangas, 
-        {id: imagensObrasMangas.length + 1, title: formState.title, author: formState.author, pages: formState.pages, date: formState.date,
-        summary: formState.summary, image: formState.images, genre: formState.genre}])
-        console.log(imagensObrasMangas)
+        // setImagensObrasMangas((imagensObrasMangas) => 
+        // [...imagensObrasMangas, 
+        // {id: imagensObrasMangas.length + 1, title: formState.title, author: formState.author, pages: formState.pages, date: formState.date,
+        // summary: formState.summary, image: formState.images, genre: formState.genre}])
+        // console.log(imagensObrasMangas)
+       
       }
       else if( formState.genre == "HQ"){
         setImagensObrasHQs((imagensObrasHQs) => 
@@ -283,6 +326,27 @@ function Carousel() {
 
 
   }
+  const postarObras = async() =>{
+    try{
+      const infoObras={
+        title: formState.title,
+        author: UserLogado.nome,
+        pages: formState.pages,
+        date: formState.date,
+        summary: formState.summary,
+        image: formState.images,
+        genre: formState.genre
+      }
+      console.log(infoObras)
+      
+      const resultado = await axios.post('http://localhost:3333/PostarObras',infoObras)
+
+    }catch(erro){
+      console.error('o erro foi :',erro)
+
+    }
+    
+  }
   
  
 
@@ -297,8 +361,8 @@ function Carousel() {
         slidesPerView={4}
         pagination={{ clickable: true}}
         navigation className='swiper'>
-        {imagensObrasMangas.map((item) => (
-          <SwiperSlide key={item.id} className='SwiperSlideManga' >
+        {obrasMangaVetor.map((item,index) => (
+          <SwiperSlide key={index} className='SwiperSlideManga' >
             <Link to={`/detalhes/${item.id}`}>
               <img className='imgsMangas' src={item.image} onClick={()=>{abrirModalObras(item.id) ,setAbrirObraClone({ id:item.id, titulo:item.title,
               autor:item.author,
@@ -319,7 +383,7 @@ function Carousel() {
       pagination={{ clickable: true}}
       navigation  
      >
-      {imagensObrasHQs.map((item) => (
+      {obrasHq.map((item) => (
         <SwiperSlide key={item.id}>
           <a href={item.a}>
             <img className='imgsHQs' src={item.image}/>
@@ -433,7 +497,7 @@ function Carousel() {
                
                
                
-                <button type="submit" onClick={guardar_infos_postagem}>Postar</button>
+                <button type="submit" onClick={postarObras}>Postar</button>
             </div>
         
         </div>

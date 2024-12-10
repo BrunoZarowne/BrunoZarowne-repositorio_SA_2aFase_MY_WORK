@@ -15,7 +15,7 @@ function Informacoes_usuario() {
   const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado}=useContext(GlobalContext)
   const [modalIsOpenUpdateUser,setModalIsOpenUdateUser]=useState(false)
   const[pagina,setPagina]=useState('')
-  const irParaLanding=useNavigate()
+  const irParaLanding=useNavigate('/')
 //variaveis para a troca de  informações
 
 const [inptEmail,setInptEmail]=useState('')
@@ -77,6 +77,7 @@ const [inptSenha,setInptSenha]=useState('')
       const response=  await axios.delete(`http://localhost:3333/Usuarios/${nome}`)
       if(response.status==200){
         atualizarUsuarios()
+        irParaLanding('/')
       }
     }catch(err){
       console.error('Erro ao deletar um clinete',err)
@@ -151,7 +152,7 @@ const [inptSenha,setInptSenha]=useState('')
 <button  className={`button_excluir_conta ${botaoAtivo === 5 ? 'ativo' : 'inativo'}`}
                 onClick={() => {handleClick(5)}} >excluir conta</button>
 
-                <button className='butonSairConta' onClick={ atualizarUsuarios}>Sair da conta</button>
+                <button className='butonSairConta' onClick={()=> {irParaLanding('/')}}>Sair da conta</button>
 
   </div>
 
