@@ -1,125 +1,123 @@
+.container_conteudo {
+    height: 80vh;
+    background: linear-gradient(45deg, #021b5e, #00002D);
+    background-size: 400% 400%;
+    animation: container_pag_usuario 10s ease infinite;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
 
-.container_conteudo{
-    
-height: 80vh;
-/* border: solid orange; */
-background: linear-gradient(45deg,#021b5e, #00002D);
-background-size: 400% 400%;
-animation: container_pag_usuario 10s ease infinite;
-
-
-}/* Animação de gradiente entre #090979 e #00002D */
 @keyframes container_pag_usuario {
-0% {
-  background-position: 0% 50%;
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
-50% {
-  background-position: 100% 50%;
+
+.conatiner_titulo {
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto-Medium";
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
 }
-100% {
-  background-position: 0% 50%;
+
+.container_introducao {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    font-family: "Roboto-Medium";
+    text-align: center;
+    margin-bottom: 30px;
 }
-}
 
-
-
- 
-.conatiner_titulo{
-
-display: flex;
-justify-content: center;
-font-family: Roboto-Medium;
-/* border: solid red; */
-
-}.container_introducao{
-display: flex;
-justify-content: center;
-
-
-
-}.container_titulo_introducao{
-display: flex;
+.container_titulo_introducao {
+    display: flex;
     flex-direction: column;
-justify-content: space-evenly;
-/* border: solid yellow */
-  ;
-height:20%
-
-
-}.container_introducao{
-
-
-
-font-size: 20px;
-color: white;
-font-family: Roboto-Medium;
-/* border: solid beige; */
+    justify-content: space-evenly;
+    align-items: center;
+    height: 20%;
+    gap: 10px;
 }
 
 @font-face {
-    font-family:"roboto-regular" ;
+    font-family: "Roboto-Regular";
     src: url(../fonts/Roboto-Regular.ttf);
-}.container_recomendacoes{
+}
 
-/* border: solid yellowgreen; */
+@font-face {
+    font-family: "Roboto-Medium";
+    src: url(../fonts/Roboto-Medium.ttf);
+}
+
+.container_recomendacoes {
+    display: flex;
+    justify-content: center;
     color: white;
-    font-family: Roboto-Medium
-    
+    font-family: "Roboto-Medium";
+    font-size: 22px;
+    margin-top: 30px;
+}
 
-}@font-face {
-    font-family:"Roboto-Medium" ;
-    src: url(../fonts/Roboto-Medium.ttf);}
-    .container_recomendacoes{
-display: flex;
-        justify-content: center;
-    }
-    
-    
-    
-    .container_obras_recomendadas{
+.container_obras_recomendadas {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 70px;
+}
 
-height: 50vh;
-   display: flex;
-
-justify-content: center;
-margin-top: 50px;
-
-
-}.capa_obra_um{
-width: 25vh;
-border-radius: 5px;
-}.titulo_obra_um{
-font-family: roboto-regular;
-color: white;
-width: fit-content;
-font-size: 20px;
-}.autor_obra_um{
-
-    font-family: roboto-regular;
- color: white;
-width: fit-content;
-
-}.obras_um{
-margin-right: 75px;
+.obras_um, .obra_dois {
     width: fit-content;
-/* border: solid white 0.9px; */
+    background-color: #212277;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
+.obras_um:hover, .obra_dois:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+}
 
-background-color: #212277;;
-border-radius: 5px;
-}.container_titulo_autor{
-height: 10vh;
+.capa_obra_um {
+    width: 25vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
 
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
-}.obra_dois{
-   
-        width: fit-content;
-    border-color: white;
-        background-color: #212277;;
-    border-radius: 5px;
-    /* border: solid white 0.9px; */
+.capa_obra_um:hover {
+    transform: scale(1.1);
+}
 
+.titulo_obra_um, .autor_obra_um {
+    font-family: "Roboto-Regular";
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    width: fit-content;
+}
+
+.container_titulo_autor {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5px;
 }

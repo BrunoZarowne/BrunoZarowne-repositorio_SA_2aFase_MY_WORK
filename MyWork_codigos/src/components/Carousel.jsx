@@ -263,13 +263,16 @@ function Carousel() {
       </Swiper>
      </div><br /><br /><br />     
      <div className='carouselHQs'>
+     <h1 className='hq'>HQ</h1>
      <Swiper
       slidesPerView={4}
       pagination={{ clickable: true}}
       navigation  
      >
       {obrasHq.map((item) => (
-        <SwiperSlide key={item.id}>
+       
+       <SwiperSlide key={item.id}>
+     
      <Link to={`/detalhes/${item.id}`}>
             <img className='imgsHQs' src={item.image}onClick={()=>{abrirModalObras(item.id) ,setAbrirObraClone({ id:item.id, titulo:item.title,
               autor:item.author,
@@ -322,6 +325,7 @@ function Carousel() {
           <div className='inputsUm'>
             <label>Link da sua imagen</label><br />
             <input 
+            
             type="text" 
             required 
             value={formState.images} 
