@@ -1,0 +1,390 @@
+Global Context
+
+const [obrasFavoritadas, setObrasFavoritadas] = useState([])
+
+const [obrasVisitadas, setObrasVisitadas] = useState([])
+
+
+//////////////////////
+
+
+Global Context.provider
+
+    obrasFavoritadas,
+    setObrasFavoritadas,
+    obrasVisitadas,
+    setObrasVisitadas
+
+
+//////////////////////
+
+
+Componente_obra_favoritada.jsx
+
+import React, { useContext } from 'react'
+import "./Componente_obra_favoritas.css"
+import { GlobalContext } from '../context/GlobalContext'
+import { register } from 'swiper/element/bundle'
+
+register()
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+
+
+function Componente_obra_favoritas() {
+
+  const {obrasFavoritadas} = useContext(GlobalContext)
+
+  return (
+    <div className='container_obras_favoritas'>
+      <div className='favoritadas'>
+        <Swiper
+        slidesPerView={5}
+        pagination={{clickable: true}}
+        navigation
+        >
+          {obrasFavoritadas.map((item) =>(
+            <SwiperSlide key={item.id}>
+              <img className='imgFav' src={item.img} alt="" /><br />
+              <label className='txtFav'>{item.titulo}</label>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  )
+}
+
+export default Componente_obra_favoritas
+
+
+//////////////////////
+
+
+Componente_obra_favoritada.css
+
+
+.container_obras_favoritas{
+
+    background-color:white ;
+    margin-top: 10px;
+    margin-left: 17px;
+    width: 47%;
+    height: 40vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content:space-evenly;
+
+
+}
+.favoritadas{
+    background-color: #00002D;
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
+    --swiper-pagination-bottom: 93%;
+    padding: 5px;
+    .imgFav{
+        padding-top: 30px;
+        width: 150px;
+        height: 300px;
+        position: relative;
+        left: 10px;
+    }
+    .txtFav{
+        width: 100px;
+        height: 100px;
+        border: 2px bluee solid;
+        color: white;
+        font-size: 20px;
+        padding-left: 10px;
+    }
+    
+}
+
+
+
+//////////////////////
+
+
+Componente_historico_leitura.jsx
+
+
+
+import React from 'react'
+import { useContext } from 'react'
+import './Componente_historico_leitura.css'
+import { GlobalContext } from '../context/GlobalContext'
+
+
+function Componente_historico_leitura() {
+
+  const {obrasVisitadas} = useContext(GlobalContext)
+
+
+  return (
+    <div className='container_historico_de_leitura'>
+      <ul>
+        {obrasVisitadas.map((item) => (
+          <li className='histObras' key={item.id}>
+            <label className='lblUm'>{item.title}</label>
+            <label className='lblDois'>{item.time}</label>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export default Componente_historico_leitura
+
+
+//////////////////////
+
+
+
+Componente_historico_leitura.css
+
+
+.container_historico_de_leitura{
+    background-color:white ;
+    margin-top: 10px;
+    margin-left: 17px;
+    width: 47%;
+    height: 40vh;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.histObras{
+    border: 2px black solid;
+    border-radius: 5px;
+    height: 20px;
+    width: 80%;
+    position: relative;
+    padding: 5px;
+    top: 20px;
+    left: 8%;
+    list-style-type: none;
+    margin-bottom: 15px;
+    .lblUm{
+        width: 150px;
+        text-align: center;
+        position: absolute;
+        left: 20%;
+    }
+    .lblDois{
+        position: absolute;
+        left: 70%;
+    }
+    
+}
+
+
+//////////////////////
+
+
+Carousel.jsx
+
+PARTE PRA COLOCAR NOS ARRAYS DE OBJETOS
+
+
+const {obrasFavoritadas, setObrasFavoritadas} = useContext(GlobalContext)
+
+  const {obrasVisitadas, setObrasVisitadas} = useContext(GlobalContext)
+
+
+// mangas //
+  
+  function adcObrasFavManga(event){ 
+    const idManga = event.currentTarget.getAttribute('data-idmanga');
+    const titleManga = event.currentTarget.getAttribute('data-titlemanga');
+    const imageManga = event.currentTarget.getAttribute('data-imagemanga');
+    
+    setObrasFavoritadas((fav) =>
+    [...obrasFavoritadas, {id: idManga, title: titleManga, img: imageManga}])
+    console.log(obrasFavoritadas)
+  }
+
+  function adcObrasHistManga(event){
+    const idMangaHist = event.currentTarget.getAttribute('data-idhistmanga');
+    const titleMangaHist = event.currentTarget.getAttribute('data-titlehistmanga');
+
+    const dataAtual = new Date()
+    const dataHoras = dataAtual.getHours()
+    const dataMinutos = dataAtual.getMinutes()
+    const dataShow = dataHoras.toString() + ':' + dataMinutos.toString()
+    
+    setObrasVisitadas(
+      [...obrasVisitadas, {id: idMangaHist, title: titleMangaHist, time: dataShow}])
+    console.log(obrasVisitadas)
+  }
+// mangas //
+
+// HQ //
+
+function adcObrasFavHQs(event){
+  const idHQ = event.currentTarget.getAttribute('data-idhq')
+  const titleHQ = event.currentTarget.getAttribute('data-titlehq')
+  const imageHQ = event.currentTarget.getAttribute('data-imagehq')
+
+  setObrasFavoritadas((fav) =>
+    [...obrasFavoritadas, {id: idHQ, title: titleHQ, img: imageHQ}])
+    console.log(obrasFavoritadas)
+}
+
+function adcObrasHistHQs(event){
+  const idHQHist = event.currentTarget.getAttribute('data-idhisthq')
+  const titleHQHist = event.currentTarget.getAttribute('data-titlehisthq')
+
+  const dataAtual = new Date()
+  const dataHoras = dataAtual.getHours()
+  const dataMinutos = dataAtual.getMinutes()
+  const dataShow = dataHoras.toString() + ':' + dataMinutos.toString()
+
+  setObrasVisitadas(
+    [...obrasVisitadas, {id: idHQHist, title: titleHQHist, time: dataShow}])
+  console.log(obrasVisitadas)
+}
+ 
+// HQ //
+
+// Livro //
+
+function adcObrasFavLivros(event){
+  const idLivro = event.currentTarget.getAttribute('data-idlivro')
+  const titleLivro = event.currentTarget.getAttribute('data-titlelivro')
+  const imageLivro = event.currentTarget.getAttribute('data-imagelivro')
+
+  setObrasFavoritadas((fav) =>
+    [...obrasFavoritadas, {id: idLivro, title: titleLivro, img: imageLivro}])
+    console.log(obrasFavoritadas)
+}
+
+function adcObrasHistlivro(event){
+  const idLivroHist = event.currentTarget.getAttribute('data-idhistlivro')
+  const titleLivroHist = event.currentTarget.getAttribute('data-titlehistlivro')
+
+  const dataAtual = new Date()
+  const dataHoras = dataAtual.getHours()
+  const dataMinutos = dataAtual.getMinutes()
+  const dataShow = dataHoras.toString() + ':' + dataMinutos.toString()
+
+  setObrasVisitadas(
+    [...obrasVisitadas, {id: idLivroHist, title: titleLivroHist, time: dataShow}])
+  console.log(obrasVisitadas)
+}
+  
+// Livro //
+
+
+
+PARTE DOS BOTÕES NOS CAROUSELS
+
+BUTTON MANGAS
+
+<button className='buttonMangas'
+   data-idhistmanga={item.id}
+   data-titlehistmanga={item.title}
+   onClick={adcObrasHistManga}>
+ <img className='imgsMangas' src={item.image}/>
+</button><br />
+  <label>{item.title}</label>
+<button className='buttonFav'
+   data-idmanga={item.id}
+   data-titlemanga={item.title}
+   data-imagemanga={item.image}
+   onClick={adcObrasFavManga}>
+  <img src="./public/images/favorita_vazio.svg"/>
+</button>
+
+
+BUTTON HQS
+
+
+<button className='buttonHQs'
+ data-idhisthq={item.id}
+ data-titlehisthq={item.title}
+ onClick={adcObrasHistHQs}>
+ <img className='imgsHQs' src={item.image}/>
+</button><br />
+ <label>{item.title}</label>
+<button className='buttonFav'
+ data-idhq={item.id}
+ data-titlehq={item.title}
+ data-imagehq={item.image}
+ onClick={adcObrasFavHQs}>
+ <img src="./public/images/favorita_vazio.svg"/>
+</button>
+
+
+BUTTON LIVROS
+
+
+<button className='buttonLivros'
+ data-idhistlivro={item.id}
+ data-titlehistlivro={item.title}
+ onClick={adcObrasHistlivro}>
+ <img className='imgsLivros' src={item.image}/>
+</button><br />
+ <label>{item.title}</label>
+<button className='buttonFav'
+ data-idlivro={item.id}
+ data-titlelivro={item.title}
+ data-imagelivro={item.image}
+ onClick={adcObrasFavLivros}>
+ <img src="./public/images/favorita_vazio.svg"/>
+</button>
+
+
+//////////////////////
+
+
+Carousel CSS
+
+dentro do .carouselMangas{
+.buttonMangas{
+   border: none;
+   background-color: #0C0C3E;
+   .imgsMangas{
+      width: 250px;
+      height: 350px;
+      position: relative;
+      padding-top: 25px;
+      left: 45px;
+      }
+  }
+}
+
+dentro do .carouselHQs{
+.buttonHQs{
+   border: none;
+   background-color: #0C0C3E;
+   .imgsHQs{
+      width: 250px;
+      height: 350px;
+      position: relative;
+      padding-top: 25px;
+      left: 45px;
+      }
+  }
+}
+
+dentro do .carouselLivros{
+.buttonLivros{
+   border: none;
+   background-color: #0C0C3E;
+   .imgsLivros{
+      width: 250px;
+      height: 350px;
+      position: relative;
+      padding-top: 25px;
+      left: 45px;
+      }
+  }
+}
