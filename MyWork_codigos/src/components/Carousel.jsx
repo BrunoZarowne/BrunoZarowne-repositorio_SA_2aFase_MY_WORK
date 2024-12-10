@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom'
 
 function Carousel() { 
   const [modalObras,setModalObras]=useState(null)
-  const {formState, setFormState,abrirObraClone,setAbrirObraClone,UserLogado,setUserLogado} = useContext(GlobalContext)
+  const {formState, setFormState,abrirObraClone,setAbrirObraClone,UserLogado,setUserLogado,modalPostagem,setModalPostagem,} = useContext(GlobalContext)
   const [obrasHq,setObrasHq]=useState([])
   const [obrasMangaVetor,setObrasMangaVetor]=useState([])
 
@@ -352,7 +352,7 @@ function Carousel() {
 
   return (
     <div className='containerCarousel'>
-          <button className='buttonCarousel' onClick={adcImagens}>Postar</button>
+         
       
       
     <div className='carouselMangas'>
@@ -385,9 +385,16 @@ function Carousel() {
      >
       {obrasHq.map((item) => (
         <SwiperSlide key={item.id}>
-          <a href={item.a}>
-            <img className='imgsHQs' src={item.image}/>
-          </a><br />
+     <Link to={`/detalhes/${item.id}`}>
+            <img className='imgsHQs' src={item.image}onClick={()=>{abrirModalObras(item.id) ,setAbrirObraClone({ id:item.id, titulo:item.title,
+              autor:item.author,
+              paginas:item.pages,
+              data_lancamento:item.date,
+              sinopse:item.summary,
+              imagemCatalogo:item.image,
+              genero:item.genre})}}/>
+              </Link>
+         <br />
           <label>{item.title}</label>
         </SwiperSlide>
       ))}
@@ -402,7 +409,15 @@ function Carousel() {
       >
         {livros.map((item) => (
           <SwiperSlide key={item.id}>
-              <img className='imgsLivros' src={item.image}/><br />
+              <Link to={`/detalhes/${item.id}`}>
+              <img className='imgsLivros' src={item.image}onClick={()=>{abrirModalObras(item.id) ,setAbrirObraClone({ id:item.id, titulo:item.title,
+              autor:item.author,
+              paginas:item.pages,
+              data_lancamento:item.date,
+              sinopse:item.summary,
+              imagemCatalogo:item.image,
+              genero:item.genre})}}/>
+              </Link><br />
             <label>{item.title}</label>
           </SwiperSlide>
         ))}
@@ -410,7 +425,7 @@ function Carousel() {
      </div><br />
      <Modal
       className='modalPostagem'
-      isOpen={modalIsOpen}
+      isOpen={modalPostagem}
       onRequestClose={fecharModal}
       contentLabel='Modal de exemplo'
       ariaHideApp={false}
@@ -418,7 +433,7 @@ function Carousel() {
       
         
         <div className='infosObra'>
-        <button className='buttonFecharModal' onClick={fecharModal}><img src="./images/fechar_modal.svg"/></button>
+        <button className='buttonFecharModal' onClick={()=>{setModalPostagem(false)}}><img src="./images/fechar_modal.svg"/></button>
           <div className='inputsUm'>
             <label>Link da sua imagen</label><br />
             <input 
@@ -426,8 +441,16 @@ function Carousel() {
             required 
             value={formState.images} 
             onChange={(e) => 
-            setFormState({...formState, images: e.target.value})}/>
-            <br /><br /><br />
+              setFormState({ ...formState, images: e.target.value })
+            }
+            onBlur={() => {
+              if (!vericarurl(formState.images)) {
+                alert('Por favor, insira um link válido para a imagem 😊');
+                setFormState({ ...formState, images: '' }); // Limpa o campo se a URL for inválida
+              }
+            }}
+          />
+          <br /><br /><br />
             
             <label>Titulo</label><br />
             <input 

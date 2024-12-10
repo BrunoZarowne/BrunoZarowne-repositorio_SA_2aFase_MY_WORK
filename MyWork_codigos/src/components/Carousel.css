@@ -59,7 +59,7 @@ background-color:#00002D
         position: relative;
         left: 45px;
         padding-top: 25px;
-    }
+    border-radius: 10px;}
 }
 
 .carouselLivros{
@@ -85,6 +85,7 @@ background-color:#00002D
         position: relative;
         left: 45px;
         padding-top: 25px;
+    border-radius: 10px;
     }
 }
 
@@ -193,4 +194,20 @@ background-color:#00002D
     transform: scale(1.04); /* Aumenta 4% */
     transition: transform 800ms;
 
-}
+}.hq{
+margin-left: 50px;
+
+}.Mangas{
+    margin-left: 50px;
+    
+    }.livros{
+        margin-left: 50px;
+        
+        }.imgsHQs:hover{ transform: scale(1.04); /* Aumenta 4% */
+            transition: transform 800ms;}
+        
+        .imgsLivros:hover{
+
+            transform: scale(1.04); /* Aumenta 4% */
+            transition: transform 800ms;
+        }

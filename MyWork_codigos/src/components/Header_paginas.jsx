@@ -9,7 +9,7 @@ function Header_paginas() {
   
   const {fotoUsuario,setFotoUsuario}=useContext(GlobalContext)
   const {paginaAtiva,setPaginaAtiva}= useContext(GlobalContext)
-  const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado}=useContext(GlobalContext)
+  const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado,modalPostagem,setModalPostagem}=useContext(GlobalContext)
   
   
   
@@ -73,8 +73,8 @@ function Header_paginas() {
         <a href=""><button className={`bt4 ${paginaAtiva === 4 ? 'ativo' : 'inativo'}`}
                 onClick={() => ativaPagina(4)}>melhores Avaliados</button></a>
         
-        <a href=""><button className={`bt5 ${paginaAtiva === 5 ? 'ativo' : 'inativo'}`}
-                onClick={() => ativaPagina(5)}>posta obras</button></a>
+        <button className={`bt5 ${paginaAtiva === 5 ? 'ativo' : 'inativo'}`}
+                    onClick={() => setModalPostagem(true)}>posta obras</button>
       
       
       </div>

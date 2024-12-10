@@ -6,7 +6,7 @@ export const GlobalContextProvider =({children})=>{
 let usuariologado="gill battes"
 const [fotoUsuario,setFotoUsuario]=useState('../images/imagem_padrao_usuario.svg')
 const [vetorUsuarios,setVetorUsuarios]=useState([])//Vetor para o gerencianto de pessoa no site
-
+const[modalPostagem,setModalPostagem] = useState(false)
 const [paginaAtiva,setPaginaAtiva]= useState(null)
 const [UserLogado,setUserLogado] =useState( {
   
@@ -59,7 +59,9 @@ const [UserLogado,setUserLogado] =useState( {
     setFormState,
     formState,
     abrirObraClone,
-    setAbrirObraClone
+    setAbrirObraClone,
+    modalPostagem,
+    setModalPostagem
     }}>
 
 {children}
