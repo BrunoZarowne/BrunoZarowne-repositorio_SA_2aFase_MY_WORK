@@ -33,12 +33,12 @@ const {formState, setFormState,abrirObraClone,setAbrirObraClone} = useContext(Gl
         <p className='sinopse_obras'>{abrirObraClone.sinopse}</p>
         
         </div>
-         
-         
          </div>
-         
-        
-         
+         <div className='container_genero'>
+         <div className='pading_genero'>
+         <h1 className='autor-h1'>autor:   {abrirObraClone.autor}</h1>
+         <h1 className='genero_h1'>genero:   {abrirObraClone.genero}</h1>
+         </div>
    
 
 
@@ -46,6 +46,7 @@ const {formState, setFormState,abrirObraClone,setAbrirObraClone} = useContext(Gl
 
 
 
+        </div>
 
 
 
