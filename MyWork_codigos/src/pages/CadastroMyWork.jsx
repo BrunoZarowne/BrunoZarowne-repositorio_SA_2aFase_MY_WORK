@@ -123,26 +123,33 @@ function CadastroMyWork() {
             setIdUser(idUsuario)
             
   
-            let InfoUser = {
-              nome:nomeUser,
-              email:emailUser,
-              senha:senhaUser,
-              dataNascimento:dataNascimento,
-              eDev:false,
-              eAdm:false
-              } 
-              axios.post('http://localhost:3333/Usuarios',InfoUser)
-             .then(response => console.log(response.data))
-             .catch(error => console.error(error))
+            try{
+                let InfoUser = {
+                  nome:nomeUser,
+                  email:emailUser,
+                  senha:senhaUser,
+                  dataNascimento:dataNascimento,
+                  eDev:false,
+                  eAdm:false
+                  } 
+                axios.post('http://localhost:3333/Usuarios',InfoUser)
+                setCadastroNaoConcluido(false)
+          
+                setVetorUsuarios([...vetorUsuarios,InfoUser])
+                console.log(vetorUsuarios)
+                setUserLogado({nome:nomeUser,email:emailUser,dataNascimento:dataNascimento,senha:senhaUser})
+                navegarHome("/Home")
+                
+                
+              }catch(erro){
+                console.error('seu erro foi:',erro)
+
+              }
+            
              
           
          
-             setCadastroNaoConcluido(false)
-          
-            setVetorUsuarios([...vetorUsuarios,InfoUser])
-            console.log(vetorUsuarios)
-            setUserLogado({nome:nomeUser,email:emailUser,dataNascimento:dataNascimento,senha:senhaUser})
-            navegarHome("/Home")
+            
           }else{
             setNomePequeno(true)
             setTimeout(()=> setNomePequeno(false),3000)

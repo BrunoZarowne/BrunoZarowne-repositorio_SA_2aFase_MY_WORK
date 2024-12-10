@@ -23,143 +23,10 @@ function Carousel() {
   const {formState, setFormState,abrirObraClone,setAbrirObraClone,UserLogado,setUserLogado} = useContext(GlobalContext)
   const [obrasHq,setObrasHq]=useState([])
   const [obrasMangaVetor,setObrasMangaVetor]=useState([])
+  const [obrasLivrosVetor,setObrasLivroVetor]=useState([])
 
-  const [imagensObrasMangas, setImagensObrasMangas] = useState([
-    {
-    id: '1', 
-    title: 'Berserk',
-    author: 'Kentaro Miura',
-    paginas: '224',
-    data: '05/08/1989',
-    summary: 'Berserk é uma série de mangá escrita e ilustrada por Kentaro Miura. Situado em um mundo de fantasia sombria inspirado na Europa medieval, a história gira em torno de Guts, um solitário mercenário, e Griffith, o líder de um bando de mercenários chamado de "Bando do Falcão".',
-    image: 'https://m.media-amazon.com/images/I/71lnvXSiITL.jpg',
-    genre: 'Manga'
-    },
 
-    {
-    id: '2',
-    title: 'Mob Psycho 100',
-    author: 'One',
-    pages: '200',
-    date: '12/04/2012',
-    summary: 'A história desenrola-se à volta de “Mob”, um jovem que explodirá se a sua capacidade emocional chegar aos 100%. Este jovem com poderes psíquicos ganhou o apelido de “Mob” pois ele não se destaca entre as outras pessoas, por isso seu nome, o qual contém várias traduções.',
-    image: 'https://m.media-amazon.com/images/I/91nunbvU04L._AC_UF1000,1000_QL80_.jpg',
-    genre: 'Manga'
-    },
-
-    {
-    id: '3',
-    title: 'One Punch Man',
-    author: 'One, Yusuku Murata',
-    pages: '232',
-    date: '05/10/2015',
-    summary: 'One Punch Man acompanha Saitama, um jovem oficial incrivelmente forte que possui a força necessária para derrotar vilões com um único soco. Devido à sua incomparável força, ele se tornou entediado e busca por adversários que possam igualmente contra ele.',
-    image: 'https://m.media-amazon.com/images/I/71OL6PvzA9L._AC_UF1000,1000_QL80_.jpg',
-    genre: 'Manga'
-    },
-
-    {
-    id: "4",
-    title: "My Hero Academia",
-    author: "Kōhei Horikoshi",
-    pages: "192",
-    date: "10/07/2014",
-    summary: "Boku no Hero conta a história de Izuku 'Deku' Midoriya, um jovem que nasceu sem Indivualidade (poder) em um mundo em que 80% da população manifesta ao menos uma desde criança. O sonho do jovem de se tornar um herói, inspirado pelo herói nº 1, All Might, é massacrado pela descoberta.",
-    image: "https://m.media-amazon.com/images/I/81AjnD8nvHL.jpg",
-    genre: "Manga"
-    },
-
-    {
-    id: '5',
-    title: 'Kagura Bachi',
-    author: 'Takeru Hokazono',
-    pages: '12',
-    date: '21/09/2024',
-    summary: 'A história de Kagurabachi acompanha o protagonista Chihiro Rokuhira, um jovem que trabalha ao lado do pai, o lendário ferreiro, Kunishige Rokuhira. Decidido a seguir os caminhos do chefe da família, Chihiro se dedica e treina diariamente para se tornar um grande mestre forjador de katanas.',
-    image: 'https://i.imgur.com/pMFB3Fq.png',
-    genre: 'Manga'
-
-    },
-
-    {
-    id: '6',
-    title: 'One Piece',
-    author: 'Eiichirô Oda',
-    pages: '192',
-    date: '20/10/1999',
-    summary: 'A série foca em Monkey D. Luffy, um jovem que se tornou usuário de Akuma no Mi acidentalmente quando era criança. Ele comeu a Akuma no Mi conhecida como Gomu Gomu no Mi, ou Fruta da Borracha, que estava sob posse da tripulação do poderoso pirata Shanks, o Ruivo, o ídolo de infância de Luffy.',
-    image: 'https://comichub.blob.core.windows.net/high/80cfb218-634d-4001-9df0-f7fa0347ac90.jpg',
-    genre: 'Manga'
-    },
-  ])
-  const [imagensObrasHQs, setImagensObrasHQs] = useState([
-    {
-    id: '1',
-    title: 'The Boys',
-    author: 'Garth Ennis, Darick Robertson',
-    pages: '153',
-    date: '19/02/2007',
-    summary: 'The Boys se passa em um universo onde indivíduos superpoderosos são reconhecidos como heróis pelo público em geral e pertencem à poderosa corporação Vought International, que os comercializa e monetiza. Fora de suas personas heroicas, a maioria é arrogante e corrupta.',
-    image: 'https://m.media-amazon.com/images/I/818kKwdtJ4L._AC_UF1000,1000_QL80_.jpg',
-    genre: 'Hq'
-    },
-
-    {
-    id: '2',
-    title: 'Invincible',
-    author: 'Robert Kirkman',
-    pages: '344',
-    date: '22/01/2003',
-    summary: 'Invincible. Baseada na HQ homônima, Invencível conta a história de um mundo habitado por super-heróis. A narrativa acompanha a vida de Mark Grayson (Invencível), que ganha seus poderes ao completar 17 anos e se une a seu pai, Nolan Grayson (Omni-Man), para combater os vilões.',
-    image: 'https://falaanimal.com.br/wp-content/uploads/2022/06/SkyboundX25capa_29062022.jpg',
-    genre: 'HQ'
-    },
-
-    {
-    id: '3',
-    title: 'Watchmen',
-    author: 'Alan Moore, Dave Gibbons',
-    pages: '216',
-    date: '06/03/1987',
-    summary: 'Quando um de seus antigos colegas é assassinado, o vigilante mascarado Rorschach descobre um plano para matar e desacreditar todos os super-heróis do passado e do presente. À medida que ele se reconecta com sua antiga legião de combate ao crime, um grupo desorganizado de super-heróis aposentados, dentre os quais somente um possui verdadeiros poderes, Rorschach vislumbra uma ampla e perturbadora conspiração que está ligada ao passado deles e a catastróficas consequências para o futuro.',
-    image: 'https://m.media-amazon.com/images/I/81IOAiyRD+L._AC_UF894,1000_QL80_.jpg',
-    genre: 'HQ'
-    },
-
-    {
-    id: '4',
-    title: 'Batman',
-    author: 'Frank Miller',
-    pages: '144',
-    date: '18/07/2008',
-    summary: 'Batman tem conseguido manter a ordem em Gotham com a ajuda de Jim Gordon e Harvey Dent. No entanto, um jovem e anárquico criminoso, conhecido apenas como Coringa, pretende testar o Cavaleiro das Trevas e mergulhar a cidade em um verdadeiro caos.',
-    image: 'https://br.web.img3.acsta.net/pictures/16/08/16/16/22/131075.jpg',
-    genre: 'HQ'
-    },
-
-    {
-    id: '5',
-    title: 'Sandman',
-    author: 'Neil Gaiman, Malcom Jones |||',
-    pages: '616',
-    date: '29/11/1988',
-    summary: 'História. A história é vista do ponto de vista de Sonho, um dos sete perpétuos, a representação antropomórfica do sonho, inicialmente preso por um grupo de humanos que almejava prender sua irmã mais velha Morte para que se tornassem imortais, mas falham e capturam sonho.',
-    image: 'https://rika.vtexassets.com/arquivos/ids/278826/sandman-preludio-1.jpg?v=635877227581230000',
-    genre: 'HQ'
-    },
-
-    {
-    id: '6',
-    title: 'V de Vingança',
-    author: 'Alan Moore',
-    pages: '304',
-    date: '52/10/1989',
-    summary: 'Uma poderosa e aterradora história sobre perda de liberdade e cidadania em um mundo bem possível, V DE VINGANÇA permanece como uma das maiores obras dos quadrinhos e o trabalho que revelou ao mundo seus criadores, ALAN MOORE e DAVID LLOYD.Encenada em uma Inglaterra de um futuro imaginário que se entregou ao fascismo, esta arrebatadora história captura a natureza sufocante da vida em um estado policial autoritário e a força redentora do espírito humano que se rebela contra essa situação.Obra de surpreendente clareza e inteligência, V DE VINGANÇA traz inigualável profundidade de caracterizações e verossimilhança em um audacioso conto de opressão e resistência.',
-    image: 'https://m.media-amazon.com/images/I/71RccWOPFKL._AC_UF1000,1000_QL80_.jpg',
-    genre: 'HQ'
-    },
-    
-  ])
+  
 
   const [livros, setLivros] = useState([
     {
@@ -238,11 +105,9 @@ function Carousel() {
     }catch(erro){
       console.error(erro)
 
-    }
-    
-  }
+    }}
   useEffect(() => {
-    obrasManga
+    obrasManga()
 
   },[])
 
@@ -267,7 +132,26 @@ function Carousel() {
   useEffect(()=>{
     console.log(obrasHq)
   },[obrasHQ])
- 
+
+  const obrasLivros = async() => {
+    try{
+      const resultado = await axios.get('http://localhost:3333/obrasLivros')
+      setObrasLivroVetor(resultado.data)
+      
+
+
+    }catch(erro){
+      console.error('seu erro foi: ',erro)
+
+    }
+  } 
+  useEffect(()=>{
+    obrasLivros()
+  },[])
+
+  useEffect(()=>{
+    console.log(obrasLivrosVetor)
+  },[obrasLivrosVetor])
  
   function vericarurl(url){
   const verrificar=/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i
@@ -343,6 +227,7 @@ function Carousel() {
 
     }catch(erro){
       console.error('o erro foi :',erro)
+      alert("url muito grande")
 
     }
     
@@ -400,7 +285,7 @@ function Carousel() {
         pagination={{ clickable: true}}
         navigation  
       >
-        {livros.map((item) => (
+        {obrasLivrosVetor.map((item) => (
           <SwiperSlide key={item.id}>
               <img className='imgsLivros' src={item.image}/><br />
             <label>{item.title}</label>
