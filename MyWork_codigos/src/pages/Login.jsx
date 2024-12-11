@@ -21,10 +21,20 @@ const ipParaHome=useNavigate()
         senha:inptSenha
       }
       console.log(loginInfos)
+
+       axios.delete('http://localhost:3333/UsuarioLogado')
+
       const resposta = await axios.post('http://localhost:3333/Usuarios/login',loginInfos)
+
       if (resposta.data.success) {
         // Definindo o estado 'UserLogado' com os dados do usuário
         setUserLogado(resposta.data.user)
+      
+
+        let InfoUser = resposta.data.user
+        console.log(InfoUser)
+
+        axios.post('http://localhost:3333/UsuarioLogado',InfoUser)
   
         // Redireciona para a home após login bem-sucedido
         ipParaHome('/Home')
@@ -40,18 +50,7 @@ const ipParaHome=useNavigate()
 
   }
 
-  function logar(){
-    const usuarioEncontrado=vetorUsuarios.find(encontarUser => encontarUser.emailUsuario==inptEmail && encontarUser.senhaUsuario==inptSenha)
-    console.log(usuarioEncontrado)
-    if(usuarioEncontrado){
-      setIrParaHome("/Home")
-
-    }else{
-      alert("ixxxxi")
-    }
-
-    
-  }
+ 
  
  
   return (

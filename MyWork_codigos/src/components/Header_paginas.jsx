@@ -3,6 +3,7 @@ import './Header_paginas.css'
 import { Link } from 'react-router-dom'
 import { GlobalContext } from '../context/GlobalContext'
 import { useState,useContext,useEffect } from 'react'
+import axios from 'axios'
 
 
 function Header_paginas() {
@@ -12,7 +13,21 @@ function Header_paginas() {
   const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado,modalPostagem,setModalPostagem}=useContext(GlobalContext)
   
   
+  const usuarioOnline = async()=>{
+    try{
+      const resultado = await axios.get('http://localhost:3333/UsuarioLogado')
+      setUserLogado(resultado.data)
   
+    }catch(erro){
+      console.error(erro)
+  
+    }
+  
+  }
+  useEffect(()=>{
+    usuarioOnline()
+  })
+
   function ativaPagina (index){
 
     setPaginaAtiva(index)
@@ -43,7 +58,7 @@ function Header_paginas() {
         <Link to={"/Perfil_de_Usuario"}>
         <img className='user' src={fotoUsuario} alt="" />
         </Link>
-        {/* <p className='PnomeUsuario'>{UserLogado.nome.slice(0,5)}</p> */}
+        { <p className='PnomeUsuario'>{UserLogado.nome.slice(0,5)}</p> }
      
       </div>
         

@@ -1,7 +1,6 @@
 import express, { json, query, request, response } from 'express'
 import pkg from 'pg'
 import cors from 'cors'
-import e from 'express'
 const {Pool} = pkg
 const app = express()
 app.use(express.json())
@@ -17,8 +16,8 @@ const user=[]
 const pool=new Pool({
     user:'postgres',
     host:'localhost',
-    database:'myWork',
-    password:"1234",
+    database:'My_work_sa',
+    password:"senai",
     port: 5432
     
 
@@ -133,6 +132,7 @@ app.post('/Usuarios/login', async(request,response) => {
    try{
        const resultado = await pool.query('select * from Usuarios where email = $1 and senha = $2',[email,senha])
        
+       
        if (resultado.rows.length > 0) {
            // Usuário encontrado
            response.json({ success: true, user: resultado.rows[0] });
@@ -181,7 +181,7 @@ app.get('/obrasManga', async(request,response)=>{
 })
 app.get('/obrasLivros', async(request,response)=>{
     try{
-        const resultado = await pool.query("SELECT * from Obras where genre = 'HQ' ")
+        const resultado = await pool.query("SELECT * from Obras where genre = 'Livros' ")
         response.status(200).json(resultado.rows)
 
     }catch(erro){
@@ -248,40 +248,31 @@ app.get('/ObrasSelecionada',async(request,response)=>{
     }
 })
 
-app.post('/ObrasSelecionada',async(request,response)=>{
+ app.post('/ObrasSelecionada',async(request,response)=>{
     const {title ,author,page,date ,summary,image ,genre}=request.body
-    try{
-        const resultado = await pool.query('INSERT INTO obrasSelecionada ( title ,author,page,date ,summary,image ,genre ) VALUES ($1, $2,$3,$4,$5,$6,$7) RETURNING *',
-            [title,author,page,date,summary,image,genre])
+     try{
+      const resultado = await pool.query('INSERT INTO obrasSelecionada ( title ,author,page,date ,summary,image ,genre ) VALUES ($1, $2,$3,$4,$5,$6,$7) RETURNING *',
+           [title,author,page,date,summary,image,genre])
 
 
-    }catch(erro){
-        console.error('o erro foi: ',erro)
+   }catch(erro){
+       console.error('o erro foi: ',erro)
         
 
     }
-})
+ })
 
 app.delete('/ObrasSelecionada',async(request,response)=>{
-    try{
-        const resultado = await pool.query('DELETE FROM obrasSelecionada')
-        response.status(200).send({ message: 'Obras deletadas com sucesso' })
+   try{
+       const resultado = await pool.query('DELETE FROM obrasSelecionada')
+       response.status(200).send({ message: 'Obras deletadas com sucesso' })
 
-    }catch(erro){
+     }catch(erro){
         console.log('seu erro foi ',erro)
         response.status(500).send({ message: 'Erro ao deletar obras' });
 
     }
-})
-
-
-
-
-
-
-
-
-
+ })
 
 
 app.listen(3333)
