@@ -129,21 +129,25 @@ useEffect(()=>{
   <div className='divInpt'>
 
 
+
     <div className='containerNovoEmail'>
-      <label htmlFor="inptNovoEmail">Insira Aqui o email: </label><input type="text" name='inptNovoEmail' className='inptCadastroNovoEmail' 
+      <label htmlFor="inptNovoEmail">insira seu novo email:</label><input type="text" name='inptNovoEmail' className='inptCadastroNovoEmail' 
       value={inptEmail} onChange={(event)=>{setInptEmail(event.target.value)}} />
     </div>
 
     <div>
-      <label htmlFor="inptNovaDataNas" type='date'>insira Aqui a data de nascimento: </label> <input type="text" name='inptNovaDataNas' className='inptCadastroNovaDataNascimento'  
+      <label htmlFor="inptNovaDataNas" type='date' className='label_nova_dat_nasc'>insira sua nova data de nascimento: </label> <input type="date" name='inptNovaDataNas' className='inputCadastroNovaDataNascimento'  
       value={inptDataNascimento} onChange={(event)=>{setInptDataNascimento(event.target.value)}}/>
     </div>
 
     <div className='containersenhaNova'>
-      <label htmlFor="inptNovaSenha">Insira sua nova senha: </label> <input name='inptNovaSenha' type="password" className='inptCadastroNovasenha'
+      <label htmlFor="inptNovaSenha">insira sua vova senha: </label> <input name='inptNovaSenha' type="password" className='inptCadastroNovasenha'
       value={inptSenha} onChange={(event)=>{setInptSenha(event.target.value)}} />
-    </div>
-      <button onClick={atualizarUsuario}>Sim,quero trocar</button><button onClick={()=>{setModalIsOpenUdateUser(false)}}>Não,voltar para o perfil!</button>
+      </div>
+   <div className='container_comfirm_troca_dados'>
+
+      <button onClick={atualizarUsuario} className='comfirma_troca_dados'>Sim,quero trocar</button><button onClick={()=>{setModalIsOpenUdateUser(false)}} className='nao_quer_trocar os dados'>Não,voltar para o perfil!</button>
+   </div>
 
   </div>
   </dialog> </div>}
