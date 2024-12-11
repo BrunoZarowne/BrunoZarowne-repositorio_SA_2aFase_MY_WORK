@@ -1,6 +1,7 @@
 import express, { json, query, request, response } from 'express'
 import pkg from 'pg'
 import cors from 'cors'
+import e from 'express'
 const {Pool} = pkg
 const app = express()
 app.use(express.json())
@@ -237,6 +238,42 @@ app.put('/UsuarioLogado',async(request,response)=>{
     }
 })
 
+app.get('/ObrasSelecionada',async(request,response)=>{
+    try{
+        const resultado = await pool.query('SELECT * FROM obrasSelecionada ')
+        response.json(resultado.rows[0])
+
+    }catch(erro){
+
+    }
+})
+
+app.post('/ObrasSelecionada',async(request,response)=>{
+    const {title ,author,page,date ,summary,image ,genre}=request.body
+    try{
+        const resultado = await pool.query('INSERT INTO obrasSelecionada ( title ,author,page,date ,summary,image ,genre ) VALUES ($1, $2,$3,$4,$5,$6,$7) RETURNING *',
+            [title,author,page,date,summary,image,genre])
+
+
+    }catch(erro){
+        console.error('o erro foi: ',erro)
+        
+
+    }
+})
+
+app.delete('/ObrasSelecionada',async(request,response)=>{
+    try{
+        const resultado = await pool.query('DELETE FROM obrasSelecionada')
+        response.status(200).send({ message: 'Obras deletadas com sucesso' })
+
+    }catch(erro){
+        console.log('seu erro foi ',erro)
+        response.status(500).send({ message: 'Erro ao deletar obras' });
+
+    }
+})
+
 
 
 
@@ -275,6 +312,43 @@ app.listen(3333)
 //     );<-- tabela para fazer no senai para o crud
 /* comando para dar na tabela ALTER TABLE Obras ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
 select * from Obras*/
+
+
+
+/*<-- tabela para o Usuario online no momento
+create table UsuarioLogado( 
+    id int primary key not null,
+    nome varchar(100),
+    email varchar(200),
+    senha varchar(15),
+    dataNascimento varchar(12),
+    eAdm boolean,
+    eDev boolean
+    
+    );
+    select * from UsuarioLogado
+    ALTER TABLE UsuarioLogado ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY */
+
+/*<--tabela da obra selecionada pelo autor
+    create table obrasSelecionada(
+        id int primary key not null,
+            title varchar(20),
+             author varchar(100),
+             page decimal,
+            date date,
+            summary varchar(600),
+           image varchar(2000),
+           genre varchar(10)  
+
+    );
+     ALTER TABLE obrasSelecionadas ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY
+    select * from obrasSelecionada
+    alter table obrasSelecionada
+    alter column date type varchar(13)
+
+    alter table obrasSelecionada
+    alter column page type varchar(3)
+    */
 
 
 

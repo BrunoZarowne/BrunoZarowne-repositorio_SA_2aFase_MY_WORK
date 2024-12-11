@@ -27,74 +27,52 @@ function Carousel() {
 
 
   
+  const salvarObraSelecionada = async(item) =>{
+    try{
+      const infoObraSelecionada={ 
+      title:item.title,
+      author:item.author,
+       pages:item.pages,
+       date:item.date,
+       summary:item.summary,
+       image:item.image,
+        genre:item.genre
+      }
+      const salvarObraSelecionada = async(item) =>{
+        try{
+          const infoObraSelecionada={ 
+          title:item.title,
+          author:item.author,
+           pages:item.pages,
+           date:item.date,
+           summary:item.summary,
+           image:item.image,
+            genre:item.genre
+          }
+          const deletarObras=await axios.delete('http://localhost:3333/ObrasSelecionada')
+          console.log(deletarObras.data)
 
-  const [livros, setLivros] = useState([
-    {
-    id: '1',
-    title: 'Harry Potter',
-    author: 'J. K. Rowling',
-    pages: '590',
-    date: '26/06/1997',
-    summary: 'Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursleys. Ele recebe uma carta contendo um convite para ingressar em Hogwarts, uma famosa escola especializada em formar jovens bruxos. Inicialmente, Harry é impedido de ler a carta por seu tio, mas logo recebe a visita de Hagrid, o guarda-caça de Hogwarts, que chega para levá-lo até a escola. Harry adentra um mundo mágico que jamais imaginara, vivendo diversas aventuras com seus novos amigos, Rony Weasley e Hermione Granger.',
-    image: 'https://m.media-amazon.com/images/I/81ibfYk4qmL._AC_UF1000,1000_QL80_.jpg',
-    genre: 'Livro'
-    },
 
-    {
-    id: '2',
-    title: 'O Senhor dos Anéis',
-    author: 'J. R. R. Tolkien',
-    pages: '1228',
-    date: '03/01/1892',
-    summary: 'Numa cidadezinha indolente do Condado, um jovem hobbit é encarregado de uma imensa tarefa. Deve empreender uma perigosa viagem através da Terra-média até as Fendas da Perdição, e lá destruir o Anel do Poder - a única coisa que impede o domínio maléfico do Senhor do Escuro.',
-    image: 'https://m.media-amazon.com/images/I/81hCVEC0ExL._AC_UF1000,1000_QL80_.jpg',
-    genre: 'Livro'
-    },
 
-    {
-    id: '3',
-    title: 'Anne Frank',
-    author: 'Anne Frank',
-    pages: '416',
-    date: '25/06/1947',
-    summary: 'Suas anotações narram os sentimentos, os medos e as pequenas alegrias de uma menina judia que, como sua família, lutou em vão para sobreviver ao Holocausto. Uma poderosa lembrança dos horrores de uma guerra, um testemunho eloquente do espírito humano. Assim podemos descrever os relatos feitos por Anne em seu diário.',
-    image: 'https://m.media-amazon.com/images/I/91RMqWB-CTL._AC_UF1000,1000_QL80_.jpg',
-    genre: 'Livro'
-    },
+           const resultado = await axios.post('http://localhost:3333/ObrasSelecionada',infoObraSelecionada)
+           console.log(resultado.data)
+    
+        }catch(erro){
+          console.error('seu erro foi :',erro)
+          
+        }
+    
+      }
+       const resultado = await axios.post('http://localhost:3333/ObrasSelecionada',infoObraSelecionada)
+       console.log(resultado)
 
-    {
-    id: '4',
-    title: 'O Pequeno Principe',
-    author: 'Antoine de Saint-Exupéry',
-    pages: '94',
-    date: '06/04/1943',
-    summary: 'É um conto poético, com ilustrações em aquarela do autor, em que um piloto perdido no deserto encontra um jovem príncipe em visita à Terra vindo de um minúsculo asteroide. A história é filosófica e inclui críticas sociais ao mundo adulto.',
-    image: 'https://m.media-amazon.com/images/I/71LJ4k-k9hL._AC_UF1000,1000_QL80_.jpg',
-    genre: 'Livro'
-    },
+    }catch(erro){
+      console.error('seu erro foi :',erro)
+      
+  
+    }
 
-    {
-    id: '5',
-    title: 'A Culpa É Das Estrelas',
-    author: 'John Green',
-    pages: '224',
-    date: '10/01/2012',
-    summary: 'Hazel foi diagnosticada com câncer aos treze anos e agora, aos dezesseis, sobrevive graças a uma droga revolucionária que detém a metástase em seus pulmões. Ela sabe que sua doença é terminal e passa os dias vendo tevê e lendo Uma aflição imperial, livro cujo autor deixou muitas perguntas sem resposta.',
-    image: 'https://m.media-amazon.com/images/I/51M9IbBqxCL.jpg',
-    genre: 'Livro'
-    },
-
-    {
-    id: '6',
-    title: 'A Cabana',
-    author: 'William P. Young',
-    pages: '232',
-    date: '10/05/2007',
-    summary: 'Missy, a filha mais nova, foi raptada e, de acordo com as provas encontradas numa cabana abandonada, brutalmente assassinada. Quatro anos mais tarde, Mack, mergulhado numa depressão da qual nunca recuperou, recebe um bilhete, aparentemente escrito por Deus, convidando-o a voltar à malograda cabana.',
-    image: 'https://m.media-amazon.com/images/I/91fLBlcmpXL._AC_UF1000,1000_QL80_.jpg',
-    genre: 'Livro'
-    },
-  ]) 
+  }
 
   const obrasManga = async() => {
     try{
@@ -274,13 +252,13 @@ function Carousel() {
        <SwiperSlide key={item.id}>
      
      <Link to={`/detalhes/${item.id}`}>
-            <img className='imgsHQs' src={item.image}onClick={()=>{abrirModalObras(item.id) ,setAbrirObraClone({ id:item.id, titulo:item.title,
+            <img className='imgsHQs' src={item.image} onClick={()=>{abrirModalObras(item.id) ,setAbrirObraClone({ id:item.id, titulo:item.title,
               autor:item.author,
               paginas:item.pages,
               data_lancamento:item.date,
               sinopse:item.summary,
               imagemCatalogo:item.image,
-              genero:item.genre})}}/>
+              genero:item.genre}),salvarObraSelecionada(item)}}/>
               </Link>
          <br />
           <label>{item.title}</label>
