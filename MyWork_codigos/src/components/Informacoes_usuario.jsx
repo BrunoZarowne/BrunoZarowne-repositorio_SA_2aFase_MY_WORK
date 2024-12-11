@@ -141,7 +141,7 @@ useEffect(()=>{
     </div>
 
     <div className='containersenhaNova'>
-      <label htmlFor="inptNovaSenha">insira sua vova senha: </label> <input name='inptNovaSenha' type="password" className='inptCadastroNovasenha'
+      <label htmlFor="inptNovaSenha">insira sua nova senha: </label> <input name='inptNovaSenha' type="password" className='inptCadastroNovasenha'
       value={inptSenha} onChange={(event)=>{setInptSenha(event.target.value)}} />
       </div>
    <div className='container_comfirm_troca_dados'>

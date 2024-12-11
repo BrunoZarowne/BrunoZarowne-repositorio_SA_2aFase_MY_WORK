@@ -109,4 +109,9 @@ margin-left: 20%;
 display: flex;
 align-items: center;
 
+}.conainer_proposta{
+display: flex;
+flex-direction: column;
+justify-content: center;
+border: solid  red;
 }

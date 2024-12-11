@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Header_paginas from '../components/Header_paginas.jsx'
 import Rodape_Mywork from '../components/Rodape_Mywork.jsx'
 import './HomeMywork.css'
-
+import { Link } from 'react-router-dom'
 function HomeMywork() {
   const [modalCadastroConcluido,setModalCadastoConcluido]=useState(true)
  
@@ -14,15 +14,19 @@ function HomeMywork() {
         <div className='conatiner_titulo'>
 
           <h1> 🐸 bem vindo ao My Work 🐸</h1>
-
+          <p></p>
 
 
 
           </div>
           <div className='container_introducao'> 
-          <p>💯seu site de mangas favorito💯</p>
+          <div className='conainer_proposta'>
+          <p className='text_proposta'>🎨 O que você pode fazer aqui?🎨</p>
+       <p className='text_proposta'>Postar suas obras criativas:</p>
+
+<p className='text_proposta'>Compartilhe sua paixão! Seja você um escritor, ilustrador ou criador de HQs e mangás, aqui é o lugar para publicar suas criações.</p>
         
-        
+       </div>
         </div>
 
       <dialog open={modalCadastroConcluido} onClick={()=> {setModalCadastoConcluido(false)}}>Cadastro Concluido</dialog>
@@ -32,15 +36,16 @@ function HomeMywork() {
 
         <div className='container_recomendacoes'>
 
-<h2>📚recomendações do site 📚</h2>
+<h2 className='recomendações_site'>📚recomendações do site 📚</h2>
 
 </div>
 <div className=' container_obras_recomendadas'>
 
 
 <div className='obras_um' >
-  
+  <Link to={'/Obra_do_site_jojo'}>
   <img src="https://m.media-amazon.com/images/I/917WFqQD1mL._AC_UF1000,1000_QL80_.jpg" className='capa_obra_um'/>
+  </Link>
  <div className='container_titulo_autor'>
  <div className='titulo_obra_um'>
  <p>steell ball run</p>
