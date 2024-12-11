@@ -16,8 +16,8 @@ const user=[]
 const pool=new Pool({
     user:'postgres',
     host:'localhost',
-    database:'My_work_sa',
-    password:"senai",
+    database:'myWork',
+    password:"1234",
     port: 5432
     
 
@@ -127,31 +127,24 @@ const{email,senha,dataNascimento}=request.body
 })
 app.post('/Usuarios/login', async(request,response) => {
 
-     const {email,senha}=request.body
+    const {email,senha}=request.body
 
-    try{
-        const resultado = await pool.query('select * from Usuarios where email = $1 and senha = $2',[email,senha])
-        
-        if (resultado.rows.length > 0) {
-           // Formatar a data de nascimento
-           const usuario = resultado.rows[0];
-           if (usuario.dataNascimento) {
-               // Converter a data para o formato 'YYYY-MM-DD'
-               usuario.dataNascimento = usuario.dataNascimento.toISOString().split('T')[0];
-           }
+   try{
+       const resultado = await pool.query('select * from Usuarios where email = $1 and senha = $2',[email,senha])
+       
+       if (resultado.rows.length > 0) {
+           // Usuário encontrado
+           response.json({ success: true, user: resultado.rows[0] });
+           console.log(resultado)
+       } else {
+           // Usuário não encontrado
+           response.status(401).json({ success: false, message: 'Email ou senha inválidos' });
+       }
 
-           // Retornar o usuário com a data formatada
-           response.json({ success: true, user: usuario });
-           console.log(resultado);
-        } else {
-            // Usuário não encontrado
-            response.status(401).json({ success: false, message: 'Email ou senha inválidos' });
-        }
+   }catch(erro){
+       console.error("o erro foi:",erro)
 
-    }catch(erro){
-        console.error("o erro foi:",erro)
-
-    }
+   }
 
 })
 
@@ -187,14 +180,62 @@ app.get('/obrasManga', async(request,response)=>{
 })
 app.get('/obrasLivros', async(request,response)=>{
     try{
-        const resultado = await pool.query("SELECT * from Obras where genre = 'Livro' ")
+        const resultado = await pool.query("SELECT * from Obras where genre = 'HQ' ")
         response.status(200).json(resultado.rows)
 
     }catch(erro){
 
     }
 })
+app.get('/UsuarioLogado',async(request,response)=>{
+    try{
+        const resultado = await pool.query('SELECT * from UsuarioLogado') 
+        response.json(resultado.rows[0]);
 
+    }catch(err){
+        console.error('seu erro foi: ',err)
+
+    }
+
+})
+app.post('/UsuarioLogado',async(request,response)=>{
+    const {nome,email,senha,dataNascimento,eDev,eAdm}=request.body
+    try{
+        const resultado = await pool.query('INSERT INTO UsuarioLogado( nome,email,senha,dataNascimento,eDev,eAdm) VALUES ($1, $2,$3,$4,$5,$6) RETURNING *',
+ [nome,email,senha,dataNascimento,eDev,eAdm])
+
+ response.status(201).json(resultado.rows[0]);
+
+    }catch(erro){
+        console.error("Erro ao inserir o usuário:", erro.message);
+        response.status(500).json({ error: 'Erro interno do servidor' })
+    }
+
+})
+app.delete('/UsuarioLogado',async(request,response)=>{
+    try{
+        const resultado= await pool.query('DELETE from UsuarioLogado')
+
+    }catch(erro){
+        response.status(500).json({error:'erro interno do servirdor'})
+    }
+})
+app.put('/UsuarioLogado',async(request,response)=>{
+    const {email,senha,dataNascimento}=request.body
+    try{
+        const resultado = await pool.query('UPDATE UsuarioLogado SET email = $1, senha = $2, dataNascimento = $3   ',
+            [email,senha,dataNascimento])
+
+            if (resultado.rowCount > 0) {
+                response.status(200).json(resultado.rows[0]); // Retorna o usuário atualizado
+              } else {
+                response.status(404).json({ message: `Usuário ${nome} não encontrado.` }); // Nome não encontrado
+              }
+
+    }catch(erro){
+
+    }
+})
 
 
 
@@ -233,38 +274,8 @@ app.listen(3333)
 //     genre varchar(10)   
 //     );<-- tabela para fazer no senai para o crud
 /* comando para dar na tabela ALTER TABLE Obras ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+select * from Obras*/
 
-
-/*create table Usuarios(
-    Id int primary key not null,
-    nome varchar(100) not null,
-    email varchar(200) not null,
-    senha varchar(100)not null,
-    dataNascimento date,
-    eDev boolean,
-    eAdm boolean
-        
-    
-    
-    );<--tabela de Usarios
-    ALTER TABLE Usuarios ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY
-    
-    
-    
-     Create table Obras(
-         id int primary key not null,
-        title varchar(20),
-       author varchar(100),
-       page decimal,
-       date date,
-       summary varchar(600),
-        image varchar(2000),
-        genre varchar(10)   
-       );<-- tabela de obras
-       
-       ALTER TABLE Obras ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY
-       select * from Obras */
-    
 
 
 

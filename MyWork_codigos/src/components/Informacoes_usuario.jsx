@@ -22,24 +22,25 @@ const [inptEmail,setInptEmail]=useState('')
 const [inptDataNascimento,setInptDataNascimento]=useState('')
 const [inptSenha,setInptSenha]=useState('')
 
+const usuarioOnline = async()=>{
+  try{
+    const resultado = await axios.get('http://localhost:3333/UsuarioLogado')
+    setUserLogado(resultado.data)
 
-  // useEffect(() => {
-  //   usuarioLogado(); // Executa quando o componente é montado
-  // }, []); 
-  
+  }catch(erro){
+    console.error(erro)
 
- 
+  }
 
-  // const usuarioLogado = async() =>{
-  //   try{
-  //   const response = await axios.get(`http://localhost:3333/Usuarios/logado/${UserLogado.nome}`)
-  //   setUserLogado(response.data)
-  // }catch(error){
-  //   console.error("seu erro foi :",error)
+}
+useEffect(()=>{
+  usuarioOnline()
+},[])
+useEffect(()=>{
+  console.log(UserLogado)
+},[UserLogado])
 
-  // }
 
-  // }
   const atualizarUsuario = async() =>{
     let infosNovas={
       email:inptEmail,
@@ -51,6 +52,7 @@ const [inptSenha,setInptSenha]=useState('')
 
     try{
       const response = await axios.put(`http://localhost:3333/Usuarios/atualizar/${UserLogado.nome}`,infosNovas)
+      const resultado = await axios.put('http://localhost:3333/UsuarioLogado',infosNovas)
      
 
     }catch(err){
@@ -110,8 +112,9 @@ const [inptSenha,setInptSenha]=useState('')
       <div className='div_inputs_user'>
 <label htmlFor="inptNomeUser" >nome</label><input type="text"  className='input_nome_user' defaultValue={UserLogado.nome}  name='inptNomeUser'/>
 <label htmlFor="inptEmailuser">email</label><input type="text" className='input_emai_user' defaultValue={UserLogado. email} name='inptEmailuser'/>
-<label htmlFor="inptDataNasUser">data nascimento</label><input type="text" className='input_data_nascimento_user' defaultValue={ UserLogado.dataNascimento} name='inptDataNasUser'/>
+<label htmlFor="inptDataNasUser">data nascimento</label><input type="text" className='input_data_nascimento_user' defaultValue={ UserLogado.datanascimento } name='inptDataNasUser'/>
 <label htmlFor="inptSenhaUser">senha</label><input type="text" className='input_senha_user' defaultValue={UserLogado.senha} name='inptSenhaUser'/>
+
 </div>
 
 <div className='container_button_edit_info_user'>
@@ -165,7 +168,7 @@ const [inptSenha,setInptSenha]=useState('')
 </div>
 <div className='container_bottao_excluir_conta_definitivo'>
   <Link to={pagina}>
-   <button className='bottao_excluir_conta_definitivo' onClick={deletarUsuario(UserLogado.nome)}>sim,excluir conta</button> <button    onClick={() => {handleClick(2)}} className='botton_cancela_excluzao'>não,manter conta</button>
+   <button className='bottao_excluir_conta_definitivo' onClick={() => deletarUsuario(UserLogado.nome)}>sim,excluir conta</button> <button    onClick={() => {handleClick(2)}} className='botton_cancela_excluzao'>não,manter conta</button>
   </Link>
 
 

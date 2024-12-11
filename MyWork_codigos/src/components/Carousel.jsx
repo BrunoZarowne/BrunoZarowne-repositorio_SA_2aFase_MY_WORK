@@ -247,7 +247,7 @@ function Carousel() {
         pagination={{ clickable: true}}
         navigation className='swiper'>
         {obrasMangaVetor.map((item,index) => (
-          <SwiperSlide key={index} className='SwiperSlideManga' >
+          <SwiperSlide key={index}  >
             <Link to={`/detalhes/${item.id}`}>
               <img className='imgsMangas' src={item.image} onClick={()=>{abrirModalObras(item.id) ,setAbrirObraClone({ id:item.id, titulo:item.title,
               autor:item.author,

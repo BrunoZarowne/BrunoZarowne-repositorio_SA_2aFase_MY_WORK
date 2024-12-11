@@ -1,60 +1,100 @@
-html, body {
+html, body{
     overflow: auto;
-    background-color: #00002D;
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
+    /* background-image: url("https://images.unsplash.com/photo-1660895870525-405631bb6c18?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
+background-color:#00002D
 }
-
-.containerCarousel {
+.containerCarousel{
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
+    height: 100%;    
 }
-
-.carouselMangas, .carouselHQs, .carouselLivros {
-    border: 2px solid #0C0C3E;
+.carouselMangas{
+    border: 2px #0C0C3E solid;
     border-radius: 10px;
     width: 90%;
     height: 450px;
-    background-color: rgba(12, 12, 62, 0.9);
+    background-color: rgba(12, 12, 62, 0.80);
     position: relative;
-    margin: 0 auto;
-    padding: 20px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    left: 5%;
+    z-index: 0;
+    --swiper-pagination-bottom: 95%;
+    label{
+        position: relative;
+        left: 50px;
+        color: white;
+        font-size: 25px;
+        font-family: "Poppins-Bold";
+    }
+    .imgsMangas{
+        width: 250px;
+        height: 350px;
+        position: relative;
+        padding-top: 25px;
+        left: 45px;
+        z-index: 1;
+        position: relative;
+ border-radius:4px ;
+    }
 }
 
-.carouselMangas label, .carouselHQs label, .carouselLivros label {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-}
-
-.imgsMangas, .imgsHQs, .imgsLivros {
-    width: 250px;
-    height: 350px;
+.carouselHQs{
+    border: 2px #0C0C3E solid;
     border-radius: 10px;
-    transition: transform 0.8s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    height: 450px;
+    background-color: rgba(12, 12, 62, 0.80);
+    position: relative;
+    left: 5%;
+    z-index: 0;
+    color: white;
+    --swiper-pagination-bottom: 95%;
+    label{
+        position: relative;
+        left: 12%;
+        font-size: 25px;
+        font-family: "Poppins-Bold";
+    }
+    .imgsHQs{
+        width: 250px;
+        height: 350px;
+        position: relative;
+        left: 45px;
+        padding-top: 25px;
+    border-radius: 10px;}
 }
 
-.imgsMangas:hover, .imgsHQs:hover, .imgsLivros:hover {
-    transform: scale(1.05);
+.carouselLivros{
+    border: 2px #0C0C3E solid;
+    border-radius: 10px;
+    width: 90%;
+    height: 450px;
+    background-color: rgba(12, 12, 62, 0.80);
+    position: relative;
+    left: 5%;
+    z-index: 0;
+    color: white;
+    --swiper-pagination-bottom: 95%;
+    label{
+        position: relative;
+        left: 12%;
+        font-size: 25px;
+        font-family: "Poppins-Bold";
+    }
+    .imgsLivros{
+        width: 250px;
+        height: 350px;
+        position: relative;
+        left: 45px;
+        padding-top: 25px;
+    border-radius: 10px;
+    }
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next{
     --swiper-theme-color: #FFF;
 }
-
+.swiper-button-prev{
+    --swiper-theme-color: #FFF;
+}
 .modalPostagem{
     background-color: #212277;
     width: 50%;
@@ -84,11 +124,9 @@ html, body {
         font-size: 22px;
     }
     input{
-        width: 250px;
-        height: 35px;
-    border-radius: 5px;
-    border: none;
-}
+        width: 300px;
+        height: 40px;
+    }
 }
 .caixaSinopse{
     /* border: 2px blue solid; */

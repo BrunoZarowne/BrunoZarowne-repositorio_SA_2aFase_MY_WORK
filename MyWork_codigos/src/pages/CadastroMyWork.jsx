@@ -132,8 +132,12 @@ function CadastroMyWork() {
                   eDev:false,
                   eAdm:false
                   } 
+                axios.delete('http://localhost:3333/UsuarioLogado')
+                
                 axios.post('http://localhost:3333/Usuarios',InfoUser)
                 setCadastroNaoConcluido(false)
+
+                axios.post('http://localhost:3333/UsuarioLogado',InfoUser)
           
                 setVetorUsuarios([...vetorUsuarios,InfoUser])
                 console.log(vetorUsuarios)
