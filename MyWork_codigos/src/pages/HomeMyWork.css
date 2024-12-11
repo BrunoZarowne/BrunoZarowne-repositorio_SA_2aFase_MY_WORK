@@ -120,4 +120,13 @@
     justify-content: space-evenly;
     align-items: center;
     gap: 5px;
+}.text_proposta{
+margin: 7px;
+
+}.recomendações_site{
+margin-top: 10px;
+
+}.conainer_proposta{
+border: none;
+
 }

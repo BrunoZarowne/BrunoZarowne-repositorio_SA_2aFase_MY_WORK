@@ -188,28 +188,41 @@ function Carousel() {
 
 
   }
-  const postarObras = async() =>{
-    try{
-      const infoObras={
-        title: formState.title,
-        author: UserLogado.nome,
-        pages: formState.pages,
-        date: formState.date,
-        summary: formState.summary,
-        image: formState.images,
-        genre: formState.genre
-      }
-      console.log(infoObras)
-      
-      const resultado = await axios.post('http://localhost:3333/PostarObras',infoObras)
+  const postarObras = async() => {
+    try {
+        const infoObras = {
+            title: formState.title,
+            author: UserLogado.nome,
+            pages: formState.pages,
+            date: formState.date,
+            summary: formState.summary,
+            image: formState.images,
+            genre: formState.genre
+        };
+        
+        console.log(infoObras);
+        
+        const resultado = await axios.post('http://localhost:3333/PostarObras', infoObras);
+        console.log(resultado.data);
+        
+        // Limpa os inputs após o envio
+        setFormState({
+            id: "",
+            title: "",
+            author: "",
+            pages: "",
+            date: "",
+            summary: "",
+            images: "",
+            genre: ""
+        });
 
-    }catch(erro){
-      console.error('o erro foi :',erro)
-      alert("url muito grande")
-
+        alert('Obra postada com sucesso!');
+    } catch (erro) {
+        console.error('O erro foi:', erro);
+        alert("Erro ao postar obra. Verifique os dados e tente novamente.");
     }
-    
-  }
+};
   
  
 

@@ -8,7 +8,7 @@ import { GlobalContext } from "../context/GlobalContext.jsx";
 import Pag_obra_Lancamentos from "../pages/Pag_obra_Lancamentos.jsx";
 import Pagina_obras from "../pages/Pagina_obras.jsx";
 import Pagina_da_Obra from "../components/Pagina_da_Obra.jsx";
-
+import Obra_do_site_jojo from "../pages/Obra_do_site_jojo.jsx";
 
 
 
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
 {path:"Perfil_de_Usuario",element:<Pagina_Usuario />},
 {path:"Pag_obra_lancamentos",element:<Pag_obra_Lancamentos />},
 {path:"pagina_obras",element:<Pagina_obras />},
-{path:"/detalhes/:id",element:<Pagina_da_Obra />}
-
+{path:"/detalhes/:id",element:<Pagina_da_Obra />},
+{path:"/Obra_do_site_jojo",element:<Obra_do_site_jojo/>}
 
 ])
 
