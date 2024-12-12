@@ -5,10 +5,11 @@ import Rodape_Mywork from './Rodape_Mywork'
 import { useParams } from 'react-router-dom'
 import { useContext,useState,useEffect} from 'react'
 import './Pagina_da_obra.css'
+import { use } from 'react'
 
 function Pagina_da_Obra() {
 const {id}=useParams()
-const {formState, setFormState,abrirObraClone,setAbrirObraClone} = useContext(GlobalContext)
+const {UserLogado,formState, setFormState,abrirObraClone,setAbrirObraClone} = useContext(GlobalContext)
 
 
 
@@ -38,6 +39,9 @@ const {formState, setFormState,abrirObraClone,setAbrirObraClone} = useContext(Gl
          <div className='pading_genero'>
          <h1 className='autor-h1'>autor:   {abrirObraClone.autor}</h1>
          <h1 className='genero_h1'>genero:   {abrirObraClone.genero}</h1>
+         {(UserLogado.nome === abrirObraClone.autor || UserLogado.edev === true || UserLogado.eadm === true) && (
+  <button>apagar a obras</button>
+)}
          </div>
    
 

@@ -28,20 +28,22 @@ const ipParaHome=useNavigate()
 
       if (resposta.data.success) {
         // Definindo o estado 'UserLogado' com os dados do usuário
+        console.log('Resposta do backend:', resposta.data);
         setUserLogado(resposta.data.user)
       
 
-        let InfoUser = resposta.data.user
+        let InfoUser =  await resposta.data.user
         console.log(InfoUser)
 
         axios.post('http://localhost:3333/UsuarioLogado',InfoUser)
+        ipParaHome('/Home')
   
         // Redireciona para a home após login bem-sucedido
-        ipParaHome('/Home')
         console.log("Usuário logado:", resposta.data.user)
       } else {
         // Caso o login falhe, você pode adicionar algum tratamento
         alert(resposta.data.message || "Falha no login")
+        alert('falha ao logar')
       }
 
     }catch(erro){
@@ -70,9 +72,9 @@ const ipParaHome=useNavigate()
             <input type="password" className='senha_User'  placeholder='  insira sua senha'  value={inptSenha} onChange={(event)=>{setInptSenha(event.target.value)}}/>
         
        <div className='container_button'>
-        <Link to={IrParaHome}>
-        <button className='button_logar' onClick={login}>logar</button>
-        </Link>
+       
+        <button className='button_logar' onClick={()=>{login()}}>logar</button>
+        
         </div>
         
         <p className='naoPossuiUmaConta'>nao possui uma conta? clique <Link to={"/cadastro"} className='link_login'>Aqui</Link> </p>

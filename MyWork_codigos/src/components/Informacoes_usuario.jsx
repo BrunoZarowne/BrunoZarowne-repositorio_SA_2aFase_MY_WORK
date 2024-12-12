@@ -172,7 +172,7 @@ useEffect(()=>{
 </div>
 <div className='container_bottao_excluir_conta_definitivo'>
   <Link to={pagina}>
-   <button className='bottao_excluir_conta_definitivo' onClick={() => deletarUsuario(UserLogado.nome)}>sim,excluir conta</button> <button    onClick={() => {handleClick(2)}} className='botton_cancela_excluzao'>não,manter conta</button>
+   <button className='bottao_excluir_conta_definitivo' onClick={() => {deletarUsuario(UserLogado.nome)}}>sim,excluir conta</button> <button    onClick={() => {handleClick(2)}} className='botton_cancela_excluzao'>não,manter conta</button>
   </Link>
 
 

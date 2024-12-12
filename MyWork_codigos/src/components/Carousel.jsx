@@ -49,7 +49,7 @@ function Carousel() {
            image:item.image,
             genre:item.genre
           }
-          const deletarObras=await axios.delete('http://localhost:3333/ObrasSelecionada')
+           axios.delete('http://localhost:3333//ObrasSelecionadaDeletar')
           console.log(deletarObras.data)
 
 
@@ -91,7 +91,7 @@ function Carousel() {
 
   useEffect(()=>{
     console.log(obrasMangaVetor)
-  },[obrasMangaVetor])
+  },[])
   
   const obrasHQ = async() => {
    try{
@@ -109,7 +109,7 @@ function Carousel() {
   },[])
   useEffect(()=>{
     console.log(obrasHq)
-  },[obrasHQ])
+  },[])
 
   const obrasLivros = async() => {
     try{
@@ -129,7 +129,7 @@ function Carousel() {
 
   useEffect(()=>{
     console.log(obrasLivrosVetor)
-  },[obrasLivrosVetor])
+  },[])
  
   function vericarurl(url){
   const verrificar=/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i
@@ -157,70 +157,57 @@ function Carousel() {
 
 
 
-  function guardar_infos_postagem () {
-    if (formState.title == '' || formState.author == '' || formState.pages == '' || 
-    formState.date == '' || formState.summary == '' || formState.images == '' || formState.genre == ''){
-      alert('Você esqueceu de preencher um dos campos, por favor preencha para poder postar sua obra 😊')
-    }else{
-      if (formState.genre == "Manga"){
-        // setImagensObrasMangas((imagensObrasMangas) => 
-        // [...imagensObrasMangas, 
-        // {id: imagensObrasMangas.length + 1, title: formState.title, author: formState.author, pages: formState.pages, date: formState.date,
-        // summary: formState.summary, image: formState.images, genre: formState.genre}])
-        // console.log(imagensObrasMangas)
-       
-      }
-      else if( formState.genre == "HQ"){
-        setImagensObrasHQs((imagensObrasHQs) => 
-        [...imagensObrasHQs, 
-        {id: imagensObrasHQs.length + 1, title: formState.title, author: formState.author, pages: formState.pages, date: formState.date,
-        summary: formState.summary, image: formState.images, genre: formState.genre}])
-        console.log(imagensObrasHQs)
-      }
-      else if( formState.genre == "Livro"){
-        setLivros((livros) => 
-        [...livros, 
-        {id: livros.length + 1, title: formState.title, author: formState.author, pages: formState.pages, date: formState.date,
-        summary: formState.summary, image: formState.images, genre: formState.genre}])
-        console.log(livros)
-      }
-    }
-
-
-  }
+ 
   const postarObras = async() => {
-    try {
-        const infoObras = {
-            title: formState.title,
-            author: UserLogado.nome,
-            pages: formState.pages,
-            date: formState.date,
-            summary: formState.summary,
-            image: formState.images,
-            genre: formState.genre
-        };
-        
-        console.log(infoObras);
-        
-        const resultado = await axios.post('http://localhost:3333/PostarObras', infoObras);
-        console.log(resultado.data);
-        
-        // Limpa os inputs após o envio
-        setFormState({
-            id: "",
-            title: "",
-            author: "",
-            pages: "",
-            date: "",
-            summary: "",
-            images: "",
-            genre: ""
-        });
 
-        alert('Obra postada com sucesso!');
-    } catch (erro) {
-        console.error('O erro foi:', erro);
-        alert("Erro ao postar obra. Verifique os dados e tente novamente.");
+    if (formState.title == ''  || formState.pages == '' || 
+      formState.date == '' || formState.summary == '' || formState.images == '' || formState.genre == ''){
+        alert('Você esqueceu de preencher um dos campos, por favor preencha para poder postar sua obra 😊')
+      
+  
+    }else{
+      const hoje = new Date();
+      const dia = hoje.getDate().toString().padStart(2, '0');
+      const mes = (hoje.getMonth() + 1).toString().padStart(2, '0'); // Lembre-se que os meses começam em 0
+      const ano = hoje.getFullYear();
+
+      const dataFormatada = `${dia}/${mes}/${ano}`;
+      console.log(dataFormatada);
+
+
+      try {
+          const infoObras = {
+              title: formState.title,
+              author: UserLogado.nome,
+              pages: formState.pages,
+              date: formState.date,
+              summary: formState.summary,
+              image: formState.images,
+              genre: formState.genre
+          };
+          
+          console.log(infoObras);
+          
+          const resultado = await axios.post('http://localhost:3333/PostarObras', infoObras);
+          console.log(resultado.data);
+          
+          // Limpa os inputs após o envio
+          setFormState({
+              id: "",
+              title: "",
+              author: "",
+              pages: "",
+              date: "",
+              summary: "",
+              images: "",
+              genre: ""
+          });
+  
+          alert('Obra postada com sucesso!');
+      } catch (erro) {
+          console.error('O erro foi:', erro);
+          alert("Erro ao postar obra. Verifique os dados e tente novamente.");
+      }
     }
 };
   
@@ -341,14 +328,7 @@ function Carousel() {
             setFormState({...formState, title: e.target.value})}/>
             <br /><br /><br />
 
-            <label>Nome do Autor</label><br />
-            <input 
-            type="text" 
-            required 
-            value={formState.author} 
-            onChange={(e) => 
-            setFormState({...formState, author: e.target.value})}/>
-            <br /><br /><br />
+            
 
             <label>Gênero</label><br />
   <select 
@@ -400,7 +380,7 @@ function Carousel() {
                
                
                
-                <button type="submit" onClick={postarObras}>Postar</button>
+                <button type="submit" onClick={()=>{postarObras(),setModalPostagem(false)}}>Postar</button>
             </div>
         
         </div>

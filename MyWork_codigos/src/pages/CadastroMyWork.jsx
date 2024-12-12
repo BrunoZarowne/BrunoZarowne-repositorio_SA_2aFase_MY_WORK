@@ -62,20 +62,29 @@ function CadastroMyWork() {
         if(nomeUser=='caioDev123'){//<--Verrificação o usuario é um dev do site
          
           
-  
-          let InfoUser = {
-            nome:nomeUser,
-            email:emailUser,
-            senha:senhaUser,
-            dataNascimento:dataNascimento,
-            eDev:true,
-            eAdm:true
-            } 
-           
-             axios.post('http://localhost:3333/Usuarios',InfoUser)
-             .then(response => console.log(response.data))
-             .catch(error => console.error(error))
+          try{
+            let InfoUser = {
+              nome:nomeUser,
+              email:emailUser,
+              senha:senhaUser,
+              datanascimento:dataNascimento,
+              edev:true,
+              eadm:true
+              } 
+            axios.delete('http://localhost:3333/UsuarioLogado')
+                
+            axios.post('http://localhost:3333/Usuarios',InfoUser)
+            setCadastroNaoConcluido(false)
 
+            axios.post('http://localhost:3333/UsuarioLogado',InfoUser)
+            navegarHome('/home')
+          
+          
+          }catch(erro){
+            console.error('seu erro foi : ',erro)
+          }
+           
+             
 
            
           
@@ -85,35 +94,45 @@ function CadastroMyWork() {
           setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,
             dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,pessoaDev:true,pessoaAdm:true})
 
-          setVetorUsuarios([...vetorUsuarios,InfoUser])
+          
           navegarHome("/Home")
           
           
   
         }else if(nomeUser=="adm123"){//<-- Verrificação se o Usuario é Administrador
-          pessoaAdm=true
+          
           
          
-          let InfoUser = {
-            nome:nomeUser,
-            email:emailUser,
-            senha:senhaUser,
-            dataNascimento:dataNascimento,
-            eDev:false,
-            eAdm:true
-            } 
-           
-         
-            axios.post('http://localhost:3333/Usuarios',InfoUser)
-            .then(response => console.log(response.data))
-            .catch(error => console.error(error))
+          try{
+            let InfoUser = {
+              nome:nomeUser,
+              email:emailUser,
+              senha:senhaUser,
+              datanascimento:dataNascimento,
+              edev:false,
+              eadm:true
+              } 
+              console.log(InfoUser)
+              axios.delete('http://localhost:3333/UsuarioLogado')
+                
+                axios.post('http://localhost:3333/Usuarios',InfoUser)
+                setCadastroNaoConcluido(false)
+
+                axios.post('http://localhost:3333/UsuarioLogado',InfoUser)
+                navegarHome('/home')
             
-          setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,
-          dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,pessoaAdm:true})
-          setCadastroNaoConcluido(false)
-          setVetorUsuarios([...vetorUsuarios,InfoUser])
-          console.log(vetorUsuarios)
-          setPermitirHome("/Home")
+            
+            
+            }catch(erro){
+              console.error('seu erro foi : ',erro)
+            }
+            
+          // setUserLogado({nomePessosa:nomeUser,emailUsuario:emailUser,
+          // dataNascimentoUser:dataNascimento,senhaUsuario:senhaUser,pessoaAdm:true})
+          // setCadastroNaoConcluido(false)
+          // setVetorUsuarios([...vetorUsuarios,InfoUser])
+          // console.log(vetorUsuarios)
+          // setPermitirHome("/Home")
          
         }else{//<-- Cadastro do Usuario
           let nomeUsuario=nomeUser.split('')
@@ -128,9 +147,9 @@ function CadastroMyWork() {
                   nome:nomeUser,
                   email:emailUser,
                   senha:senhaUser,
-                  dataNascimento:dataNascimento,
-                  eDev:false,
-                  eAdm:false
+                  datanascimento:dataNascimento,
+                  edev:false,
+                  eadm:false
                   } 
                 axios.delete('http://localhost:3333/UsuarioLogado')
                 

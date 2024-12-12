@@ -16,8 +16,8 @@ const user=[]
 const pool=new Pool({
     user:'postgres',
     host:'localhost',
-    database:'My_work_sa',
-    password:"senai",
+    database:'myWork',
+    password:"1234",
     port: 5432
     
 
@@ -27,13 +27,13 @@ const pool=new Pool({
 
 app.post('/Usuarios', async(request,response)=>{
 
-    const { nome,email,senha,dataNascimento,eDev,eAdm } = request.body;
+    const { nome,email,senha,datanascimento,edev,eadm } = request.body;
 
     try{
         const resultado = await pool.query(
             'INSERT INTO Usuarios ( nome,email,senha,dataNascimento,eDev,eAdm) VALUES ($1, $2,$3,$4,$5,$6) RETURNING *',
 
-            [nome,email,senha,dataNascimento,eDev,eAdm]
+            [nome,email,senha,datanascimento,edev,eadm]
         )
 
         
@@ -130,13 +130,13 @@ app.post('/Usuarios/login', async(request,response) => {
     const {email,senha}=request.body
 
    try{
-       const resultado = await pool.query('select * from Usuarios where email = $1 and senha = $2',[email,senha])
+       const resultado = await pool.query('SELECT * FROM Usuarios WHERE email ILIKE $1 AND senha = $2',[email,senha])
        
        
        if (resultado.rows.length > 0) {
+        console.log('Usuário retornado pelo banco:', resultado.rows[0])
            // Usuário encontrado
            response.json({ success: true, user: resultado.rows[0] });
-           console.log(resultado)
        } else {
            // Usuário não encontrado
            response.status(401).json({ success: false, message: 'Email ou senha inválidos' });
@@ -181,7 +181,7 @@ app.get('/obrasManga', async(request,response)=>{
 })
 app.get('/obrasLivros', async(request,response)=>{
     try{
-        const resultado = await pool.query("SELECT * from Obras where genre = 'Livros' ")
+        const resultado = await pool.query("SELECT * from Obras where genre = 'Livro' ")
         response.status(200).json(resultado.rows)
 
     }catch(erro){
@@ -200,10 +200,10 @@ app.get('/UsuarioLogado',async(request,response)=>{
 
 })
 app.post('/UsuarioLogado',async(request,response)=>{
-    const {nome,email,senha,dataNascimento,eDev,eAdm}=request.body
+    const {nome,email,senha,datanascimento,edev,eadm}=request.body
     try{
         const resultado = await pool.query('INSERT INTO UsuarioLogado( nome,email,senha,dataNascimento,eDev,eAdm) VALUES ($1, $2,$3,$4,$5,$6) RETURNING *',
- [nome,email,senha,dataNascimento,eDev,eAdm])
+ [nome,email,senha,datanascimento,edev,eadm])
 
  response.status(201).json(resultado.rows[0]);
 
@@ -262,7 +262,7 @@ app.get('/ObrasSelecionada',async(request,response)=>{
     }
  })
 
-app.delete('/ObrasSelecionada',async(request,response)=>{
+app.delete('/ObrasSelecionadaDeletar',async(request,response)=>{
    try{
        const resultado = await pool.query('DELETE FROM obrasSelecionada')
        response.status(200).send({ message: 'Obras deletadas com sucesso' })
@@ -318,7 +318,7 @@ create table UsuarioLogado(
     
     );
     select * from UsuarioLogado
-    ALTER TABLE UsuarioLogado ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY */
+    ALTER TABLE Usuarios ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY */
 
 /*<--tabela da obra selecionada pelo autor
     create table obrasSelecionada(
