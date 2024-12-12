@@ -40,6 +40,7 @@ const [UserLogado,setUserLogado] =useState( {
         genero:'Não possui'
 
       }) 
+      const [modalCadastroConcluido,setModalCadastroConcluido]=useState(false)
 
 
 
@@ -61,7 +62,9 @@ const [UserLogado,setUserLogado] =useState( {
     abrirObraClone,
     setAbrirObraClone,
     modalPostagem,
-    setModalPostagem
+    setModalPostagem,
+    modalCadastroConcluido
+    ,setModalCadastroConcluido
     }}>
 
 {children}

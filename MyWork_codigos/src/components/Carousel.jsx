@@ -20,7 +20,7 @@ import { Link } from 'react-router-dom'
 
 function Carousel() { 
   const [modalObras,setModalObras]=useState(null)
-  const {formState, setFormState,abrirObraClone,setAbrirObraClone,UserLogado,setUserLogado,modalPostagem,setModalPostagem,} = useContext(GlobalContext)
+  const {formState, setFormState,abrirObraClone,setAbrirObraClone,UserLogado,setUserLogado,modalPostagem,setModalPostagem,modalCadastroConcluido,setModalCadastroConcluido} = useContext(GlobalContext)
   const [obrasHq,setObrasHq]=useState([])
   const [obrasMangaVetor,setObrasMangaVetor]=useState([])
   const [obrasLivrosVetor,setObrasLivroVetor]=useState([])

@@ -130,3 +130,25 @@ margin-top: 10px;
 border: none;
 
 }
+.cadastroDoUsuario{
+    border: none;
+        border-radius: 10px;
+        width: 30%;
+        height: 15%;
+      /* Garante que ele fique fora do fluxo normal */
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centraliza o diálogo */
+        background-color: #1a1a40;
+        padding: 20px;
+border: solid white 2px;
+   color: white;
+   font-family:Poppins-Regular ;
+   align-items: center;
+   justify-content: center;
+   display: flex;
+
+}
+.pCadastro{
+    font-size: 30px;
+}

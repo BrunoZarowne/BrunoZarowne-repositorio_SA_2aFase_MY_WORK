@@ -17,7 +17,7 @@ function CadastroMyWork() {
   const [cadastroNaoConcluindo,setCadastroNaoConcluido]=useState(false)
   const[permitirHome,setPermitirHome]=useState()
 
-  const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado}=useContext(GlobalContext)// pega informaçoes do global context
+  const {vetorUsuarios,setVetorUsuarios,UserLogado,setUserLogado,modalCadastroConcluido,setModalCadastroConcluido}=useContext(GlobalContext)// pega informaçoes do global context
   
   const[inptValidadoNome,setInptValidadoNome]=useState(false)
   const[inptValidadoEmail,setInptValidadoEmail]=useState(false)
@@ -77,7 +77,9 @@ function CadastroMyWork() {
             setCadastroNaoConcluido(false)
 
             axios.post('http://localhost:3333/UsuarioLogado',InfoUser)
+            setModalCadastroConcluido(true)
             navegarHome('/home')
+           
           
           
           }catch(erro){
@@ -119,6 +121,7 @@ function CadastroMyWork() {
                 setCadastroNaoConcluido(false)
 
                 axios.post('http://localhost:3333/UsuarioLogado',InfoUser)
+                setModalCadastroConcluido(true)
                 navegarHome('/home')
             
             
@@ -157,10 +160,8 @@ function CadastroMyWork() {
                 setCadastroNaoConcluido(false)
 
                 axios.post('http://localhost:3333/UsuarioLogado',InfoUser)
-          
-                setVetorUsuarios([...vetorUsuarios,InfoUser])
-                console.log(vetorUsuarios)
-                setUserLogado({nome:nomeUser,email:emailUser,dataNascimento:dataNascimento,senha:senhaUser})
+                setModalCadastroConcluido(true)
+         
                 navegarHome("/Home")
                 
                 
