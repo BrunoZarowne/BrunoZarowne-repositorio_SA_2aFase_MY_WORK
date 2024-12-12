@@ -23,6 +23,7 @@ background-color:#00002D
         color: white;
         font-size: 25px;
         font-family: "Poppins-Bold";
+        position: relative;
     }
     .imgsMangas{
         width: 250px;
@@ -60,6 +61,9 @@ background-color:#00002D
         left: 45px;
         padding-top: 25px;
     border-radius: 10px;}
+
+    
+
 }
 
 .carouselLivros{
@@ -285,15 +289,17 @@ height: 100px;
             transform: scale(1.05); /* Leve aumento no tamanho */
         
         }.buttonFav{
-            background-color: #0C0C3E;
-            border: none;
-            img{
-                background-color: #0C0C3E;
-                position: relative;
-                left: 60px;
-                top: 2px;
-                width: 25px;
-            }
-        }
-
-        
+            background-color:palevioletred;
+            width: 100px;
+          height: 30px;
+           border: none;
+        border-radius: 5px;
+        color: #ffffff;
+       margin-right: 10px;
+    
+    }
+      
+      
+      
+     
+    

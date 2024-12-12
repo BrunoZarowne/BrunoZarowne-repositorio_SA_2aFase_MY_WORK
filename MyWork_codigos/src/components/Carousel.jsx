@@ -307,6 +307,7 @@ console.log(obrasVisitadas)
           <SwiperSlide key={index}  >
          
             <Link to={`/detalhes/${item.id}`}>
+              
               <img className='imgsMangas' src={item.image} onClick={()=>{abrirModalObras(item.id)
               
               ,setAbrirObraClone({ id:item.id, titulo:item.title,
@@ -316,16 +317,19 @@ console.log(obrasVisitadas)
               sinopse:item.summary,
               imagemCatalogo:item.image,
               genero:item.genre})}}/><br />
+              
               </Link>
+
             <label>{item.title}</label>
+           
             <button className='buttonFav'
    data-idmanga={item.id}
    data-titlemanga={item.title}
    data-imagemanga={item.image}
-   onClick={adcObrasFavManga}>
-  <img src="./public/images/favorita_vazio.svg"/>
+   onClick={adcObrasFavManga}>curtir
+ 
 </button>
-              
+
               
           </SwiperSlide>
         ))}
@@ -352,7 +356,15 @@ console.log(obrasVisitadas)
               genero:item.genre}),salvarObraSelecionada(item)}}/>
               </Link>
          <br />
-          <label>{item.title}</label>
+          
+          <label>{item.title}</label>  <button className='buttonFav'
+ data-idhq={item.id}
+ data-titlehq={item.title}
+ data-imagehq={item.image}
+ onClick={adcObrasFavHQs}>cutir
+
+</button>
+              
         </SwiperSlide>
       ))}
      </Swiper>
@@ -376,6 +388,15 @@ console.log(obrasVisitadas)
               genero:item.genre})}}/>
               </Link><br />
             <label>{item.title}</label>
+          
+            <button className='buttonFav'
+ data-idlivro={item.id}
+ data-titlelivro={item.title}
+ data-imagelivro={item.image}
+ onClick={adcObrasFavLivros}>
+curtir
+</button>
+          
           </SwiperSlide>
         ))}
       </Swiper>
