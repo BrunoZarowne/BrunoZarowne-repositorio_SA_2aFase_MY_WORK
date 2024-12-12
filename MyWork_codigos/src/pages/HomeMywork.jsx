@@ -1,10 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState,useContext,useEffect } from 'react'
 import Header_paginas from '../components/Header_paginas.jsx'
 import Rodape_Mywork from '../components/Rodape_Mywork.jsx'
 import './HomeMywork.css'
 import { Link } from 'react-router-dom'
+import { GlobalContext } from '../context/GlobalContext.jsx'
 function HomeMywork() {
-  const [modalCadastroConcluido,setModalCadastoConcluido]=useState(true)
+ const {modalCadastroConcluido,setModalCadastroConcluido}=useContext(GlobalContext)
+
+ useEffect(() => {
+  if (modalCadastroConcluido) {
+    const timeout = setTimeout(() => {
+      setModalCadastroConcluido(false);
+    }, 3000);
+
+    // Limpeza do timeout ao desmontar ou ao atualizar o estado
+    return () => clearTimeout(timeout);
+  }
+}, [modalCadastroConcluido, setModalCadastroConcluido]);
+
  
   return (
     <div className='container_Home'>
@@ -29,7 +42,9 @@ function HomeMywork() {
        </div>
         </div>
 
-      <dialog open={modalCadastroConcluido} onClick={()=> {setModalCadastoConcluido(false)}}>Cadastro Concluido</dialog>
+      {/* <dialog open={modalCadastroConcluido} className='cadastroDoUsuario' >
+        <p className='pCadastro'>Cadastro concluido 😊</p>
+        </dialog> */}
 
 
         </div>
