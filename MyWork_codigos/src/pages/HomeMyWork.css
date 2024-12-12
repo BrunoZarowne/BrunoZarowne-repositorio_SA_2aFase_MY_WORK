@@ -285,3 +285,7 @@ border: solid white 2px;
 .closeModalButton:hover {
     background-color: #e63939;
 }
+.openModalButton{
+    margin-left: 5%;
+    margin-top: 20px;
+}

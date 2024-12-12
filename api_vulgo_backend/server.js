@@ -278,6 +278,7 @@ app.post('/doacoes',async(request,response)=>{
     try{ 
         const resultado= await pool.query('insert into doacoes (valor,usuario,obra,formapagamento,datadoacao) VALUES($1,$2,$3,$4,$5)',
             [valor,usuario,obra,formapagamento,datadoacao])
+            response.status(200).send({ message: 'doaco inserida com sucesso' })
 
 
     }catch(erro){
@@ -286,6 +287,29 @@ app.post('/doacoes',async(request,response)=>{
 
     }
 })
+
+app.post('/doacoesObra',async(request,response)=>{
+    const {obra}=request.body
+
+    try{
+        const resultado = await pool.query('SELECT * FROM doacoes WHERE LOWER(obra) = LOWER($1)',[obra])
+
+       
+        if (resultado.rows.length > 0) {
+            response.json(resultado.rows); // Retornar todas as doações da obra
+        } else {
+            response.status(404).json({ mensagem: "Nenhuma doação encontrada para esta obra." });
+        }
+
+    }catch(erro){
+        console.error("seu erro foi: ",erro)
+
+    }
+
+})
+
+
+app.get('/todasdoacoes',)
 
 app.listen(3333)
 /*
@@ -362,6 +386,28 @@ create table UsuarioLogado(
 //   );
 //  ALTER TABLE doacoes 
 //ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+
+
+// CREATE TABLE doacoes(
+//     id int primary key,
+//     valor varchar(5),
+//     usuario varchar(200),
+//     obra varchar
+
+
+//   );
+//    ALTER TABLE doacoes 
+// ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+
+// select * from doacoes
+
+// alter table doacoes
+// add column formapagamento varchar(40)
+
+// alter table doacoes
+// add column datadoacao varchar(30)
+
+// select * from doacoes
 
 
 
