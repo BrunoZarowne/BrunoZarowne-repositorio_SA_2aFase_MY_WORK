@@ -340,6 +340,7 @@ create table UsuarioLogado(
     alter table obrasSelecionada
     alter column page type varchar(3)
     */
+  
 
 
 

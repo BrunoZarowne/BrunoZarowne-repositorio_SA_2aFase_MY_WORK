@@ -24,6 +24,8 @@ function Carousel() {
   const [obrasHq,setObrasHq]=useState([])
   const [obrasMangaVetor,setObrasMangaVetor]=useState([])
   const [obrasLivrosVetor,setObrasLivroVetor]=useState([])
+  const {obrasFavoritadas, setObrasFavoritadas} = useContext(GlobalContext)
+  const {obrasVisitadas, setObrasVisitadas} = useContext(GlobalContext)
 
 
   
@@ -210,8 +212,84 @@ function Carousel() {
       }
     }
 };
+function adcObrasFavManga(event){ 
+  const idManga = event.currentTarget.getAttribute('data-idmanga');
+  const titleManga = event.currentTarget.getAttribute('data-titlemanga');
+  const imageManga = event.currentTarget.getAttribute('data-imagemanga');
   
- 
+  setObrasFavoritadas((fav) =>
+  [...obrasFavoritadas, {id: idManga, title: titleManga, img: imageManga}])
+  console.log(obrasFavoritadas)
+}
+
+function adcObrasHistManga(event){
+  const idMangaHist = event.currentTarget.getAttribute('data-idhistmanga');
+  const titleMangaHist = event.currentTarget.getAttribute('data-titlehistmanga');
+
+  const dataAtual = new Date()
+  const dataHoras = dataAtual.getHours()
+  const dataMinutos = dataAtual.getMinutes()
+  const dataShow = dataHoras.toString() + ':' + dataMinutos.toString()
+  
+  setObrasVisitadas(
+    [...obrasVisitadas, {id: idMangaHist, title: titleMangaHist, time: dataShow}])
+  console.log(obrasVisitadas)
+}
+// mangas //
+
+// HQ //
+
+function adcObrasFavHQs(event){
+const idHQ = event.currentTarget.getAttribute('data-idhq')
+const titleHQ = event.currentTarget.getAttribute('data-titlehq')
+const imageHQ = event.currentTarget.getAttribute('data-imagehq')
+
+setObrasFavoritadas((fav) =>
+  [...obrasFavoritadas, {id: idHQ, title: titleHQ, img: imageHQ}])
+  console.log(obrasFavoritadas)
+}
+
+function adcObrasHistHQs(event){
+const idHQHist = event.currentTarget.getAttribute('data-idhisthq')
+const titleHQHist = event.currentTarget.getAttribute('data-titlehisthq')
+
+const dataAtual = new Date()
+const dataHoras = dataAtual.getHours()
+const dataMinutos = dataAtual.getMinutes()
+const dataShow = dataHoras.toString() + ':' + dataMinutos.toString()
+
+setObrasVisitadas(
+  [...obrasVisitadas, {id: idHQHist, title: titleHQHist, time: dataShow}])
+console.log(obrasVisitadas)
+}
+
+// HQ //
+
+// Livro //
+
+function adcObrasFavLivros(event){
+const idLivro = event.currentTarget.getAttribute('data-idlivro')
+const titleLivro = event.currentTarget.getAttribute('data-titlelivro')
+const imageLivro = event.currentTarget.getAttribute('data-imagelivro')
+
+setObrasFavoritadas((fav) =>
+  [...obrasFavoritadas, {id: idLivro, title: titleLivro, img: imageLivro}])
+  console.log(obrasFavoritadas)
+}
+
+function adcObrasHistlivro(event){
+const idLivroHist = event.currentTarget.getAttribute('data-idhistlivro')
+const titleLivroHist = event.currentTarget.getAttribute('data-titlehistlivro')
+
+const dataAtual = new Date()
+const dataHoras = dataAtual.getHours()
+const dataMinutos = dataAtual.getMinutes()
+const dataShow = dataHoras.toString() + ':' + dataMinutos.toString()
+
+setObrasVisitadas(
+  [...obrasVisitadas, {id: idLivroHist, title: titleLivroHist, time: dataShow}])
+console.log(obrasVisitadas)
+}
 
   return (
     <div className='containerCarousel'>
@@ -221,13 +299,17 @@ function Carousel() {
     <div className='carouselMangas'>
     <h1 className='Mangas'>Mangas</h1>
       <Swiper
+        
         slidesPerView={4}
         pagination={{ clickable: true}}
         navigation className='swiper'>
         {obrasMangaVetor.map((item,index) => (
           <SwiperSlide key={index}  >
+         
             <Link to={`/detalhes/${item.id}`}>
-              <img className='imgsMangas' src={item.image} onClick={()=>{abrirModalObras(item.id) ,setAbrirObraClone({ id:item.id, titulo:item.title,
+              <img className='imgsMangas' src={item.image} onClick={()=>{abrirModalObras(item.id)
+              
+              ,setAbrirObraClone({ id:item.id, titulo:item.title,
               autor:item.author,
               paginas:item.pages,
               data_lancamento:item.date,
@@ -236,6 +318,15 @@ function Carousel() {
               genero:item.genre})}}/><br />
               </Link>
             <label>{item.title}</label>
+            <button className='buttonFav'
+   data-idmanga={item.id}
+   data-titlemanga={item.title}
+   data-imagemanga={item.image}
+   onClick={adcObrasFavManga}>
+  <img src="./public/images/favorita_vazio.svg"/>
+</button>
+              
+              
           </SwiperSlide>
         ))}
       </Swiper>

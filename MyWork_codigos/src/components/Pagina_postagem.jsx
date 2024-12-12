@@ -20,6 +20,62 @@ function Pagina_postagem() {
 
       console.log(formState)
   }
+  const {obrasFavoritadas, setObrasFavoritadas} = useContext(GlobalContext)
+
+
+  const [IDSelecionado, setIDSelecionado] = useState(null)
+
+  const adcObraFavoritadaManga = (id) => {
+    setIDSelecionado(id)
+
+    const result = imagensObrasMangas.find((manga) => manga.id === IDSelecionado)
+
+    if (result) {
+      setObrasFavoritadas((prevState) => [
+        ...prevState,
+        {titulo: result.title, img: result.image}
+      ])
+    }
+    console.log(obrasFavoritadas)
+  }
+  useEffect(() => {
+    console.log(obrasFavoritadas);
+  }, [obrasFavoritadas])
+
+  const adcObraFavoritadaHQ = (id) => {
+    setIDSelecionado(id)
+
+    const result = imagensObrasHQs.find((manga) => manga.id === IDSelecionado)
+
+    if (result) {
+      setObrasFavoritadas((prevState) => [
+        ...prevState,
+        {titulo: result.title, img: result.image}
+      ])
+    }
+    console.log(obrasFavoritadas)
+  }
+  useEffect(() => {
+    console.log(obrasFavoritadas);
+  }, [obrasFavoritadas])
+
+  const adcObraFavoritadaLivro = (id) => {
+    setIDSelecionado(id)
+
+    const result = livros.find((manga) => manga.id === IDSelecionado)
+
+    if (result) {
+      setObrasFavoritadas((prevState) => [
+        ...prevState,
+        {titulo: result.title, img: result.image}
+      ])
+    }
+    console.log(obrasFavoritadas)
+  }
+  useEffect(() => {
+    console.log(obrasFavoritadas);
+  }, [obrasFavoritadas])  
+
   return (
     <div className='containerPostagem'>
       

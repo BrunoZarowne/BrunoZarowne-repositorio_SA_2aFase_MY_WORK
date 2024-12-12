@@ -8,6 +8,10 @@ const [fotoUsuario,setFotoUsuario]=useState('../images/imagem_padrao_usuario.svg
 const [vetorUsuarios,setVetorUsuarios]=useState([])//Vetor para o gerencianto de pessoa no site
 const[modalPostagem,setModalPostagem] = useState(false)
 const [paginaAtiva,setPaginaAtiva]= useState(null)
+
+const [obrasFavoritadas, setObrasFavoritadas] = useState([])
+const [obrasVisitadas, setObrasVisitadas] = useState([])
+
 const [UserLogado,setUserLogado] =useState( {
   
         nome:'',
@@ -63,8 +67,12 @@ const [UserLogado,setUserLogado] =useState( {
     setAbrirObraClone,
     modalPostagem,
     setModalPostagem,
-    modalCadastroConcluido
-    ,setModalCadastroConcluido
+    modalCadastroConcluido,
+    setModalCadastroConcluido,
+    obrasFavoritadas,
+    setObrasFavoritadas,
+    obrasVisitadas,
+    setObrasVisitadas
     }}>
 
 {children}
