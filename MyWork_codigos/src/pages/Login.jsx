@@ -68,8 +68,8 @@ const ipParaHome=useNavigate()
         <div className='divInpt'>
 
 
-            <input type="email" className='Email_User' placeholder='   insira seu email' value={inptEmail} onChange={(event)=>{setInptEmail(event.target.value)}} /> <br />
-            <input type="password" className='senha_User'  placeholder='  insira sua senha'  value={inptSenha} onChange={(event)=>{setInptSenha(event.target.value)}}/>
+           <label htmlFor="">insira seu email:</label> <input type="email" className='Email_User' placeholder='   insira seu email' value={inptEmail} onChange={(event)=>{setInptEmail(event.target.value)}} /> <br />
+           <label htmlFor="">insira sua senha:</label> <input type="password" className='senha_User'  placeholder='  insira sua senha'  value={inptSenha} onChange={(event)=>{setInptSenha(event.target.value)}}/>
         
        <div className='container_button'>
        

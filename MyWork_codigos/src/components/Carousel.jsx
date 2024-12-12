@@ -299,7 +299,7 @@ function Carousel() {
       
         
         <div className='infosObra'>
-        <button className='buttonFecharModal' onClick={()=>{setModalPostagem(false)}}><img src="./images/fechar_modal.svg"/></button>
+        <button className='buttonFecharModal' onClick={()=>{setModalPostagem(false)}}>voltar</button>
           <div className='inputsUm'>
             <label>Link da sua imagen</label><br />
             <input 
@@ -332,6 +332,7 @@ function Carousel() {
 
             <label>Gênero</label><br />
   <select 
+    className='input_select_genero'
     required 
     value={formState.genre} 
     onChange={(e) => 
@@ -366,7 +367,7 @@ function Carousel() {
             
             <div className='caixaSinopse'>
                 <label>Sinopse</label><br />
-                <textarea 
+                <textarea className='input_sinopse'
                 name="" 
                 id="" 
                 cols="55" 
@@ -380,7 +381,7 @@ function Carousel() {
                
                
                
-                <button type="submit" onClick={()=>{postarObras(),setModalPostagem(false)}}>Postar</button>
+                <button type="submit" onClick={()=>{postarObras(),setModalPostagem(false)}} className='botao_postar'>Postar</button>
             </div>
         
         </div>
