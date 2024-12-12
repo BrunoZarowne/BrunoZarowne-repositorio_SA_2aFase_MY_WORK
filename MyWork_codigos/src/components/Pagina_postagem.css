@@ -78,7 +78,7 @@
     position: relative;
     left: 3%;
     top: 13%;
-    color: white;
+    color: rgb(19, 13, 13);
     display: flex;
     justify-content: space-between;
     label{
