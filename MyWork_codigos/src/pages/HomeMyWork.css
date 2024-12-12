@@ -151,4 +151,137 @@ border: solid white 2px;
 }
 .pCadastro{
     font-size: 30px;
+}/* Botão para abrir o modal */
+.openModalButton {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.openModalButton:hover {
+    background-color: #218838;
+}
+
+/* Fundo semitransparente do modal */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Container do modal */
+/* Botão para abrir o modal */
+.openModalButton {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.openModalButton:hover {
+    background-color: #218838;
+}
+
+/* Fundo semitransparente do modal */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Container do modal */
+/* Container do modal */
+.modal {
+    background-color: #1a1a40;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    height: 300px; /* Define a altura fixa */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* Permite rolagem caso o conteúdo exceda a altura */
+}
+
+/* Input de doação */
+.donationInput {
+    width: 250px;
+    padding: 10px;
+    margin: 15px 0;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: #2c2c58;
+    color: white;
+    font-size: 16px;
+}
+
+/* Select de forma de pagamento */
+.paymentSelect {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: #2c2c58;
+    color: white;
+    font-size: 16px;
+    appearance: none; /* Remove o estilo padrão */
+    cursor: pointer;
+}
+
+/* Botão de doação */
+.donateButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.donateButton:hover {
+    background-color: #0056b3;
+}
+
+/* Botão para fechar o modal */
+.closeModalButton {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+   margin-bottom: 28px;
+ margin-right: 80%;   cursor: pointer;
+}
+
+.closeModalButton:hover {
+    background-color: #e63939;
 }

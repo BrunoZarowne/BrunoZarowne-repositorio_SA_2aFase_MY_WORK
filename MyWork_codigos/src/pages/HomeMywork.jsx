@@ -7,6 +7,7 @@ import { GlobalContext } from '../context/GlobalContext.jsx'
 function HomeMywork() {
  const {modalCadastroConcluido,setModalCadastroConcluido}=useContext(GlobalContext)
 
+ const [isModalOpen, setIsModalOpen] = useState(false);
  useEffect(() => {
   if (modalCadastroConcluido) {
     const timeout = setTimeout(() => {
@@ -25,6 +26,46 @@ function HomeMywork() {
     <div className='container_conteudo'>
     <div className='container_titulo_introducao'>
         <div className='conatiner_titulo'>
+         {/* Botão para abrir o modal */}
+         <button className="openModalButton" onClick={() => setIsModalOpen(true)}>
+                Fazer Doação
+            </button>
+
+            {/* Modal */}
+             {/* Modal */}
+             {isModalOpen && (
+                <div className="backdrop" onClick={() => setIsModalOpen(false)}>
+                    <div className="modal" onClick={(e) => e.stopPropagation()}>
+                    <button
+                            className="closeModalButton"
+                            onClick={() => setIsModalOpen(false)}
+                        >
+                            Fechar
+                        </button>
+                        <p>A sua contribuição ajuda a manter nosso projeto em funcionamento!</p>
+                        <input
+                            type="number"
+                            className="donationInput"
+                            placeholder="Digite o valor da doação"
+                       
+                       />
+                        <select 
+    className='input_select_genero'
+    required 
+   
+  >
+    <option value="" disabled>formas de pagamento</option>
+    <option value="Manga">debito</option>
+    <option value="credito">cretido</option>
+    <option value="pix">pix</option>
+  </select><br/>
+                        <button className="donateButton">Doar</button>
+                        
+                    </div>
+                </div>
+            )}
+       
+
 
           <h1> 🐸 bem vindo ao My Work 🐸</h1>
           <p></p>
