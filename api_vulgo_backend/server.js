@@ -273,7 +273,19 @@ app.delete('/ObrasSelecionadaDeletar',async(request,response)=>{
 
     }
  })
+app.post('/doacoes',async(request,response)=>{
+    const {valor,usuario,obra,formapagamento,datadoacao}=request.body
+    try{ 
+        const resultado= await pool.query('insert into doacoes (valor,usuario,obra,formapagamento,datadoacao) VALUES($1,$2,$3,$4,$5)',
+            [valor,usuario,obra,formapagamento,datadoacao])
 
+
+    }catch(erro){
+        console.error('seu erro foi :',erro)
+
+
+    }
+})
 
 app.listen(3333)
 /*
@@ -340,7 +352,16 @@ create table UsuarioLogado(
     alter table obrasSelecionada
     alter column page type varchar(3)
     */
-  
+//   CREATE TABLE doacoes(
+//     id int primary key,
+//     valor varchar(5),
+//     usuario varchar(200),
+//     obra varchar
+
+
+//   );
+//  ALTER TABLE doacoes 
+//ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
 
 
 
